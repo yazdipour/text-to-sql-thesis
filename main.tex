@@ -1,0 +1,65 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[breaklinks,colorlinks=true,citecolor=blue,linkcol or=blue,urlcolor=blue,filecolor=blue]{hyperref}
+\usepackage{times}
+\usepackage{graphicx,color}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multicol}
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% \usepackage[ngerman]{babel}
+\usepackage{blindtext}
+% \usepackage[automark]{scrpage2}
+% \pagestyle{scrheadings}
+% \clearscrheadfoot 
+% \chead{\headmark}
+% \ifoot{\invnr} 
+% \pagestyle{scrheadings}
+\usepackage{lscape}
+\usepackage{layout}
+
+% --------------------
+
+\setlength{\topmargin}{2cm}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\topskip}{12pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textheight}{240mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{20pt}
+\setlength{\parskip}{6pt}
+
+\input{inc/profile.tex}
+
+\usepackage{blindtext}%
+\usepackage{etoolbox}%
+
+\patchcmd{\thebibliography}{\chapter*}{\par\let\clearpage\relax\chapter*}{\typeout{success}}{\typeout{failure}}
+\begin{document}
+
+\input{inc/title}
+\pagenumbering{roman}
+% \tableofcontents
+% \newpage
+
+\pagenumbering{arabic}
+
+\input{inc/content}
+
+\bibliographystyle{alpha}
+\bibliography{bibs/litDB}
+
+\end{document}

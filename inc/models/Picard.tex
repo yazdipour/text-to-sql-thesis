@@ -1,0 +1,8 @@
+\subsection*{Picard}
+
+Picard\cite{scholak_picard_2021} stands for "Parsing Incrementally for Constrained Auto-Regressive Decoding.". It can be used with any existing language model decoder or vocabulary based on auto-regressive language modeling.
+
+As an optional feature, Picard can be enabled at inference time and is absent from pre-training or fine-tuning. In the case of text-to-SQL translation, Picard operates directly on the output of the language model.
+Picard demonstrates state-of-the-art performance on challenging Spider and CoSQL text-to-SQL translation tasks.
+
+Picard warps model prediction scores and integrates trivially with existing greedy and beam search algorithms. In addition to the token ids of the current hypothesis, the model's language modeling head also predicts the log-softmax scores for each vocabulary token. Additionally, Picard has access to SQL schema information, including table and column names and which column resides in which table.

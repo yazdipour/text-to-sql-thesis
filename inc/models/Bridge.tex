@@ -1,0 +1,4 @@
+\subsection*{BRIDGE}
+
+Seq-to-seq approaches such as Bridge\cite{lin_bridging_2020} have been rare in recent times.
+Additionally, it implements schema-consistency-guided decoding to avoid errors at prediction time, incorporating BERT for better NL processing and fuzzy string matching for schema linking. For instance, the system is forced to predict SQL keywords in a specific order. If the table name has not already been generated, it will not be able to generate column names.

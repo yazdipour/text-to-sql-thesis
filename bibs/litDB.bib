@@ -1,0 +1,499 @@
+
+@article{xu_sqlnet_2017,
+	title = {{SQLNet}: Generating Structured Queries From Natural Language Without Reinforcement Learning},
+	url = {http://arxiv.org/abs/1711.04436},
+	shorttitle = {{SQLNet}},
+	abstract = {Synthesizing {SQL} queries from natural language is a long-standing open problem and has been attracting considerable interest recently. Toward solving the problem, the de facto approach is to employ a sequence-to-sequence-style model. Such an approach will necessarily require the {SQL} queries to be serialized. Since the same {SQL} query may have multiple equivalent serializations, training a sequence-to-sequence-style model is sensitive to the choice from one of them. This phenomenon is documented as the "order-matters" problem. Existing state-of-the-art approaches rely on reinforcement learning to reward the decoder when it generates any of the equivalent serializations. However, we observe that the improvement from reinforcement learning is limited. In this paper, we propose a novel approach, i.e., {SQLNet}, to fundamentally solve this problem by avoiding the sequence-to-sequence structure when the order does not matter. In particular, we employ a sketch-based approach where the sketch contains a dependency graph so that one prediction can be done by taking into consideration only the previous predictions that it depends on. In addition, we propose a sequence-to-set model as well as the column attention mechanism to synthesize the query based on the sketch. By combining all these novel techniques, we show that {SQLNet} can outperform the prior art by 9\% to 13\% on the {WikiSQL} task.},
+	journaltitle = {{arXiv}:1711.04436 [cs]},
+	author = {Xu, Xiaojun and Liu, Chang and Song, Dawn},
+	urldate = {2022-05-12},
+	date = {2017-11-13},
+	eprinttype = {arxiv},
+	eprint = {1711.04436},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language, Computer Science - Databases},
+}
+
+@article{raffel_exploring_2020,
+	title = {Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer},
+	url = {http://arxiv.org/abs/1910.10683},
+	abstract = {Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing ({NLP}). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for {NLP} by introducing a unified framework that converts all text-based language problems into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled data sets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new ``Colossal Clean Crawled Corpus'', we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for {NLP}, we release our data set, pre-trained models, and code.},
+	journaltitle = {{arXiv}:1910.10683 [cs, stat]},
+	author = {Raffel, Colin and Shazeer, Noam and Roberts, Adam and Lee, Katherine and Narang, Sharan and Matena, Michael and Zhou, Yanqi and Li, Wei and Liu, Peter J.},
+	urldate = {2022-05-12},
+	date = {2020-07-28},
+	eprinttype = {arxiv},
+	eprint = {1910.10683},
+	keywords = {Computer Science - Computation and Language, Computer Science - Machine Learning, Statistics - Machine Learning},
+	
+}
+
+@article{cai_sadga_2022,
+	title = {{SADGA}: Structure-Aware Dual Graph Aggregation Network for Text-to-{SQL}},
+	url = {http://arxiv.org/abs/2111.00653},
+	shorttitle = {{SADGA}},
+	abstract = {The Text-to-{SQL} task, aiming to translate the natural language of the questions into {SQL} queries, has drawn much attention recently. One of the most challenging problems of Text-to-{SQL} is how to generalize the trained model to the unseen database schemas, also known as the cross-domain Text-to-{SQL} task. The key lies in the generalizability of (i) the encoding method to model the question and the database schema and (ii) the question-schema linking method to learn the mapping between words in the question and tables/columns in the database schema. Focusing on the above two key issues, we propose a Structure-Aware Dual Graph Aggregation Network ({SADGA}) for cross-domain Text-to-{SQL}. In {SADGA}, we adopt the graph structure to provide a unified encoding model for both the natural language question and database schema. Based on the proposed unified modeling, we further devise a structure-aware aggregation method to learn the mapping between the question-graph and schema-graph. The structure-aware aggregation method is featured with Global Graph Linking, Local Graph Linking, and Dual-Graph Aggregation Mechanism. We not only study the performance of our proposal empirically but also achieved 3rd place on the challenging Text-to-{SQL} benchmark Spider at the time of writing.},
+	journaltitle = {arXiv:2111.00653 [cs]},
+	author = {Cai, Ruichu and Yuan, Jinjie and Xu, Boyan and Hao, Zhifeng},
+	urldate = {2022-05-07},
+	date = {2022-01-17},
+	eprinttype = {arxiv},
+	eprint = {2111.00653},
+	keywords = {Computer Science - Computation and Language},
+	
+}
+
+@article{scholak_picard_2021,
+	title = {{PICARD}: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models},
+	url = {http://arxiv.org/abs/2109.05093},
+	shorttitle = {{PICARD}},
+	abstract = {Large pre-trained language models for textual data have an unconstrained output space; at each decoding step, they can produce any of 10,000s of sub-word tokens. When fine-tuned to target constrained formal languages like {SQL}, these models often generate invalid code, rendering it unusable. We propose {PICARD} (code and trained models available at https://github.com/{ElementAI}/picard), a method for constraining auto-regressive decoders of language models through incremental parsing. {PICARD} helps to find valid output sequences by rejecting inadmissible tokens at each decoding step. On the challenging Spider and {CoSQL} text-to-{SQL} translation tasks, we show that {PICARD} transforms fine-tuned T5 models with passable performance into state-of-the-art solutions.},
+	journaltitle = {{arXiv}:2109.05093 [cs]},
+	author = {Scholak, Torsten and Schucher, Nathan and Bahdanau, Dzmitry},
+	urldate = {2022-05-07},
+	date = {2021-09-10},
+	eprinttype = {arxiv},
+	eprint = {2109.05093},
+	keywords = {Computer Science - Computation and Language, Computer Science - Programming Languages},
+	
+}
+
+@article{shi_learning_2020,
+	title = {Learning Contextual Representations for Semantic Parsing with Generation-Augmented Pre-Training},
+	url = {http://arxiv.org/abs/2012.10309},
+	abstract = {Most recently, there has been significant interest in learning contextual representations for various {NLP} tasks, by leveraging large scale text corpora to train large neural language models with self-supervised learning objectives, such as Masked Language Model ({MLM}). However, based on a pilot study, we observe three issues of existing general-purpose language models when they are applied to text-to-{SQL} semantic parsers: fail to detect column mentions in the utterances, fail to infer column mentions from cell values, and fail to compose complex {SQL} queries. To mitigate these issues, we present a model pre-training framework, Generation-Augmented Pre-training ({GAP}), that jointly learns representations of natural language utterances and table schemas by leveraging generation models to generate pre-train data. {GAP} {MODEL} is trained on 2M utterance-schema pairs and 30K utterance-schema-{SQL} triples, whose utterances are produced by generative models. Based on experimental results, neural semantic parsers that leverage {GAP} {MODEL} as a representation encoder obtain new state-of-the-art results on both {SPIDER} and {CRITERIA}-{TO}-{SQL} benchmarks.},
+	journaltitle = {{arXiv}:2012.10309 [cs]},
+	author = {Shi, Peng and Ng, Patrick and Wang, Zhiguo and Zhu, Henghui and Li, Alexander Hanbo and Wang, Jun and Santos, Cicero Nogueira dos and Xiang, Bing},
+	urldate = {2022-05-07},
+	date = {2020-12-18},
+	eprinttype = {arxiv},
+	eprint = {2012.10309},
+	note = {version: 1},
+	keywords = {Computer Science - Computation and Language},
+	
+}
+
+@article{choi_ryansql_2020,
+	title = {{RYANSQL}: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-{SQL} in Cross-Domain Databases},
+	url = {http://arxiv.org/abs/2004.03125},
+	shorttitle = {{RYANSQL}},
+	abstract = {Text-to-{SQL} is the problem of converting a user question into an {SQL} query, when the question and database are given. In this paper, we present a neural network approach called {RYANSQL} (Recursively Yielding Annotation Network for {SQL}) to solve complex Text-to-{SQL} tasks for cross-domain databases. State-ment Position Code ({SPC}) is defined to trans-form a nested {SQL} query into a set of non-nested {SELECT} statements; a sketch-based slot filling approach is proposed to synthesize each {SELECT} statement for its corresponding {SPC}. Additionally, two input manipulation methods are presented to improve generation performance further. {RYANSQL} achieved 58.2\% accuracy on the challenging Spider benchmark, which is a 3.2\%p improvement over previous state-of-the-art approaches. At the time of writing, {RYANSQL} achieves the first position on the Spider leaderboard.},
+	journaltitle = {{arXiv}:2004.03125 [cs]},
+	author = {Choi, {DongHyun} and Shin, Myeong Cheol and Kim, {EungGyun} and Shin, Dong Ryeol},
+	urldate = {2022-05-07},
+	date = {2020-04-07},
+	eprinttype = {arxiv},
+	eprint = {2004.03125},
+	note = {version: 1},
+	keywords = {Computer Science - Computation and Language}
+}
+
+@article{yin_tabert_2020,
+	title = {{TaBERT}: Pretraining for Joint Understanding of Textual and Tabular Data},
+	url = {http://arxiv.org/abs/2005.08314},
+	shorttitle = {{TaBERT}},
+	abstract = {Recent years have witnessed the burgeoning of pretrained language models ({LMs}) for text-based natural language ({NL}) understanding tasks. Such models are typically trained on free-form {NL} text, hence may not be suitable for tasks like semantic parsing over structured data, which require reasoning over both free-form {NL} questions and structured tabular data (e.g., database tables). In this paper we present {TaBERT}, a pretrained {LM} that jointly learns representations for {NL} sentences and (semi-)structured tables. {TaBERT} is trained on a large corpus of 26 million tables and their English contexts. In experiments, neural semantic parsers using {TaBERT} as feature representation layers achieve new best results on the challenging weakly-supervised semantic parsing benchmark {WikiTableQuestions}, while performing competitively on the text-to-{SQL} dataset Spider. Implementation of the model will be available at http://fburl.com/{TaBERT} .},
+	journaltitle = {{arXiv}:2005.08314 [cs]},
+	author = {Yin, Pengcheng and Neubig, Graham and Yih, Wen-tau and Riedel, Sebastian},
+	urldate = {2022-05-07},
+	date = {2020-05-17},
+	eprinttype = {arxiv},
+	eprint = {2005.08314},
+	note = {version: 1},
+	keywords = {Computer Science - Computation and Language, Computer Science - Machine Learning}
+}
+
+@article{yu_spider_2019,
+	title = {Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-{SQL} Task},
+	url = {http://arxiv.org/abs/1809.08887},
+	shorttitle = {Spider},
+	abstract = {We present Spider, a large-scale, complex and cross-domain semantic parsing and text-to-{SQL} dataset annotated by 11 college students. It consists of 10,181 questions and 5,693 unique complex {SQL} queries on 200 databases with multiple tables, covering 138 different domains. We define a new complex and cross-domain semantic parsing and text-to-{SQL} task where different complex {SQL} queries and databases appear in train and test sets. In this way, the task requires the model to generalize well to both new {SQL} queries and new database schemas. Spider is distinct from most of the previous semantic parsing tasks because they all use a single database and the exact same programs in the train set and the test set. We experiment with various state-of-the-art models and the best model achieves only 12.4\% exact matching accuracy on a database split setting. This shows that Spider presents a strong challenge for future research. Our dataset and task are publicly available at https://yale-lily.github.io/spider},
+	journaltitle = {{arXiv}:1809.08887 [cs]},
+	author = {Yu, Tao and Zhang, Rui and Yang, Kai and Yasunaga, Michihiro and Wang, Dongxu and Li, Zifan and Ma, James and Li, Irene and Yao, Qingning and Roman, Shanelle and Zhang, Zilin and Radev, Dragomir},
+	urldate = {2022-05-07},
+	date = {2019-02-02},
+	eprinttype = {arxiv},
+	eprint = {1809.08887},
+	keywords = {Computer Science - Computation and Language, Computer Science - Artificial Intelligence},
+	
+}
+
+@article{zhong_semantic_2020,
+	title = {Semantic Evaluation for Text-to-{SQL} with Distilled Test Suites},
+	url = {http://arxiv.org/abs/2010.02840},
+	abstract = {We propose test suite accuracy to approximate semantic accuracy for Text-to-{SQL} models. Our method distills a small test suite of databases that achieves high code coverage for the gold query from a large number of randomly generated databases. At evaluation time, it computes the denotation accuracy of the predicted queries on the distilled test suite, hence calculating a tight upper-bound for semantic accuracy efficiently. We use our proposed method to evaluate 21 models submitted to the Spider leader board and manually verify that our method is always correct on 100 examples. In contrast, the current Spider metric leads to a 2.5\% false negative rate on average and 8.1\% in the worst case, indicating that test suite accuracy is needed. Our implementation, along with distilled test suites for eleven Text-to-{SQL} datasets, is publicly available.},
+	journaltitle = {{arXiv}:2010.02840 [cs]},
+	author = {Zhong, Ruiqi and Yu, Tao and Klein, Dan},
+	urldate = {2022-05-08},
+	date = {2020-10-06},
+	eprinttype = {arxiv},
+	eprint = {2010.02840},
+	keywords = {Computer Science - Computation and Language, Computer Science - Artificial Intelligence},
+	
+}
+
+@article{wang_text--sql_2020,
+	title = {Text-to-{SQL} Generation for Question Answering on Electronic Medical Records},
+	url = {http://arxiv.org/abs/1908.01839},
+	abstract = {Electronic medical records ({EMR}) contain comprehensive patient information and are typically stored in a relational database with multiple tables. Effective and efficient patient information retrieval from {EMR} data is a challenging task for medical experts. Question-to-{SQL} generation methods tackle this problem by first predicting the {SQL} query for a given question about a database, and then, executing the query on the database. However, most of the existing approaches have not been adapted to the healthcare domain due to a lack of healthcare Question-to-{SQL} dataset for learning models specific to this domain. In addition, wide use of the abbreviation of terminologies and possible typos in questions introduce additional challenges for accurately generating the corresponding {SQL} queries. In this paper, we tackle these challenges by developing a deep learning based {TRanslate}-Edit Model for Question-to-{SQL} ({TREQS}) generation, which adapts the widely used sequence-to-sequence model to directly generate the {SQL} query for a given question, and further performs the required edits using an attentive-copying mechanism and task-specific look-up tables. Based on the widely used publicly available electronic medical database, we create a new large-scale Question-{SQL} pair dataset, named {MIMICSQL}, in order to perform the Question-to-{SQL} generation task in healthcare domain. An extensive set of experiments are conducted to evaluate the performance of our proposed model on {MIMICSQL}. Both quantitative and qualitative experimental results indicate the flexibility and efficiency of our proposed method in predicting condition values and its robustness to random questions with abbreviations and typos.},
+	journaltitle = {{arXiv}:1908.01839 [cs]},
+	author = {Wang, Ping and Shi, Tian and Reddy, Chandan K.},
+	urldate = {2022-05-09},
+	date = {2020-01-29},
+	eprinttype = {arxiv},
+	eprint = {1908.01839},
+	note = {version: 2},
+	keywords = {Computer Science - Computation and Language, Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Computer Science - Information Retrieval},
+	
+}
+
+@article{zhong_seq2sql_2017,
+	title = {Seq2SQL: Generating Structured Queries from Natural Language using Reinforcement Learning},
+	url = {http://arxiv.org/abs/1709.00103},
+	shorttitle = {Seq2SQL},
+	abstract = {A significant amount of the world's knowledge is stored in relational databases. However, the ability for users to retrieve facts from a database is limited due to a lack of understanding of query languages such as {SQL}. We propose Seq2SQL, a deep neural network for translating natural language questions to corresponding {SQL} queries. Our model leverages the structure of {SQL} queries to significantly reduce the output space of generated queries. Moreover, we use rewards from in-the-loop query execution over the database to learn a policy to generate unordered parts of the query, which we show are less suitable for optimization via cross entropy loss. In addition, we will publish {WikiSQL}, a dataset of 80654 hand-annotated examples of questions and {SQL} queries distributed across 24241 tables from Wikipedia. This dataset is required to train our model and is an order of magnitude larger than comparable datasets. By applying policy-based reinforcement learning with a query execution environment to {WikiSQL}, our model Seq2SQL outperforms attentional sequence to sequence models, improving execution accuracy from 35.9\% to 59.4\% and logical form accuracy from 23.4\% to 48.3\%.},
+	journaltitle = {{arXiv}:1709.00103 [cs]},
+	author = {Zhong, Victor and Xiong, Caiming and Socher, Richard},
+	urldate = {2022-05-12},
+	date = {2017-11-09},
+	eprinttype = {arxiv},
+	eprint = {1709.00103},
+	note = {version: 6},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language},
+	
+}
+
+@article{lin_bridging_2020,
+	title = {Bridging Textual and Tabular Data for Cross-Domain Text-to-{SQL} Semantic Parsing},
+	url = {http://arxiv.org/abs/2012.12627},
+	abstract = {We present {BRIDGE}, a powerful sequential architecture for modeling dependencies between natural language questions and relational databases in cross-{DB} semantic parsing. {BRIDGE} represents the question and {DB} schema in a tagged sequence where a subset of the fields are augmented with cell values mentioned in the question. The hybrid sequence is encoded by {BERT} with minimal subsequent layers and the text-{DB} contextualization is realized via the fine-tuned deep attention in {BERT}. Combined with a pointer-generator decoder with schema-consistency driven search space pruning, {BRIDGE} attained state-of-the-art performance on popular cross-{DB} text-to-{SQL} benchmarks, Spider (71.1{\textbackslash}\% dev, 67.5{\textbackslash}\% test with ensemble model) and {WikiSQL} (92.6{\textbackslash}\% dev, 91.9{\textbackslash}\% test). Our analysis shows that {BRIDGE} effectively captures the desired cross-modal dependencies and has the potential to generalize to more text-{DB} related tasks. Our implementation is available at {\textbackslash}url\{https://github.com/salesforce/{TabularSemanticParsing}\}.},
+	journaltitle = {{arXiv}:2012.12627 [cs]},
+	author = {Lin, Xi Victoria and Socher, Richard and Xiong, Caiming},
+	urldate = {2022-05-12},
+	date = {2020-12-30},
+	eprinttype = {arxiv},
+	eprint = {2012.12627},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language, Computer Science - Databases, Computer Science - Machine Learning},
+	
+}
+
+@article{wang_rat-sql_2021,
+	title = {{RAT}-{SQL}: Relation-Aware Schema Encoding and Linking for Text-to-{SQL} Parsers},
+	url = {http://arxiv.org/abs/1911.04942},
+	shorttitle = {{RAT}-{SQL}},
+	abstract = {When translating natural language questions into {SQL} queries to answer questions from a database, contemporary semantic parsing models struggle to generalize to unseen database schemas. The generalization challenge lies in (a) encoding the database relations in an accessible way for the semantic parser, and (b) modeling alignment between database columns and their mentions in a given query. We present a unified framework, based on the relation-aware self-attention mechanism, to address schema encoding, schema linking, and feature representation within a text-to-{SQL} encoder. On the challenging Spider dataset this framework boosts the exact match accuracy to 57.2\%, surpassing its best counterparts by 8.7\% absolute improvement. Further augmented with {BERT}, it achieves the new state-of-the-art performance of 65.6\% on the Spider leaderboard. In addition, we observe qualitative improvements in the model's understanding of schema linking and alignment. Our implementation will be open-sourced at https://github.com/Microsoft/rat-sql.},
+	journaltitle = {{arXiv}:1911.04942 [cs]},
+	author = {Wang, Bailin and Shin, Richard and Liu, Xiaodong and Polozov, Oleksandr and Richardson, Matthew},
+	urldate = {2022-05-12},
+	date = {2021-08-24},
+	eprinttype = {arxiv},
+	eprint = {1911.04942},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language},
+	
+}
+
+@article{lyu_hybrid_2020,
+	title = {Hybrid Ranking Network for Text-to-{SQL}},
+	url = {http://arxiv.org/abs/2008.04759},
+	abstract = {In this paper, we study how to leverage pre-trained language models in Text-to-{SQL}. We argue that previous approaches under utilize the base language models by concatenating all columns together with the {NL} question and feeding them into the base language model in the encoding stage. We propose a neat approach called Hybrid Ranking Network ({HydraNet}) which breaks down the problem into column-wise ranking and decoding and finally assembles the column-wise outputs into a {SQL} query by straightforward rules. In this approach, the encoder is given a {NL} question and one individual column, which perfectly aligns with the original tasks {BERT}/{RoBERTa} is trained on, and hence we avoid any ad-hoc pooling or additional encoding layers which are necessary in prior approaches. Experiments on the {WikiSQL} dataset show that the proposed approach is very effective, achieving the top place on the leaderboard.},
+	journaltitle = {{arXiv}:2008.04759 [cs]},
+	author = {Lyu, Qin and Chakrabarti, Kaushik and Hathi, Shobhit and Kundu, Souvik and Zhang, Jianwen and Chen, Zheng},
+	urldate = {2022-05-12},
+	date = {2020-08-11},
+	year = {2020},
+	eprinttype = {arxiv},
+	eprint = {2008.04759},
+	keywords = {Computer Science - Computation and Language},	
+}
+
+@article{2020t5,
+  author  = {Colin Raffel and Noam Shazeer and Adam Roberts and Katherine Lee and Sharan Narang and Michael Matena and Yanqi Zhou and Wei Li and Peter J. Liu},
+  title   = {Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer},
+  journal = {Journal of Machine Learning Research},
+  year    = {2020},
+  volume  = {21},
+  number  = {140},
+  pages   = {1-67},
+  url     = {http://jmlr.org/papers/v21/20-074.html}
+}
+
+@article{DBLP:journals/corr/abs-1810-04805,
+  author    = {Jacob Devlin and
+               Ming{-}Wei Chang and
+               Kenton Lee and
+               Kristina Toutanova},
+  title     = {{BERT:} Pre-training of Deep Bidirectional Transformers for Language
+               Understanding},
+  journal   = {CoRR},
+  volume    = {abs/1810.04805},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1810.04805},
+  eprinttype = {arXiv},
+  eprint    = {1810.04805},
+  timestamp = {Tue, 30 Oct 2018 20:39:56 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1810-04805.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/abs-2005-08314,
+  author    = {Pengcheng Yin and
+               Graham Neubig and
+               Wen{-}tau Yih and
+               Sebastian Riedel},
+  title     = {TaBERT: Pretraining for Joint Understanding of Textual and Tabular
+               Data},
+  journal   = {CoRR},
+  volume    = {abs/2005.08314},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2005.08314},
+  eprinttype = {arXiv},
+  eprint    = {2005.08314},
+  timestamp = {Tue, 27 Jul 2021 11:52:05 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2005-08314.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{zhang2019editing,
+  author    = {Rui Zhang and
+               Tao Yu and
+               Heyang Er and
+               Sungrok Shim and
+               Eric Xue and
+               Xi Victoria Lin and
+               Tianze Shi and
+               Caiming Xiong and
+               Richard Socher and
+               Dragomir R. Radev},
+  title     = {Editing-Based {SQL} Query Generation for Cross-Domain Context-Dependent
+               Questions},
+  journal   = {CoRR},
+  volume    = {abs/1909.00786},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1909.00786},
+  eprinttype = {arXiv},
+  eprint    = {1909.00786},
+  timestamp = {Wed, 12 May 2021 16:44:19 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1909-00786.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@InProceedings{vig_comparison_2019,
+	booktitle = {Comparison of Transfer-Learning Approaches for Response Selection in Multi-Turn Conversations},
+	abstract = {This paper compares three transfer-learning approaches to response selection in dialogs, as part of the Dialog System Technology Challenge 7 (DSTC7) Track 1. In the first approach , Multi-Turn ESIM+ELMo (MT-EE), we incorporate pre-trained contextual embeddings into a sentence-pair model that was originally designed for natural language inference. In the second approach, we fine-tune the Generative Pre-trained Transformer (OpenAI GPT) model. In the third approach, we fine-tune the Bidirectional Encoder Representations from Transformers (BERT) model. Our results show that BERT performed best, followed by the GPT model and then the MT-EE model. We also discuss the relative advantages and disadvantages of each approach. The submitted result for Track 1 (MT-EE) placed second and fifth overall for the Advising and Ubuntu datasets respectively.},
+	author = {Vig, Jesse and Ramea, Kalai},
+	year = {2019}
+}
+
+@InProceedings{maas-EtAl:2011:ACL-HLT2011,
+  author    = {Maas, Andrew L.  and  Daly, Raymond E.  and  Pham, Peter T.  and  Huang, Dan  and  Ng, Andrew Y.  and  Potts, Christopher},
+  title     = {Learning Word Vectors for Sentiment Analysis},
+  booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies},
+  month     = {June},
+  year      = {2011},
+  address   = {Portland, Oregon, USA},
+  publisher = {Association for Computational Linguistics},
+  pages     = {142--150},
+  url       = {http://www.aclweb.org/anthology/P11-1015}
+}
+
+@article{DBLP:journals/corr/abs-2009-13845,
+  author    = {Tao Yu and
+               Chien{-}Sheng Wu and
+               Xi Victoria Lin and
+               Bailin Wang and
+               Yi Chern Tan and
+               Xinyi Yang and
+               Dragomir R. Radev and
+               Richard Socher and
+               Caiming Xiong},
+  title     = {GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing},
+  journal   = {CoRR},
+  volume    = {abs/2009.13845},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2009.13845},
+  eprinttype = {arXiv},
+  eprint    = {2009.13845},
+  timestamp = {Wed, 12 May 2021 16:44:19 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2009-13845.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1810-05237,
+  author    = {Tao Yu and
+               Michihiro Yasunaga and
+               Kai Yang and
+               Rui Zhang and
+               Dongxu Wang and
+               Zifan Li and
+               Dragomir R. Radev},
+  title     = {SyntaxSQLNet: Syntax Tree Networks for Complex and Cross-DomainText-to-SQL
+               Task},
+  journal   = {CoRR},
+  volume    = {abs/1810.05237},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1810.05237},
+  eprinttype = {arXiv},
+  eprint    = {1810.05237},
+  timestamp = {Wed, 12 May 2021 16:44:19 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1810-05237.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/Rong14,
+  author    = {Xin Rong},
+  title     = {word2vec Parameter Learning Explained},
+  journal   = {CoRR},
+  volume    = {abs/1411.2738},
+  year      = {2014},
+  url       = {http://arxiv.org/abs/1411.2738},
+  eprinttype = {arXiv},
+  eprint    = {1411.2738},
+  timestamp = {Mon, 13 Aug 2018 16:45:57 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/Rong14.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1909-00786,
+  author    = {Rui Zhang and
+               Tao Yu and
+               Heyang Er and
+               Sungrok Shim and
+               Eric Xue and
+               Xi Victoria Lin and
+               Tianze Shi and
+               Caiming Xiong and
+               Richard Socher and
+               Dragomir R. Radev},
+  title     = {Editing-Based {SQL} Query Generation for Cross-Domain Context-Dependent
+               Questions},
+  journal   = {CoRR},
+  volume    = {abs/1909.00786},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1909.00786},
+  eprinttype = {arXiv},
+  eprint    = {1909.00786},
+  timestamp = {Wed, 12 May 2021 16:44:19 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1909-00786.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1905-08205,
+  author    = {Jiaqi Guo and
+               Zecheng Zhan and
+               Yan Gao and
+               Yan Xiao and
+               Jian{-}Guang Lou and
+               Ting Liu and
+               Dongmei Zhang},
+  title     = {Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate
+               Representation},
+  journal   = {CoRR},
+  volume    = {abs/1905.08205},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1905.08205},
+  eprinttype = {arXiv},
+  eprint    = {1905.08205},
+  timestamp = {Wed, 22 Jun 2022 11:17:20 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1905-08205.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/VaswaniSPUJGKP17,
+  author    = {Ashish Vaswani and
+               Noam Shazeer and
+               Niki Parmar and
+               Jakob Uszkoreit and
+               Llion Jones and
+               Aidan N. Gomez and
+               Lukasz Kaiser and
+               Illia Polosukhin},
+  title     = {Attention Is All You Need},
+  journal   = {CoRR},
+  volume    = {abs/1706.03762},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1706.03762},
+  eprinttype = {arXiv},
+  eprint    = {1706.03762},
+  timestamp = {Sat, 23 Jan 2021 01:20:40 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/VaswaniSPUJGKP17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/WuSCLNMKCGMKSJL16,
+  author    = {Yonghui Wu and
+               Mike Schuster and
+               Zhifeng Chen and
+               Quoc V. Le and
+               Mohammad Norouzi and
+               Wolfgang Macherey and
+               Maxim Krikun and
+               Yuan Cao and
+               Qin Gao and
+               Klaus Macherey and
+               Jeff Klingner and
+               Apurva Shah and
+               Melvin Johnson and
+               Xiaobing Liu and
+               Lukasz Kaiser and
+               Stephan Gouws and
+               Yoshikiyo Kato and
+               Taku Kudo and
+               Hideto Kazawa and
+               Keith Stevens and
+               George Kurian and
+               Nishant Patil and
+               Wei Wang and
+               Cliff Young and
+               Jason Smith and
+               Jason Riesa and
+               Alex Rudnick and
+               Oriol Vinyals and
+               Greg Corrado and
+               Macduff Hughes and
+               Jeffrey Dean},
+  title     = {Google's Neural Machine Translation System: Bridging the Gap between
+               Human and Machine Translation},
+  journal   = {CoRR},
+  volume    = {abs/1609.08144},
+  year      = {2016},
+  url       = {http://arxiv.org/abs/1609.08144},
+  eprinttype = {arXiv},
+  eprint    = {1609.08144},
+  timestamp = {Thu, 14 Jan 2021 12:12:19 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/WuSCLNMKCGMKSJL16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1901-11504,
+  author    = {Xiaodong Liu and
+               Pengcheng He and
+               Weizhu Chen and
+               Jianfeng Gao},
+  title     = {Multi-Task Deep Neural Networks for Natural Language Understanding},
+  journal   = {CoRR},
+  volume    = {abs/1901.11504},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1901.11504},
+  eprinttype = {arXiv},
+  eprint    = {1901.11504},
+  timestamp = {Mon, 30 May 2022 13:48:56 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1901-11504.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1902-01069,
+  author    = {Wonseok Hwang and
+               Jinyeung Yim and
+               Seunghyun Park and
+               Minjoon Seo},
+  title     = {A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization},
+  journal   = {CoRR},
+  volume    = {abs/1902.01069},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1902.01069},
+  eprinttype = {arXiv},
+  eprint    = {1902.01069},
+  timestamp = {Tue, 21 May 2019 18:03:39 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1902-01069.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
