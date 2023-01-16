@@ -1,4 +1,4 @@
-\section{Models and Challenges}
+\section{State-of-the-art Text-To-SQL solutions}
 
 \begin{figure}[htb]
     \centering
@@ -36,14 +36,3 @@ Most of these studies have excellent documentation regarding their implantation.
 \input{inc/models/RAT-SQL}
 \input{inc/models/BRIDGE}
 \input{inc/models/Picard}
-
-% \begin{itemize}
-%   \item Seq2SQL and SQLNet will perform encoding using LSTM/Bi-LSTM and decode using classification and Pointer Network.
-%   \item SQLova and HydraNet encode natural language queries through a language model and decode them through the Natural Language-to-SQL layer, converting them to SQL grammars. Going a little further, SQLova was the first to use a language model as an encoder, encode questions and columns, and then predict queries.
-%   \item HydraNet uses BERT's token to rank columns one by one to fill in the slots of the SQL Query statement. Brief description of the BERT will be given in our final report.
-%   \item Since the SPIDER dataset used for RAT-SQL and BRIDGE is a Multi-Table, it is necessary to understand the Schema's relationship to the question and its internal relationships, for which Schema Linking and Encoding are applied, and decoders such as SemQL are utilized.
-%   \item RAT-SQL reflects the schema information into the encoding and decoding with SemQL, including the relationships extracted from the question-scheme contextualized graph in Self-Attention.
-%   \item BRIDGE achieves Schema Linking by including the Schema's Table and Column Name and Value in the Encoding and utilizes the Pointer Generator Network as the Decoder.
-%   \item PICARD proposes a new method for simple and effective constrained decoding with large pre-trained language models.
-%         On both the SPIDER cross-domain and cross-database Text-to-SQL dataset and the CoSQL SQL-grounded dialog state tracking dataset, we find that the PICARD decoding method not only significantly improves the performance of fine-tuned unmodified T5 models but it also lifts a T5-3B model to state-of-the-art results on the established exact-match and execution accuracy metrics.
-% \end{itemize}
