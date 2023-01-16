@@ -10,11 +10,9 @@ Sequence-to-sequence models for neural text-to-SQL typically perform token-level
 
 \subsubsection*{SQL Grammar}
 
-\begin{itemize}
-    \item The shallow parsing expression grammar aims to capture as little SQL as possible to cover most instances in the dataset.
-    \item In order to ensure consistency of table, column, and value references in SQL, the authors added non-terminals to context-free grammar.
-    \item They use runtime constraints during decoding to ensure that only valid programs can be used to join different tables in DB together using a foreign key.
-\end{itemize}
+The shallow parsing expression grammar (PEG) aims to capture as little SQL as possible to cover most instances in the dataset. This makes it a versatile tool for handling a wide variety of SQL queries. To further ensure consistency of table, column, and value references in SQL, the authors added non-terminals to the context-free grammar to use these references for cross-table joins.
+
+At runtime, constraints are used to guarantee that only valid programs can be used to join different tables in a database together using a foreign key. This ensures that the data stored in the database is kept consistent and that the integrity of the database is maintained.
 
 \subsubsection*{Few details on the proposed model}
 
