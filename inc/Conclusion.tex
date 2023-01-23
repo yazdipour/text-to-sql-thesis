@@ -1,7 +1,58 @@
 \section{Conclusion}
 
-\subsection{Future Work}
+In this thesis, we studied cross-view learning with limited supervision. We provided both empirical
+and theoretical analyses that how we can leverage the information across different data views to learn
+good representations when having access to only limited supervision signals (e.g., without supervised
+labels or with only auxiliary information of data). This chapter provides a succinct summary of the main
+contributions, and then we discuss certain limitations of our work. Studying these limitations helps us
+better understand the topic - cross-view learning with limited supervision - and hence attempting to address
+these limitations can be potential future research directions.
+
+\input{inc/Future}
 
 \subsection{Summary of findings}
 
+This thesis contributes in three folds. Firstly, we presented approaches that take into account the heterogeneous structures across views when modeling multi-view data. In particular,
+Chapter 3 introduced the Multimodal Transformer that attends to interactions between views across distinct time steps and latently
+correlates the cross-view signals. Chapter 4 introduced the Factorized Multimodal Model that disentangles
+multi-view data into multi-view discriminative factors and view-specific generative factors. We showed
+that, when considering the cross-view heterogeneous structures, we can learn representations that achieve
+better data generation, discriminative performance (i.e., multi-view prediction), and interpretability (both
+local and global interpretability) for the model.
+
 \subsection{Limitations of the study}
+
+A first observation about this thesis is that we considered multi-view data from mostly two or three different
+views (e.g., the human multi-modal utterance with visual, acoustic, and textual views). While this was
+an important stepping stone, data can often include a larger number of views, such as signals for aircraft
+sensors that track oil temperature, fuel pressure, air speed measurement, lightening detection, vibration
+detection, etc. Some of our proposed multi-view representation learning approaches may have trouble to
+scale up to larger number of views, and we acknowledge this potential limitation as representation learning
+with a large number of views. Second, our empirical and theoretical analysis on self-supervised learning lie
+mainly within visual modality. In particular, we considered augmented variants as different views of an
+image, and then we analyzed why the self-supervised learned representations can reach good downstream
+performance and the practical deployments of different self-supervised objectives. Although we manifested
+good results in visual modality, we have not yet shown that our approaches can generalize to other modality,
+such as audio or textual modalities. We identify this limitation as self-supervised learning beyond visual
+modality. Lastly, when studying multi-view representation learning, the thesis focuses primarily on the task
+of perception and less about action generation (e.g., action generation for navigation). The perception and
+action generation procedures are two important phases for an intelligent agent, where the perception phase
+receives multi-view signals and transfers them into high-level representations, and the action generation
+phase takes the internal representations and generates actions. Our thesis does not directly tackle the
+problem of action generation in multi-view representation learning, such as the movement of a robot after
+receiving the multi-view sensory signals (e.g., visual inputs from camera or distance measurements from
+ultrasonic sensors). We identify this limitation as multi-view representation learning for action generation.
+In the following sub-section, we discuss these potential limitations and point towards promising future
+research directions.
+
+\subsection{Conclusion}
+
+In this chapter, we studied three potential limitations (representation learning with a large number of
+views, self-supervised learning beyond visual modality, and multi-view representation learning for action
+generation) of our thesis work on the topic - cross-view learning with limited supervision. We also discussed
+the potential future work to address these limitations. Nonetheless, in addition to the studied challenges
+(heterogeneous structures, relationship quantification, and learning with limited supervision) and the
+discussed limitations, there still remain lots of challenges and sub-challenges waiting for us to solve. To
+conclude, we hope that our thesis sheds light on advantages of leveraging information across different data
+views to learn good representations. We also believe that our work can potentially open up new horizons
+for learning representations when having access to limited supervision signals

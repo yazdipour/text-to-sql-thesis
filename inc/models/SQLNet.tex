@@ -17,7 +17,7 @@ To improve the results, the model also incorporates column attention (weights as
     \label{fig:sqlnet}
 \end{figure}
 
-\subsubsection*{Sketch-based query synthesis}
+\subsubsection{Sketch-based query synthesis}
 
 The token with the \$ sign represents an empty slot, and the token name represents the type of prediction. Tokens in bold represent SQL keywords such as SELECT, WHERE, etc.
 \$AGG can be filled with either an empty token or one of the aggregation operators, such as SUM or MAX. Fill in the \$COLUMN and \$VALUE slots with the column name and substring of the question, respectively. The \$OP slot can be a value between \{=, \}. The notion \(...\)* uses a regular expression to indicate zero or more AND clauses.

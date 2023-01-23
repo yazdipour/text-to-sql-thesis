@@ -2,7 +2,7 @@
 
 Data retrieval in databases is typically done using SQL (Structured Query Language). Text-to-SQL machine learning models are a recent development in state-of-the-art research. The technique is an attractive alternative for many natural language problems, including complex queries and extraction tasks. The text is converted into a SQL query that can be executed on the database. This technique can save time and effort for both developers and end-users by enabling them to interact with databases through natural language queries. With the help of machine learning and knowledge-based resources, text language to SQL conversion is facilitated.
 
-Semantic parsing is a natural language processing that extracts the meaning from text. Text-to-SQL, a type of Semantic Parsing, is a task that converts natural language problems into SQL query statements. 
+Semantic parsing is a natural language processing that extracts the meaning from text. Text-to-SQL, a type of Semantic Parsing, is a task that converts natural language problems into SQL query statements.
 This is achieved using machine learning and natural language processing algorithms, and this research is conducted to study different solutions and practices which has been taken by researchers to tackle this problem.
 
 Text-to-SQL allows the elaboration of structured data with information about the natural language text in several domains, such as healthcare, customer service, and search engines. It can be used by data analysts, data scientists, software engineers, and end users who want to explore and analyze their data without learning SQL.
@@ -19,3 +19,54 @@ It can be used in a variety of ways:
 Although these models may not solve this problem entirely and perfectly, humans can still struggle with the task. For example, people involved in database migration projects often have to work on schema that they have never seen before.
 
 This research study will review some of the most commonly used NLP technologies relevant to converting text language into Structured Query Language (SQL), and representative models and datasets in the recent solutions for this challenge and their technical implementation.
+
+\subsection{Challenges}
+
+Representative datasets for Text-to-SQL include the WikiSQL\cite{zhong_seq2sql_2017} dataset and
+the SPIDER\cite{yu_spider_2019} dataset, which contains more complex SQL queries.
+
+The former case consists of Single Table - Multiple Question and the latter case Multiple Table - Multiple Question.
+First, We will take a shallow look at older datasets and why they are no longer used in Text-to-SQL studies.
+We will take a look at the difference between these datasets, which made a significant difference in the performance of Text-to-SQL systems.
+
+The top language models and techniques utilized for the Text-To-SQL solution will be studied. We will jump into details of the architecture and backbond of these studies. We will evaluate the success of these researches and how they are different from each other.
+
+After these models' performance review and hardware requirements, it is planned to develop a web application with minimum essentials for average users to access their database with their natural language questions without any SQL knowledge. This application will be open source via Github and accessible for enthusiasts to try this technology on their own.
+
+% ? The state-of-the-art should show the reader a broad overview of techniques available and how they are related to one another in a hierarchical way like a mindmap. Describe the methods briefly and explain the weaknesses and strengths of the methods and how you want to use them to solve your problem.
+
+!!!We scaffold the problem of Cross-view Learning with Limited Supervision into three challenges: Heterogeneous Structure, Relationship Quantification and Learning with Limited Supervision. We first
+discuss the challenge of the heterogeneous structure across views, by focusing on disentangling complementary factors from multi-view data and learning to synchronize and align different views. For the sake
+of simplicity, the first challenge will be made under the traditional supervised setting. Next, since the
+cross-view learning includes the crucial step of understanding the relationship across views, we also want to
+know how to quantify this relationship. This leads us to discuss the challenge of relationship quantification,
+and we focus on quantifying the mutual information (i.e., the statistical relationship) across views via
+tractable and scalable methods. Lastly, we transit to the setup when having no access to the downstream
+labels, aka limited supervision. Our goal is to still learn good representations from multi-view data under
+this challenging scenario.
+
+\subsection{Contributions}
+
+This thesis addressed the challenges and sub-challenges in the previous section. In this section, we provide
+a highlight of our main thesis contributions and how they relate to the challenges and sub-challenges for
+cross-view learning with limited supervision.
+
+% create numeric list
+\begin{enumerate}
+    \item Heterogeneous Structure - Synchronization and Alignment
+          \\ We proposed a novel self-supervised learning framework for cross-view learning with limited supervision.
+    \item We proposed a novel self-supervised learning framework for cross-view learning with limited supervision.
+    \item We proposed a novel self-supervised learning framework for cross-view learning with limited supervision.
+    \item We proposed a novel self-supervised learning framework for cross-view learning with limited supervision.
+\end{enumerate}
+
+\subsection{Thesis Outline}
+
+In this section, we provide an outline of our thesis.
+
+\begin{itemize}
+    \item  Chapter 2 discusses the technical backgrounds of our thesis. Our discussion focuses on three topics: multi-view
+          representation learning, relationship quantification, and self-supervised learning.
+    \item Chapter 3 discusses the sub-challenge Synchronization and Alignment within the challenge Heterogeneous
+          Structure
+\end{itemize}

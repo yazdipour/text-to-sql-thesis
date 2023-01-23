@@ -8,13 +8,13 @@ Sequence-to-sequence models for neural text-to-SQL typically perform token-level
     \item The grammar developed in \cite{xu_sqlnet_2017} covers 98\% of the instances in ATIS and SPIDER datasets.
 \end{itemize}
 
-\subsubsection*{SQL Grammar}
+\subsubsection{SQL Grammar}
 
 The shallow parsing expression grammar (PEG) aims to capture as little SQL as possible to cover most instances in the dataset. This makes it a versatile tool for handling a wide variety of SQL queries. To further ensure consistency of table, column, and value references in SQL, the authors added non-terminals to the context-free grammar to use these references for cross-table joins.
 
 At runtime, constraints are used to guarantee that only valid programs can be used to join different tables in a database together using a foreign key. This ensures that the data stored in the database is kept consistent and that the integrity of the database is maintained.
 
-\subsubsection*{Few details on the proposed model}
+\subsubsection{Few details on the proposed model}
 
 \begin{itemize}
     \item As an input, the proposed model takes an utterance of natural language, a database, and grammar about that utterance.
