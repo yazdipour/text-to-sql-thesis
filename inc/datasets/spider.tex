@@ -1,0 +1,30 @@
+\subsubsection{Spider Dataset}
+
+Yale University students created this dataset.
+The SPIDER database contains 10K questions and 5K+ complex SQL queries covering 138 different domains across 200 databases. As opposed to previous datasets (most of which used only one database), this one incorporates multiple datasets. Creating this corpus was primarily motivated by the desire to tackle complex queries and generalize across databases without requiring multiple interactions.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pics/db/Spider.png}
+    \caption{Example from Spider dataset\cite{yu_spider_2019}}
+    \label{fig:Spider}
+\end{figure}
+
+Creating a dataset involves three main aspects: SQL pattern coverage, SQL consistency, and question clarity. Several databases from WikiSQL are included in the dataset. The table is complex as it links several tables with foreign keys. In SPIDER, SQL queries include: SELECT with multiple columns and aggregations, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT, JOIN, INTERSECT, EXCEPT, UNION, NOT IN, OR, AND, EXISTS, LIKE.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/db/Spider2.png}
+    \caption{Example of Question-Query set from SPIDER\cite{yu_spider_2019}}
+    \label{fig:Spider2}
+\end{figure}
+
+SPIDER's exact matching accuracy was 12.4\% compared to existing state-of-the-art models. As a result of its low accuracy, SPIDER presents a strong research challenge. Current SPIDER accuracy is around 75.5\% with an exact set match without values (refers to values in the WHERE clause) and around 72.6\% with values.
+
+The SPIDER challenge is a research competition dedicated to developing cutting-edge Text-to-SQL solutions. In this challenge, participants strive to develop algorithms that can automatically generate structured SQL queries from natural language input, to improve the performance and accuracy of Text-to-SQL models.
+
+In the SPIDER challenge, numerous state-of-the-art Text-to-SQL solutions have been proposed, such as the Spider model. This model uses a combination of recurrent and convolutional neural networks to learn the mapping between natural language and SQL queries. This model also has a hierarchical structure, which allows it to process the natural language input more effectively, thereby allowing it to handle complex queries and variations in language with greater precision and accuracy. This model successfully generates accurate and efficient SQL queries from natural language inputs.
+
+One difference between the SPIDER and WikiSQL challenges is the specific dataset that is used for evaluation. The SPIDER challenge uses a dataset of complex SQL queries and natural language questions derived from real-world databases, while the WikiSQL challenge uses a dataset of more straightforward SQL queries and natural language questions derived from Wikipedia articles. This difference in the dataset can affect the performance and accuracy of the models on the different tasks.
+
+Another difference is in the evaluation metrics used. The SPIDER challenge evaluates the models using execution accuracy and natural language understanding metrics, while the WikiSQL challenge evaluates the models using only execution accuracy. This difference in the evaluation metrics can affect how the models are trained and their performance on the tasks.

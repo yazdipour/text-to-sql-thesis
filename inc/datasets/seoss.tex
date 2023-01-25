@@ -1,1 +1,73 @@
 \subsection{SEOSS Dataset}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+      & eval\_exact\_match & eval\_exec & eval\_loss & eval\_runtime & eval\_samples & eval\_samples\_per\_second \\ \hline
+    A & 0.6507             & 0.6892     & 0.6301     & 2181.0215     & 1300          & 0.596                      \\ \hline
+    B & 0.6507             & 0.6892     & 0.6301     & 2181.0215     & 1300          & 0.596                      \\ \hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+          & easy & medium & hard & extra \\ \hline
+    count & 360  & 554    & 196  & 190   \\ \hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+                & easy  & medium & hard  & extra \\ \hline
+    execution   & 0.756 & 0.699  & 0.592 & 0.411 \\ \hline
+    exact match & 0.786 & 0.708  & 0.520 & 0.363 \\ \hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+                     & easy  & medium & hard  & extra \\ \hline
+    select           & 0.906 & 0.879  & 0.912 & 0.852 \\ \hline
+    select(no AGG)   & 0.927 & 0.891  & 0.912 & 0.864 \\ \hline
+    where            & 0.863 & 0.838  & 0.663 & 0.614 \\ \hline
+    where(no OP)     & 0.882 & 0.842  & 0.705 & 0.682 \\ \hline
+    group(no Having) & 0.679 & 0.865  & 0.827 & 0.840 \\ \hline
+    group            & 0.643 & 0.800  & 0.808 & 0.778 \\ \hline
+    order            & 0.786 & 0.769  & 0.860 & 0.842 \\ \hline
+    and/or           & 1.000 & 0.978  & 0.944 & 0.863 \\ \hline
+    IUEN             & 0.000 & 0.000  & 0.500 & 0.615 \\ \hline
+    keywords         & 0.888 & 0.908  & 0.818 & 0.769 \\ \hline
+\end{tabular}
+% \multicolumn{5}{*}{Merged Cells}                  \\\hline
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+                         & easy  & medium & hard  & extra \\ \hline
+        select           & 0.861 & 0.827  & 0.847 & 0.726 \\ \hline
+        select(no AGG)   & 0.881 & 0.838  & 0.847 & 0.737 \\ \hline
+        where            & 0.891 & 0.824  & 0.606 & 0.466 \\ \hline
+        where(no OP)     & 0.910 & 0.828  & 0.644 & 0.517 \\ \hline
+        group(no Having) & 0.864 & 0.803  & 0.878 & 0.747 \\ \hline
+        group            & 0.818 & 0.743  & 0.857 & 0.692 \\ \hline
+        order            & 1.000 & 0.723  & 0.754 & 0.703 \\ \hline
+        and/or           & 0.994 & 0.994  & 0.995 & 0.988 \\ \hline
+        IUEN             & 0.000 & 0.000  & 0.455 & 0.471 \\ \hline
+        keywords         & 0.955 & 0.842  & 0.735 & 0.632 \\ \hline
+    \end{tabular}
+    \caption{Table caption}
+    \label{tab:my_table}
+\end{table}
+
+As it can be seen in Table~\ref{tab:my_table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Column 1 & Column 2 & Column 3 \\
+        \hline
+        Row 1    & Data     & Data     \\
+        \hline
+        Row 2    & Data     & Data     \\
+        \hline
+    \end{tabular}
+    \caption{Table caption}
+\end{table}
