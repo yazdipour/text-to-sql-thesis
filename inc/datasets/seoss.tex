@@ -1,4 +1,4 @@
-\subsubsection{SEOSS Dataset}
+\subsubsection{SEOSS}
 % TODO: need more rephrasing
 
 SEOSS dataset is a compilation of natural language expressions with seven alternative phrasings, each linked to a single SQL query. In total, 166 questions (expressions) were organized. The natural language expressions were mainly obtained from existing literature and modified to match the data identified in the issue tracking system (ITS) and version control system (VCS) of an existing software project (namely Apache Pig). This data was extracted and saved into an SQLite database by Rath et al. \cite{RATH2019104005}.
@@ -13,16 +13,14 @@ Expressions are labeled into two different tags, development and research. Eight
     \label{fig:SESS}
 \end{figure}
 
-% TODO: need more about Hardness of SEOSS dataset
+% TODO: need more about the Hardness of the SEOSS dataset
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{pics/seoss/seoss.png}
+%     \caption{Examples of queries with different levels of complexity in SEOSS-Queries Dataset \cite{TOMOVA2022108211}}
+%     \label{fig:SESS2}
+% \end{figure}
 
-% add image
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{pics/seoss/seoss.png}
-    \caption{Examples of queries with different levels of complexity in SEOSS-Queries Dataset \cite{TOMOVA2022108211}}
-    \label{fig:SESS2}
-\end{figure}
-
-In SEOSS-Queries\cite{TOMOVA2022108211} research, they experienced with RatSQL and SQLNet method on SEOSS dataset and released their evaluation steps. In this research, we will use the same dataset to evaluate on state-of-the-art models currently available in the literatures and used in SPIDER for this dataset.
+In SEOSS-Queries\cite{TOMOVA2022108211} research, they experienced RatSQL and SQLNet methods on the SEOSS dataset and released their evaluation steps. In this research, we will use the same dataset to evaluate state-of-the-art models currently available in the literature and used in SPIDER for this dataset.
 
 \clearpage
