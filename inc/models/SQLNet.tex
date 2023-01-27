@@ -1,4 +1,4 @@
-\subsection{SQLNet}
+\subsection{SQLNet 2017}
 % cite Lin, Kevin, et al. “Grammar-based neural text-to-SQL generation.” arXiv preprint arXiv:1905.13326 (2019).
 
 The model was designed to demonstrate that reinforcement learning should be limited in Text2SQL tasks.
@@ -51,3 +51,7 @@ In the WikiSQL test set, SQLNet accuracy is 64.4\%, and in the SPIDER test set, 
     \caption{An example of a query executed by SQLNet on WikiSQL}
     \label{fig:sqlnet-task}
 \end{figure}
+
+% from SPIDER
+
+SQLNet, first proposed by (Xu et al., 2017), takes advantage of column attention and a sketch-based approach to formulate SQL as a slot-filling task. This approach eliminates the need for a sequence-to-sequence structure when the order of SQL query conditions isn't important.
