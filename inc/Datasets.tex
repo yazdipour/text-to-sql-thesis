@@ -64,3 +64,41 @@ There are a few limitations to be aware of when using natural language queries w
 
 \input{inc/datasets/wikisql}
 \input{inc/datasets/spider}
+\input{inc/datasets/sede}
+\input{inc/datasets/seoss}
+
+In this chapter, we have reviewed various datasets widely used in the Text-to-SQL Semantic Parsing community. These datasets vary in complexity, size, and annotation, providing a standardized testbed for evaluating the performance of Text-to-SQL models. We have discussed their unique characteristics and features from early datasets such as ATIS and GeoQuery to more recent datasets such as WikiSQL and Spider.
+The datasets discussed in this chapter are a valuable resource for the research community to evaluate the progress and performance of Text-to-SQL models. The continued development and improvement of these datasets will be necessary for advancing the field of Text-to-SQL Semantic Parsing.
+The table\ref{tab:datasets} below provides an overview of the datasets mentioned in this chapter, including the number of queries and questions sorted by year.
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Dataset} & \textbf{Year} & \textbf{Tables} & \textbf{Questions} & \textbf{Unique Queries} & \textbf{Domain}            \\ \hline
+        ATIS
+                         & 1994          & 25              & 5280               & 947                     & Air Travel Information     \\ \hline
+        GeoQuery
+                         & 2001          & 8               & 877                & 246                     & US geography database      \\ \hline
+        Academic
+                         & 2014          & 15              & 196                & 185                     & Microsoft Academic Search  \\ \hline
+        IMDB
+                         & 2015          & 16              & 131                & 89                      & Internet Movie Database    \\ \hline
+        Scholar
+                         & 2017          & 7               & 817                & 193                     & Academic Publications      \\ \hline
+        Yelp
+                         & 2017          & 7               & 128                & 110                     & Yelp Movie Website         \\ \hline
+        WikiSQL
+                         & 2017          & 24,241          & 80,654             & 77,840                  & Wikipedia                  \\ \hline
+        Advising
+                         & 2018          & 10              & 4570               & 211                     & Student Course Information \\ \hline
+        Spider
+                         & 2018          & 645             & 10,181             & 5693                    & 138 Different Domains      \\ \hline
+        SEDE
+                         & 2021          & 29              & 12,023             & 11,767                  & Stack Exchange             \\ \hline
+        SEOSS
+                         & 2022          & 13              & 1,162              & 116                     & Project ITS and VSC        \\ \hline
+    \end{tabular}
+    \caption{Comparison of datasets (Sort by Year)}
+    \label{tab:datasets}
+\end{table}
