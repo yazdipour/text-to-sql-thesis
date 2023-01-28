@@ -1,8 +1,10 @@
 \subsection{IRNet 2019}
+
+% https://www.arxiv-vanity.com/papers/2208.04415/#S1.p3t
 IRNET \cite{DBLP:journals/corr/abs-1905-08205}
 
 \begin{itemize}
-    \item In Text2SQL tasks, the Intermediate Representation Network (IRNet) addresses two main challenges.
+    \item In Text-to-SQL tasks, the Intermediate Representation Network (IRNet) addresses two main challenges.
     \item Among the challenges are mismatches between natural language intents and predicting columns resulting from a more significant number of out-of-domain words.
     \item Instead of synthesizing SQL queries end-to-end, IRNet decomposes natural language into three phases.
     \item Schema linking is performed over a database schema and a question during the first phase.
@@ -25,7 +27,7 @@ IRNET \cite{DBLP:journals/corr/abs-1905-08205}
 \end{figure}
 
 \begin{itemize}
-    \item The model provides different functions to accomplish Text2SQL tasks.
+    \item The model provides different functions to accomplish Text-to-SQL tasks.
     \item Natural language is encoded into an embedding vector by the NL encoder. By using a bi-directional LSTM, these embedding vectors are used to construct hidden states.
     \item A schema encoder takes a database schema as input and outputs representations for columns and tables.
     \item Using context-free grammar, the decoder synthesizes SemQL queries.
