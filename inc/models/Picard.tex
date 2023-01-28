@@ -1,4 +1,9 @@
-\subsection{PICARD - Parsing Incrementally for Constrained Auto-Regressive Decoding} \label{picard}
+\clearpage
+\subsection{T5 + PICARD} \label{picard}
+
+\input{inc/models/t5}
+
+\subsubsection{PICARD}
 
 PICARD\cite{Scholak2021:PICARD} stands for "Parsing Incrementally for Constrained Auto-Regressive Decoding.". It can be used with any existing language model decoder or vocabulary based on auto-regressive language modeling.
 
@@ -28,11 +33,11 @@ Picard warps model prediction scores and integrates trivially with existing gree
 
 Motivated by the success of Shaw et al. (2021), who demonstrated that a pre-trained T5-Base or T5-3B model could effectively learn the text-to-SQL task, generalize to never-before-seen databases, and even rival the state-of-the-art methods of Choi et al. (2021) and Wang et al. (2020) without any modifications to the model itself, the researchers opted to use T5 as the baseline for all their experiments. The results from Shaw et al. (2021) suggest that T5-based models had the potential to improve the field of natural language processing significantly. Therefore, the researchers sought to take advantage of the capabilities of T5 in order to gain new insights into how natural language can be effectively utilized to solve complex tasks.
 
-\subsubsection{Beam Search}
+\subsubsection*{Beam Search}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{pics/picard/beam.png}
+    \includegraphics[width=0.8\textwidth]{pics/picard/beam.png}
     \caption{Beam Search}
     \label{fig:beam_search}
 \end{figure}
@@ -47,7 +52,7 @@ Another advantage of beam search is that it can be used with other techniques, s
 \\
 In conclusion, Beam Search is a robust algorithm widely used in natural language processing and machine learning, particularly in the context of sequence-to-sequence (seq2seq) models. It allows the model to generate multiple output sequences rather than just a single sequence and is computationally efficient, making it well-suited for use in applications where computational resources are limited. Additionally, it can be combined with other techniques, such as attention mechanisms, to improve the performance of seq2seq models.
 
-\subsubsection{DB Engines}
+\subsubsection*{DB Engines}
 
 The Picard Method is a method for constrained inference on top of an existing model, but it is not a model itself. Currently, the PICARD parser and the supporting software are not supported for PostgreSQL, MySQL and others, which would require changes to the PICARD parser, translation of Spider databases and text-to-SQL data, and retraining models to produce MSSQL code. To use the Picard Method, a complex toolchain of Haskell code is built with CABAL and requires a complicated toolchain for the Facebook Thrift library.
 
