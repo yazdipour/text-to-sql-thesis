@@ -1,12 +1,12 @@
-\subsection{SQLNet}% cite Lin, Kevin, et al. “Grammar-based neural text-to-SQL generation.” arXiv preprint arXiv:1905.13326 (2019).
+\subsection{SQLNet}
 
-The model was designed to demonstrate that reinforcement learning should be limited in Text-to-SQL tasks.
+The model was designed to demonstrate that reinforcement learning should be limited to Text-to-SQL tasks.
 Until SQLNet\cite{xu_sqlnet_2017}, all previous models used reinforcement learning to improve the decoder results when it generated appropriate serializations.
 
 
-In cases where order is irrelevant, SQLNet avoids the seq2seq structure.
+In cases where the order is irrelevant, SQLNet avoids the seq2seq structure.
 For making predictions, the model uses a sketch-based approach consisting of a dependency graph that allows previous predictions to be taken into account.
-To improve the results, the model also incorporates column attention (weights assigned to significant words and phrases in sentences). According to the flowchart below, SQLNet employs three phases to generate SQL queries for WikiSQL tasks.
+The model also incorporates column attention (weights assigned to significant words and phrases in sentences) to improve the results. According to the flowchart below, SQLNet employs three phases to generate SQL queries for WikiSQL tasks.
 
 % add image sqlnet.png
 \begin{figure}[htb]
@@ -50,7 +50,3 @@ In the WikiSQL test set, SQLNet accuracy is 64.4\%, and in the SPIDER test set, 
     \caption{An example of a query executed by SQLNet on WikiSQL}
     \label{fig:sqlnet-task}
 \end{figure}
-
-% from SPIDER
-
-SQLNet, first proposed by (Xu et al., 2017), takes advantage of column attention and a sketch-based approach to formulate SQL as a slot-filling task. This approach eliminates the need for a sequence-to-sequence structure when the order of SQL query conditions isn't important.

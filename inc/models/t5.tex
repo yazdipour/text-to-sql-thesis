@@ -1,14 +1,16 @@
-\subsubsection{T5}
-
-In Transfer Learning, we start by training our model in an unsupervised fashion on unlabeled data. Then fine-tuning it on a labeled dataset some tasks that we care about, which we call the downstream tasks. For instance, in our unsupervised free training task, we take some text, drop out some of the words, and train the model to predict the missing words. Next, we will fine-tune it on a supervised task like sentiment analysis classifying movie reviews as a given label. This way of training has become an incredible recipe for natural language processing.
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{pics/picard/spider.png}
     \caption{SPIDER Benchmark until 2022}
 \end{figure}
 
-T5 Model implemented by Raffel et al. (2020)\cite{raffel_exploring_2020} uses the BERT encoder-decoder architecture proposed by Vaswani et al. (2017) \cite{devlin-etal-2019-bert} and they showed in their studies that it will outperform decoder-only language models. Originally T5 was introduced with five pre-trained models — Small (60 million parameters), Base(220 million parameters), Large(770 million parameters), 3B(3 billion parameters), and 11B(11 billion parameters)\cite{raffel_exploring_2020}. We used the base model in this research due to hardware limitations while fine-tuning for our project.
+After the release of Google T5, researchers have been using it to improve the accuracy of text-to-SQL models instead of BERT. New solutions have been released, such as the PICARD with T5-3B model, that significantly improved the SPIDER challenge's accuracy and are motivating researchers to use T5 in their work with innovative approaches since 2021.
+
+\subsubsection{T5}
+
+In Transfer Learning, we start by training our model in an unsupervised fashion on unlabeled data. Then fine-tuning it on a labeled dataset some tasks that we care about, which we call the downstream tasks. For instance, in our unsupervised free training task, we take some text, drop out some of the words, and train the model to predict the missing words. Next, we will fine-tune it on a supervised task like sentiment analysis classifying movie reviews as a given label. This way of training has become an incredible recipe for natural language processing.
+
+T5 Model implemented by Raffel et al. (2020)\cite{raffel_exploring_2020} uses the BERT encoder-decoder architecture proposed by Vaswani et al. (2017) \cite{devlin-etal-2019-bert} and they showed in their studies that it will outperform decoder-only language models. Originally T5 was introduced with five pre-trained models — Small (60 million parameters), Base(220 million parameters), Large(770 million parameters), 3B(3 billion parameters), and 11B(11 billion parameters)\cite{raffel_exploring_2020}.
 
 \begin{figure}[h]
     \centering
@@ -28,8 +30,8 @@ This method is pretty similar to the span BERT objective. It tried to come up wi
 
 Google T5's basic idea is that it models every NLP problem and every text problem as a text-to-text task that takes the text as input and produces text as output.
 
-So fundamentally, it is in a sequence-to-sequence framework, and hence T5 is perfectly suitable for transfer learning machine translation.
-T5 can handle various tasks, and it can be fine-tuned for different NLP tasks, such as summarization, COLA (Corpus on linguistic acceptability), classification, multiple text translation, also regression problems like STSB  that predict how similar two sentences are.
+So fundamentally, it is in a sequence-to-sequence framework; hence, T5 is perfectly suitable for transfer learning machine translation.
+T5 can handle various tasks, and it can be fine-tuned for different NLP tasks, such as summarization, COLA (Corpus on linguistic acceptability), classification, multiple text translation, also regression problems like STSB  that predict how similar two sentences are. And in our case Text-to-SQL.
 
 \begin{figure}[h]
     \centering
