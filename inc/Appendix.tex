@@ -34,16 +34,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.597 & 0.373 & 0.390 & 0.131 & 0.447 \\ \hline
-        select(no AGG)   & 0.597 & 0.384 & 0.390 & 0.131 & 0.451 \\ \hline
-        where            & 0.756 & 0.429 & 0.229 & 0.104 & 0.477 \\ \hline
-        where(no OP)     & 0.821 & 0.434 & 0.229 & 0.117 & 0.504 \\ \hline
-        group(no Having) & 0.714 & 0.543 & 0.886 & 0.167 & 0.533 \\ \hline
-        group            & 0.000 & 0.520 & 0.886 & 0.119 & 0.490 \\ \hline
-        order            & 0.000 & 0.321 & 0.429 & 0.095 & 0.267 \\ \hline
-        and/or           & 0.992 & 1.000 & 0.986 & 0.961 & 0.993 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.597 & 0.373  & 0.390 & 0.131 & 0.447 \\ \hline
+        select(no AGG)   & 0.597 & 0.384  & 0.390 & 0.131 & 0.451 \\ \hline
+        where            & 0.756 & 0.429  & 0.229 & 0.104 & 0.477 \\ \hline
+        where(no OP)     & 0.821 & 0.434  & 0.229 & 0.117 & 0.504 \\ \hline
+        group(no Having) & 0.714 & 0.543  & 0.886 & 0.167 & 0.533 \\ \hline
+        group            & 0.000 & 0.520  & 0.886 & 0.119 & 0.490 \\ \hline
+        order            & 0.000 & 0.321  & 0.429 & 0.095 & 0.267 \\ \hline
+        and/or           & 0.992 & 1.000  & 0.986 & 0.961 & 0.993 \\ \hline
 
-        keywords         & 0.834 & 0.513 & 0.506 & 0.119 & 0.545 \\ \hline
+        keywords         & 0.834 & 0.513  & 0.506 & 0.119 & 0.545 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING RECALL }
 
@@ -52,16 +53,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.709 & 0.467 & 0.426 & 0.208 & 0.551 \\ \hline
-        select(no AGG)   & 0.709 & 0.480 & 0.426 & 0.208 & 0.556 \\ \hline
-        where            & 0.814 & 0.564 & 0.262 & 0.167 & 0.592 \\ \hline
-        where(no OP)     & 0.885 & 0.570 & 0.262 & 0.188 & 0.626 \\ \hline
-        group(no Having) & 0.357 & 0.660 & 0.925 & 0.275 & 0.636 \\ \hline
-        group            & 1.000 & 0.632 & 0.925 & 0.196 & 0.585 \\ \hline
-        order            & 1.000 & 0.360 & 0.448 & 0.154 & 0.329 \\ \hline
-        and/or           & 0.996 & 0.963 & 0.939 & 0.737 & 0.959 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.709 & 0.467  & 0.426 & 0.208 & 0.551 \\ \hline
+        select(no AGG)   & 0.709 & 0.480  & 0.426 & 0.208 & 0.556 \\ \hline
+        where            & 0.814 & 0.564  & 0.262 & 0.167 & 0.592 \\ \hline
+        where(no OP)     & 0.885 & 0.570  & 0.262 & 0.188 & 0.626 \\ \hline
+        group(no Having) & 0.357 & 0.660  & 0.925 & 0.275 & 0.636 \\ \hline
+        group            & 1.000 & 0.632  & 0.925 & 0.196 & 0.585 \\ \hline
+        order            & 1.000 & 0.360  & 0.448 & 0.154 & 0.329 \\ \hline
+        and/or           & 0.996 & 0.963  & 0.939 & 0.737 & 0.959 \\ \hline
 
-        keywords         & 0.859 & 0.644 & 0.578 & 0.189 & 0.658 \\ \hline
+        keywords         & 0.859 & 0.644  & 0.578 & 0.189 & 0.658 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING F1 }
 
@@ -85,16 +87,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.873 & 0.624 & 0.469 & 0.500 & 0.717 \\ \hline
-        select(no AGG)   & 0.873 & 0.642 & 0.469 & 0.500 & 0.724 \\ \hline
-        where            & 0.882 & 0.824 & 0.308 & 0.421 & 0.780 \\ \hline
-        where(no OP)     & 0.958 & 0.833 & 0.308 & 0.474 & 0.825 \\ \hline
-        group(no Having) & 0.238 & 0.841 & 0.969 & 0.778 & 0.789 \\ \hline
-        group            & 0.000 & 0.805 & 0.969 & 0.556 & 0.726 \\ \hline
-        order            & 0.000 & 0.409 & 0.469 & 0.400 & 0.431 \\ \hline
-        and/or           & 1.000 & 0.929 & 0.896 & 0.598 & 0.927 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.873 & 0.624  & 0.469 & 0.500 & 0.717 \\ \hline
+        select(no AGG)   & 0.873 & 0.642  & 0.469 & 0.500 & 0.724 \\ \hline
+        where            & 0.882 & 0.824  & 0.308 & 0.421 & 0.780 \\ \hline
+        where(no OP)     & 0.958 & 0.833  & 0.308 & 0.474 & 0.825 \\ \hline
+        group(no Having) & 0.238 & 0.841  & 0.969 & 0.778 & 0.789 \\ \hline
+        group            & 0.000 & 0.805  & 0.969 & 0.556 & 0.726 \\ \hline
+        order            & 0.000 & 0.409  & 0.469 & 0.400 & 0.431 \\ \hline
+        and/or           & 1.000 & 0.929  & 0.896 & 0.598 & 0.927 \\ \hline
 
-        keywords         & 0.885 & 0.867 & 0.672 & 0.455 & 0.829 \\ \hline
+        keywords         & 0.885 & 0.867  & 0.672 & 0.455 & 0.829 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING ACCURACY}
 \end{table}
@@ -121,16 +124,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.709 & 0.467 & 0.426 & 0.208 & 0.551 \\ \hline
-        select(no AGG)   & 0.709 & 0.480 & 0.426 & 0.208 & 0.556 \\ \hline
-        where            & 0.814 & 0.564 & 0.262 & 0.167 & 0.592 \\ \hline
-        where(no OP)     & 0.885 & 0.570 & 0.262 & 0.188 & 0.626 \\ \hline
-        group(no Having) & 0.357 & 0.660 & 0.925 & 0.275 & 0.636 \\ \hline
-        group            & 1.000 & 0.632 & 0.925 & 0.196 & 0.585 \\ \hline
-        order            & 1.000 & 0.360 & 0.448 & 0.154 & 0.329 \\ \hline
-        and/or           & 0.996 & 0.963 & 0.939 & 0.737 & 0.959 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.709 & 0.467  & 0.426 & 0.208 & 0.551 \\ \hline
+        select(no AGG)   & 0.709 & 0.480  & 0.426 & 0.208 & 0.556 \\ \hline
+        where            & 0.814 & 0.564  & 0.262 & 0.167 & 0.592 \\ \hline
+        where(no OP)     & 0.885 & 0.570  & 0.262 & 0.188 & 0.626 \\ \hline
+        group(no Having) & 0.357 & 0.660  & 0.925 & 0.275 & 0.636 \\ \hline
+        group            & 1.000 & 0.632  & 0.925 & 0.196 & 0.585 \\ \hline
+        order            & 1.000 & 0.360  & 0.448 & 0.154 & 0.329 \\ \hline
+        and/or           & 0.996 & 0.963  & 0.939 & 0.737 & 0.959 \\ \hline
 
-        keywords         & 0.859 & 0.644 & 0.578 & 0.189 & 0.658 \\ \hline
+        keywords         & 0.859 & 0.644  & 0.578 & 0.189 & 0.658 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING F1 }
 
@@ -155,16 +159,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.858 & 0.623 & 0.483 & 0.571 & 0.713 \\ \hline
-        select(no AGG)   & 0.858 & 0.643 & 0.483 & 0.571 & 0.721 \\ \hline
-        where            & 0.863 & 0.804 & 0.333 & 0.474 & 0.771 \\ \hline
-        where(no OP)     & 0.950 & 0.814 & 0.333 & 0.526 & 0.820 \\ \hline
-        group(no Having) & 0.192 & 0.842 & 0.968 & 0.750 & 0.759 \\ \hline
-        group            & 0.000 & 0.812 & 0.968 & 0.500 & 0.699 \\ \hline
-        order            & 0.000 & 0.391 & 0.484 & 0.444 & 0.431 \\ \hline
-        and/or           & 1.000 & 0.921 & 0.870 & 0.602 & 0.921 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.858 & 0.623  & 0.483 & 0.571 & 0.713 \\ \hline
+        select(no AGG)   & 0.858 & 0.643  & 0.483 & 0.571 & 0.721 \\ \hline
+        where            & 0.863 & 0.804  & 0.333 & 0.474 & 0.771 \\ \hline
+        where(no OP)     & 0.950 & 0.814  & 0.333 & 0.526 & 0.820 \\ \hline
+        group(no Having) & 0.192 & 0.842  & 0.968 & 0.750 & 0.759 \\ \hline
+        group            & 0.000 & 0.812  & 0.968 & 0.500 & 0.699 \\ \hline
+        order            & 0.000 & 0.391  & 0.484 & 0.444 & 0.431 \\ \hline
+        and/or           & 1.000 & 0.921  & 0.870 & 0.602 & 0.921 \\ \hline
 
-        keywords         & 0.836 & 0.833 & 0.673 & 0.476 & 0.797 \\ \hline
+        keywords         & 0.836 & 0.833  & 0.673 & 0.476 & 0.797 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING ACCURACY}
 
@@ -173,16 +178,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.538 & 0.341 & 0.377 & 0.143 & 0.409 \\ \hline
-        select(no AGG)   & 0.538 & 0.352 & 0.377 & 0.143 & 0.414 \\ \hline
-        where            & 0.714 & 0.418 & 0.229 & 0.117 & 0.460 \\ \hline
-        where(no OP)     & 0.786 & 0.423 & 0.229 & 0.130 & 0.489 \\ \hline
-        group(no Having) & 0.714 & 0.486 & 0.857 & 0.143 & 0.486 \\ \hline
-        group            & 0.000 & 0.469 & 0.857 & 0.095 & 0.448 \\ \hline
-        order            & 0.000 & 0.321 & 0.429 & 0.095 & 0.267 \\ \hline
-        and/or           & 0.995 & 1.000 & 0.971 & 0.980 & 0.994 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.538 & 0.341  & 0.377 & 0.143 & 0.409 \\ \hline
+        select(no AGG)   & 0.538 & 0.352  & 0.377 & 0.143 & 0.414 \\ \hline
+        where            & 0.714 & 0.418  & 0.229 & 0.117 & 0.460 \\ \hline
+        where(no OP)     & 0.786 & 0.423  & 0.229 & 0.130 & 0.489 \\ \hline
+        group(no Having) & 0.714 & 0.486  & 0.857 & 0.143 & 0.486 \\ \hline
+        group            & 0.000 & 0.469  & 0.857 & 0.095 & 0.448 \\ \hline
+        order            & 0.000 & 0.321  & 0.429 & 0.095 & 0.267 \\ \hline
+        and/or           & 0.995 & 1.000  & 0.971 & 0.980 & 0.994 \\ \hline
 
-        keywords         & 0.789 & 0.462 & 0.481 & 0.119 & 0.505 \\ \hline
+        keywords         & 0.789 & 0.462  & 0.481 & 0.119 & 0.505 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING RECALL }
 
@@ -192,16 +198,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.661 & 0.441 & 0.423 & 0.229 & 0.520 \\ \hline
-        select(no AGG)   & 0.661 & 0.455 & 0.423 & 0.229 & 0.526 \\ \hline
-        where            & 0.782 & 0.550 & 0.271 & 0.188 & 0.576 \\ \hline
-        where(no OP)     & 0.860 & 0.557 & 0.271 & 0.208 & 0.613 \\ \hline
-        group(no Having) & 0.303 & 0.616 & 0.909 & 0.240 & 0.593 \\ \hline
-        group            & 1.000 & 0.594 & 0.909 & 0.160 & 0.546 \\ \hline
-        order            & 1.000 & 0.353 & 0.455 & 0.157 & 0.329 \\ \hline
-        and/or           & 0.997 & 0.959 & 0.918 & 0.746 & 0.956 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.661 & 0.441  & 0.423 & 0.229 & 0.520 \\ \hline
+        select(no AGG)   & 0.661 & 0.455  & 0.423 & 0.229 & 0.526 \\ \hline
+        where            & 0.782 & 0.550  & 0.271 & 0.188 & 0.576 \\ \hline
+        where(no OP)     & 0.860 & 0.557  & 0.271 & 0.208 & 0.613 \\ \hline
+        group(no Having) & 0.303 & 0.616  & 0.909 & 0.240 & 0.593 \\ \hline
+        group            & 1.000 & 0.594  & 0.909 & 0.160 & 0.546 \\ \hline
+        order            & 1.000 & 0.353  & 0.455 & 0.157 & 0.329 \\ \hline
+        and/or           & 0.997 & 0.959  & 0.918 & 0.746 & 0.956 \\ \hline
 
-        keywords         & 0.812 & 0.595 & 0.561 & 0.190 & 0.618 \\ \hline
+        keywords         & 0.812 & 0.595  & 0.561 & 0.190 & 0.618 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING F1 }
 
@@ -226,16 +233,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.757 & 0.537 & 0.417 & 0.469 & 0.618 \\ \hline
-        select(no AGG)   & 0.757 & 0.559 & 0.417 & 0.469 & 0.627 \\ \hline
-        where            & 0.779 & 0.746 & 0.250 & 0.433 & 0.695 \\ \hline
-        where(no OP)     & 0.812 & 0.811 & 0.250 & 0.467 & 0.738 \\ \hline
-        group(no Having) & 0.044 & 0.678 & 0.971 & 0.478 & 0.588 \\ \hline
-        group            & 0.000 & 0.658 & 0.971 & 0.391 & 0.561 \\ \hline
-        order            & 0.000 & 0.269 & 0.457 & 0.526 & 0.407 \\ \hline
-        and/or           & 1.000 & 0.910 & 0.883 & 0.619 & 0.919 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.757 & 0.537  & 0.417 & 0.469 & 0.618 \\ \hline
+        select(no AGG)   & 0.757 & 0.559  & 0.417 & 0.469 & 0.627 \\ \hline
+        where            & 0.779 & 0.746  & 0.250 & 0.433 & 0.695 \\ \hline
+        where(no OP)     & 0.812 & 0.811  & 0.250 & 0.467 & 0.738 \\ \hline
+        group(no Having) & 0.044 & 0.678  & 0.971 & 0.478 & 0.588 \\ \hline
+        group            & 0.000 & 0.658  & 0.971 & 0.391 & 0.561 \\ \hline
+        order            & 0.000 & 0.269  & 0.457 & 0.526 & 0.407 \\ \hline
+        and/or           & 1.000 & 0.910  & 0.883 & 0.619 & 0.919 \\ \hline
 
-        keywords         & 0.742 & 0.785 & 0.667 & 0.422 & 0.729 \\ \hline
+        keywords         & 0.742 & 0.785  & 0.667 & 0.422 & 0.729 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING ACCURACY}
 
@@ -244,16 +252,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.653 & 0.442 & 0.390 & 0.274 & 0.511 \\ \hline
-        select(no AGG)   & 0.653 & 0.460 & 0.390 & 0.274 & 0.519 \\ \hline
-        where            & 0.690 & 0.464 & 0.171 & 0.169 & 0.475 \\ \hline
-        where(no OP)     & 0.720 & 0.505 & 0.171 & 0.182 & 0.504 \\ \hline
-        group(no Having) & 0.286 & 0.589 & 0.971 & 0.262 & 0.579 \\ \hline
-        group            & 0.000 & 0.571 & 0.971 & 0.214 & 0.552 \\ \hline
-        order            & 0.000 & 0.250 & 0.457 & 0.238 & 0.314 \\ \hline
-        and/or           & 0.992 & 0.997 & 1.000 & 1.000 & 0.995 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.653 & 0.442  & 0.390 & 0.274 & 0.511 \\ \hline
+        select(no AGG)   & 0.653 & 0.460  & 0.390 & 0.274 & 0.519 \\ \hline
+        where            & 0.690 & 0.464  & 0.171 & 0.169 & 0.475 \\ \hline
+        where(no OP)     & 0.720 & 0.505  & 0.171 & 0.182 & 0.504 \\ \hline
+        group(no Having) & 0.286 & 0.589  & 0.971 & 0.262 & 0.579 \\ \hline
+        group            & 0.000 & 0.571  & 0.971 & 0.214 & 0.552 \\ \hline
+        order            & 0.000 & 0.250  & 0.457 & 0.238 & 0.314 \\ \hline
+        and/or           & 0.992 & 0.997  & 1.000 & 1.000 & 0.995 \\ \hline
 
-        keywords         & 0.823 & 0.605 & 0.571 & 0.226 & 0.610 \\ \hline
+        keywords         & 0.823 & 0.605  & 0.571 & 0.226 & 0.610 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING RECALL }
 
@@ -262,16 +271,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.701 & 0.485 & 0.403 & 0.346 & 0.560 \\ \hline
-        select(no AGG)   & 0.701 & 0.505 & 0.403 & 0.346 & 0.568 \\ \hline
-        where            & 0.732 & 0.572 & 0.203 & 0.243 & 0.564 \\ \hline
-        where(no OP)     & 0.763 & 0.623 & 0.203 & 0.262 & 0.599 \\ \hline
-        group(no Having) & 0.077 & 0.630 & 0.971 & 0.338 & 0.584 \\ \hline
-        group            & 1.000 & 0.612 & 0.971 & 0.277 & 0.556 \\ \hline
-        order            & 1.000 & 0.259 & 0.457 & 0.328 & 0.355 \\ \hline
-        and/or           & 0.996 & 0.951 & 0.938 & 0.765 & 0.956 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.701 & 0.485  & 0.403 & 0.346 & 0.560 \\ \hline
+        select(no AGG)   & 0.701 & 0.505  & 0.403 & 0.346 & 0.568 \\ \hline
+        where            & 0.732 & 0.572  & 0.203 & 0.243 & 0.564 \\ \hline
+        where(no OP)     & 0.763 & 0.623  & 0.203 & 0.262 & 0.599 \\ \hline
+        group(no Having) & 0.077 & 0.630  & 0.971 & 0.338 & 0.584 \\ \hline
+        group            & 1.000 & 0.612  & 0.971 & 0.277 & 0.556 \\ \hline
+        order            & 1.000 & 0.259  & 0.457 & 0.328 & 0.355 \\ \hline
+        and/or           & 0.996 & 0.951  & 0.938 & 0.765 & 0.956 \\ \hline
 
-        keywords         & 0.780 & 0.684 & 0.615 & 0.295 & 0.665 \\ \hline
+        keywords         & 0.780 & 0.684  & 0.615 & 0.295 & 0.665 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING F1 }
 
@@ -293,16 +303,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.781 & 0.672 & 0.400 & 0.552 & 0.684 \\ \hline
-        select(no AGG)   & 0.781 & 0.678 & 0.400 & 0.567 & 0.688 \\ \hline
-        where            & 0.739 & 0.689 & 0.269 & 0.396 & 0.642 \\ \hline
-        where(no OP)     & 0.783 & 0.696 & 0.269 & 0.472 & 0.673 \\ \hline
-        group(no Having) & 0.143 & 0.786 & 0.865 & 0.522 & 0.719 \\ \hline
-        group            & 0.000 & 0.756 & 0.865 & 0.391 & 0.675 \\ \hline
-        order            & 0.000 & 0.250 & 0.528 & 0.542 & 0.462 \\ \hline
-        and/or           & 1.000 & 0.947 & 0.831 & 0.699 & 0.937 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.781 & 0.672  & 0.400 & 0.552 & 0.684 \\ \hline
+        select(no AGG)   & 0.781 & 0.678  & 0.400 & 0.567 & 0.688 \\ \hline
+        where            & 0.739 & 0.689  & 0.269 & 0.396 & 0.642 \\ \hline
+        where(no OP)     & 0.783 & 0.696  & 0.269 & 0.472 & 0.673 \\ \hline
+        group(no Having) & 0.143 & 0.786  & 0.865 & 0.522 & 0.719 \\ \hline
+        group            & 0.000 & 0.756  & 0.865 & 0.391 & 0.675 \\ \hline
+        order            & 0.000 & 0.250  & 0.528 & 0.542 & 0.462 \\ \hline
+        and/or           & 1.000 & 0.947  & 0.831 & 0.699 & 0.937 \\ \hline
 
-        keywords         & 0.796 & 0.846 & 0.735 & 0.574 & 0.792 \\ \hline
+        keywords         & 0.796 & 0.846  & 0.735 & 0.574 & 0.792 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING ACCURACY}
 
@@ -312,16 +323,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.709 & 0.585 & 0.390 & 0.440 & 0.608 \\ \hline
-        select(no AGG)   & 0.709 & 0.590 & 0.390 & 0.452 & 0.611 \\ \hline
-        where            & 0.708 & 0.520 & 0.200 & 0.273 & 0.523 \\ \hline
-        where(no OP)     & 0.750 & 0.526 & 0.200 & 0.325 & 0.548 \\ \hline
-        group(no Having) & 0.429 & 0.754 & 0.914 & 0.286 & 0.691 \\ \hline
-        group            & 0.000 & 0.726 & 0.914 & 0.214 & 0.649 \\ \hline
-        order            & 0.000 & 0.143 & 0.543 & 0.310 & 0.343 \\ \hline
-        and/or           & 0.987 & 0.997 & 1.000 & 0.983 & 0.992 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.709 & 0.585  & 0.390 & 0.440 & 0.608 \\ \hline
+        select(no AGG)   & 0.709 & 0.590  & 0.390 & 0.452 & 0.611 \\ \hline
+        where            & 0.708 & 0.520  & 0.200 & 0.273 & 0.523 \\ \hline
+        where(no OP)     & 0.750 & 0.526  & 0.200 & 0.325 & 0.548 \\ \hline
+        group(no Having) & 0.429 & 0.754  & 0.914 & 0.286 & 0.691 \\ \hline
+        group            & 0.000 & 0.726  & 0.914 & 0.214 & 0.649 \\ \hline
+        order            & 0.000 & 0.143  & 0.543 & 0.310 & 0.343 \\ \hline
+        and/or           & 0.987 & 0.997  & 1.000 & 0.983 & 0.992 \\ \hline
 
-        keywords         & 0.823 & 0.725 & 0.649 & 0.417 & 0.704 \\ \hline
+        keywords         & 0.823 & 0.725  & 0.649 & 0.417 & 0.704 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING RECALL }
 
@@ -331,16 +343,17 @@
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        select           & 0.743 & 0.625 & 0.395 & 0.490 & 0.644 \\ \hline
-        select(no AGG)   & 0.743 & 0.631 & 0.395 & 0.503 & 0.647 \\ \hline
-        where            & 0.723 & 0.593 & 0.230 & 0.323 & 0.576 \\ \hline
-        where(no OP)     & 0.766 & 0.599 & 0.230 & 0.385 & 0.604 \\ \hline
-        group(no Having) & 0.214 & 0.770 & 0.889 & 0.369 & 0.705 \\ \hline
-        group            & 1.000 & 0.741 & 0.889 & 0.277 & 0.661 \\ \hline
-        order            & 1.000 & 0.182 & 0.535 & 0.394 & 0.393 \\ \hline
-        and/or           & 0.994 & 0.971 & 0.908 & 0.817 & 0.964 \\ \hline
+                         & easy  & medium & hard  & extra & all   \\ \hline
+        select           & 0.743 & 0.625  & 0.395 & 0.490 & 0.644 \\ \hline
+        select(no AGG)   & 0.743 & 0.631  & 0.395 & 0.503 & 0.647 \\ \hline
+        where            & 0.723 & 0.593  & 0.230 & 0.323 & 0.576 \\ \hline
+        where(no OP)     & 0.766 & 0.599  & 0.230 & 0.385 & 0.604 \\ \hline
+        group(no Having) & 0.214 & 0.770  & 0.889 & 0.369 & 0.705 \\ \hline
+        group            & 1.000 & 0.741  & 0.889 & 0.277 & 0.661 \\ \hline
+        order            & 1.000 & 0.182  & 0.535 & 0.394 & 0.393 \\ \hline
+        and/or           & 0.994 & 0.971  & 0.908 & 0.817 & 0.964 \\ \hline
 
-        keywords         & 0.809 & 0.781 & 0.690 & 0.483 & 0.746 \\ \hline
+        keywords         & 0.809 & 0.781  & 0.690 & 0.483 & 0.746 \\ \hline
     \end{tabular}
     \caption{PARTIAL MATCHING F1 }
 \end{table}
