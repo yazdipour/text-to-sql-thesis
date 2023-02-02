@@ -1,25 +1,38 @@
 \section{Evaluation Metrics} \label{eval}
 
-Text-to-SQL tasks can be evaluated by multiple methods: Component Matching, Accurate matching rate and Execution accuracy rate. Predicted SQL statements are compared with standard statements to determine how accurate the match is.
+The F1 score is a metric used to evaluate the performance of many machine learning tasks. It is computed as the harmonic mean of precision and recall, where precision is the ratio of true positive (TP) predictions to the total positive predictions, and recall is the ratio of true positive predictions to the total actual positive values. The F1 score is between 0 and 1, with higher values representing better performance.
+Precision indicates the accuracy of the classifier's prediction of the positive class. It is calculated by taking the number of correct positive predictions (True Positive) and dividing it by the total number of positive predictions (True Positive and False Positive). A higher precision value means that the classifier is less likely to identify a negative instance as a positive incorrectly.
+Recall measures the classifier's ability to identify all positive instances. It is determined by dividing the number of True Positive predictions by the total number of positive predictions (True Positive and False Negative). A higher recall value indicates that the classifier is less likely to miss a positive instance.
+
+\begin{equation}
+    Precision = \frac{TP}{TP + FP}
+\end{equation}
+
+\begin{equation}
+    Recall = \frac{TP}{TP + FN}
+\end{equation}
+
+\begin{equation}
+    F1 = \frac{2 * (Precision * Recall)}{Precision + Recall}
+\end{equation}
+
+Text-to-SQL tasks are usually evaluated by multiple methods such as Component Matching, Accurate matching rate and Execution accuracy rate. Predicted SQL statements are compared with standard statements to determine how accurate the match is.
 By splitting the predicted SQL statement and definitive statement into multiple clauses according to keywords, we can solve the problem of matching errors caused by the order of the where clause. The matching is successful as long as the elements in both sets are the same.
 
-% pics/acc1.png
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{pics/acc1.png}
-    % \caption{Accurate matching rate}
+\begin{equation}
+    Accuracy = \frac{Successful\ matching\ of\ predicted\ SQL\ statements}{total number\ of\ questions}
     \label{fig:acc1}
-\end{figure}
+\end{equation}
 
 When using the correct predicted SQL statements, the correct execution rate refers to the proportion of questions that can receive the correct answers from the database.
 
 % pics/acc2.png
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.4\textwidth]{pics/acc2.png}
-    % \caption{Accuracy rate of the predicted SQL statements}
-    \label{fig:acc2}
-\end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{pics/acc2.png}
+%     % \caption{Accuracy rate of the predicted SQL statements}
+%     \label{fig:acc2}
+% \end{figure}
 
 % By predicting the key F1 values for SQL statements, the model can also be evaluated.
 

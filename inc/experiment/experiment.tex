@@ -68,39 +68,52 @@ Here, we can observe the Recall and F1 scores of each SQL Keyword for the PICARD
 We experimented with a variety of different parameters, including beam size, modes and model sizes, and spent multiple hours for each evaluation. These experiments have been carefully documented in the Appendix\ref{sec:appendix} of this thesis, where you can find the results in detail.
 
 
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-                         & easy  & medium & hard  & extra & all   \\ \hline
-        select           & 0.709 & 0.585  & 0.390 & 0.440 & 0.608 \\ \hline
-        select(no AGG)   & 0.709 & 0.590  & 0.390 & 0.452 & 0.611 \\ \hline
-        where            & 0.708 & 0.520  & 0.200 & 0.273 & 0.523 \\ \hline
-        where(no OP)     & 0.750 & 0.526  & 0.200 & 0.325 & 0.548 \\ \hline
-        group(no Having) & 0.429 & 0.754  & 0.914 & 0.286 & 0.691 \\ \hline
-        group            & 0.000 & 0.726  & 0.914 & 0.214 & 0.649 \\ \hline
-        order            & 0.000 & 0.143  & 0.543 & 0.310 & 0.343 \\ \hline
-        and/or           & 0.987 & 0.997  & 1.000 & 0.983 & 0.992 \\ \hline
-        keywords         & 0.823 & 0.725  & 0.649 & 0.417 & 0.704 \\ \hline
-    \end{tabular}
-    \caption{Partial Matching Recall - PICARD T5-Large 4-Beam}
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|c|}
+%         \hline
+%                          & easy  & medium & hard  & extra & all   \\ \hline
+%         select           & 0.709 & 0.585  & 0.390 & 0.440 & 0.608 \\ \hline
+%         select(no AGG)   & 0.709 & 0.590  & 0.390 & 0.452 & 0.611 \\ \hline
+%         where            & 0.708 & 0.520  & 0.200 & 0.273 & 0.523 \\ \hline
+%         where(no OP)     & 0.750 & 0.526  & 0.200 & 0.325 & 0.548 \\ \hline
+%         group(no Having) & 0.429 & 0.754  & 0.914 & 0.286 & 0.691 \\ \hline
+%         group            & 0.000 & 0.726  & 0.914 & 0.214 & 0.649 \\ \hline
+%         order            & 0.000 & 0.143  & 0.543 & 0.310 & 0.343 \\ \hline
+%         and/or           & 0.987 & 0.997  & 1.000 & 0.983 & 0.992 \\ \hline
+%         keywords         & 0.823 & 0.725  & 0.649 & 0.417 & 0.704 \\ \hline
+%     \end{tabular}
+%     \caption{Partial Matching Recall - PICARD T5-Large 4-Beam}
+% \end{table}
 
-\end{table}
+% add image here pics/ez/Recall.png
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{pics/ez/Recall.png}
+%     \caption{Partial Matching Recall - PICARD T5-Large 4-Beam}
+% \end{figure}
 
-\begin{table}[h]
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|c|}
+%         \hline
+%                          & easy  & medium & hard  & extra & all   \\ \hline
+%         select           & 0.743 & 0.625  & 0.395 & 0.490 & 0.644 \\ \hline
+%         select(no AGG)   & 0.743 & 0.631  & 0.395 & 0.503 & 0.647 \\ \hline
+%         where            & 0.723 & 0.593  & 0.230 & 0.323 & 0.576 \\ \hline
+%         where(no OP)     & 0.766 & 0.599  & 0.230 & 0.385 & 0.604 \\ \hline
+%         group(no Having) & 0.214 & 0.770  & 0.889 & 0.369 & 0.705 \\ \hline
+%         group            & 1.000 & 0.741  & 0.889 & 0.277 & 0.661 \\ \hline
+%         order            & 1.000 & 0.182  & 0.535 & 0.394 & 0.393 \\ \hline
+%         and/or           & 0.994 & 0.971  & 0.908 & 0.817 & 0.964 \\ \hline
+%         keywords         & 0.809 & 0.781  & 0.690 & 0.483 & 0.746 \\ \hline
+%     \end{tabular}
+%     \caption{Partial Matching F1 - PICARD T5-Large 4-Beam}
+% \end{table}
+
+% add image here pics/ez/F1.png
+\begin{figure}[h]
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-                         & easy  & medium & hard  & extra & all   \\ \hline
-        select           & 0.743 & 0.625  & 0.395 & 0.490 & 0.644 \\ \hline
-        select(no AGG)   & 0.743 & 0.631  & 0.395 & 0.503 & 0.647 \\ \hline
-        where            & 0.723 & 0.593  & 0.230 & 0.323 & 0.576 \\ \hline
-        where(no OP)     & 0.766 & 0.599  & 0.230 & 0.385 & 0.604 \\ \hline
-        group(no Having) & 0.214 & 0.770  & 0.889 & 0.369 & 0.705 \\ \hline
-        group            & 1.000 & 0.741  & 0.889 & 0.277 & 0.661 \\ \hline
-        order            & 1.000 & 0.182  & 0.535 & 0.394 & 0.393 \\ \hline
-        and/or           & 0.994 & 0.971  & 0.908 & 0.817 & 0.964 \\ \hline
-        keywords         & 0.809 & 0.781  & 0.690 & 0.483 & 0.746 \\ \hline
-    \end{tabular}
-    \caption{Partial Matching F1 - PICARD T5-Large 4-Beam}
-\end{table}
+    \includegraphics[width=1\textwidth]{pics/ez/F1.png}
+    \caption{F1 Scores of Component Matching - PICARD T5-Large 4-Beam}
+\end{figure}
