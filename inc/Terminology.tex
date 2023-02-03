@@ -9,15 +9,21 @@ The field of study focused on the interaction between human language and compute
 
 \subsubsection{Tokenization}
 
-The process of breaking up a sentence into individual words or phrases, that is necessary for tasks such as machine translation and text summarization.
-
-\subsubsection{Word2Vec}
-
-X\cite{DBLP:journals/corr/Rong14}
+The process of breaking up a sentence into individual words or phrases is necessary for tasks such as machine translation and text summarization.
 
 \subsubsection{WordPiece embeddings}
 
-X\cite{DBLP:journals/corr/WuSCLNMKCGMKSJL16}
+WordPiece\cite{DBLP:journals/corr/WuSCLNMKCGMKSJL16} is a tokenization approach used in natural language processing (NLP) to break down words into smaller units, also known as pieces. It is an extension of the original word2vec parameter learning algorithm and is used to address out-of-vocabulary (OOV) words, which are words that did not appear in the training data.
+This technique divides each word into a series of subword units learned during the training phase based on their frequency and consistency within words. These subword units are stored in a shared vocabulary, dubbed the WordPiece vocabulary, and can be used for multiple words.
+This system can represent rare or unseen words as a combination of more common subword units, which are more likely to be in the vocabulary. As a result, the model can handle OOV words more efficiently and reduce the vocabulary size, leading to a more economical representation of the language.
+In NLP models, words are usually portrayed as dense vectors referred to as word embeddings. WordPiece embeddings extend this representation by breaking words down into subword units and representing each piece as a dense vector. These subword embeddings are then combined to represent the whole word.
+The use of WordPiece embeddings has various advantages in NLP models. Firstly, it enables the model to treat OOV words more effectively by representing them as a combination of more common subword units. Secondly, it decreases the vocabulary size, resulting in a more succinct representation of the language. Finally, it enhances the model's capability to learn fine-grained representations of words and their meanings, resulting in improved performance in NLP tasks.
+
+\subsubsection{Word2Vec}
+
+Word2Vec\cite{DBLP:journals/corr/Rong14} is a well-known word embedding approach in NLP that encodes words as dense vectors in an unending, high-dimensional area. This technique is designed to capture the significance and context of words, providing an improved representation of words compared to classic one-hot encoding.
+The fundamental concept behind Word2Vec is to train a neural network to anticipate the context words about a target word, given the target word. As the model is trained, the weights of the neural network are adjusted in such a way that the dot product of the input layer (representing the target word) and the output layer (representing the context words) closely estimate the probability distribution of the context words given the target word.
+Word2Vec can be trained to utilize two different algorithms: Continuous Bag-of-Words (CBOW) and Skip-gram. CBOW predicts the target word given the context words, while Skip-gram predicts the context words given the target word. The algorithm selection relies on the particular NLP task and the data available for training.
 
 \subsubsection{Encoder-Decoder Architecture}
 
