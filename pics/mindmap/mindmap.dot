@@ -1,4 +1,3 @@
-// https://mermaid.live/
 graph G {
 	node [shape=record];
 	TextToSQL [shape=square];
