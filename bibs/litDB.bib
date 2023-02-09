@@ -920,3 +920,104 @@ note = "Proceedings of the 1999 8th International Conference on Information Know
     url = {https://doi.org/10.1162/coli\_a\_00403},
     eprint = {https://direct.mit.edu/coli/article-pdf/47/2/309/1930983/coli\_a\_00403.pdf},
 }
+
+
+@inproceedings{min-etal-2019-pilot,
+title = "A Pilot Study for {C}hinese {SQL} Semantic Parsing",
+author = "Min, Qingkai  and
+Shi, Yuefeng  and
+Zhang, Yue",
+booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+month = nov,
+year = "2019",
+address = "Hong Kong, China",
+publisher = "Association for Computational Linguistics",
+url = "https://aclanthology.org/D19-1377",
+doi = "10.18653/v1/D19-1377",
+pages = "3652--3658",
+abstract = "The task of semantic parsing is highly useful for dialogue and question answering systems. Many datasets have been proposed to map natural language text into SQL, among which the recent Spider dataset provides cross-domain samples with multiple tables and complex queries. We build a Spider dataset for Chinese, which is currently a low-resource language in this task area. Interesting research questions arise from the uniqueness of the language, which requires word segmentation, and also from the fact that SQL keywords and columns of DB tables are typically written in English. We compare character- and word-based encoders for a semantic parser, and different embedding schemes. Results show that word-based semantic parser is subject to segmentation errors and cross-lingual word embeddings are useful for text-to-SQL.",
+}
+@article{DBLP:journals/corr/abs-2006-06434,
+author    = {Ningyuan Sun and
+        Xuefeng Yang and
+        Yunfeng Liu},
+title     = {TableQA: a Large-Scale Chinese Text-to-SQL Dataset for Table-Aware
+{SQL} Generation},
+journal   = {CoRR},
+volume    = {abs/2006.06434},
+year      = {2020},
+url       = {https://arxiv.org/abs/2006.06434},
+eprinttype = {arXiv},
+eprint    = {2006.06434},
+timestamp = {Sat, 13 Jun 2020 18:28:13 +0200},
+biburl    = {https://dblp.org/rec/journals/corr/abs-2006-06434.bib},
+bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@inproceedings{wang-etal-2020-dusql,
+title = "{D}u{SQL}: A Large-Scale and Pragmatic {C}hinese Text-to-{SQL} Dataset",
+author = "Wang, Lijie  and
+Zhang, Ao  and
+Wu, Kun  and
+Sun, Ke  and
+Li, Zhenghua  and
+Wu, Hua  and
+Zhang, Min  and
+Wang, Haifeng",
+booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+month = nov,
+year = "2020",
+address = "Online",
+publisher = "Association for Computational Linguistics",
+url = "https://aclanthology.org/2020.emnlp-main.562",
+doi = "10.18653/v1/2020.emnlp-main.562",
+pages = "6923--6935",
+abstract = "Due to the lack of labeled data, previous research on text-to-SQL parsing mainly focuses on English. Representative English datasets include ATIS, WikiSQL, Spider, etc. This paper presents DuSQL, a larges-scale and pragmatic Chinese dataset for the cross-domain text-to-SQL task, containing 200 databases, 813 tables, and 23,797 question/SQL pairs. Our new dataset has three major characteristics. First, by manually analyzing questions from several representative applications, we try to figure out the true distribution of SQL queries in real-life needs. Second, DuSQL contains a considerable proportion of SQL queries involving row or column calculations, motivated by our analysis on the SQL query distributions. Finally, we adopt an effective data construction framework via human-computer collaboration. The basic idea is automatically generating SQL queries based on the SQL grammar and constrained by the given database. This paper describes in detail the construction process and data statistics of DuSQL. Moreover, we present and compare performance of several open-source text-to-SQL parsers with minor modification to accommodate Chinese, including a simple yet effective extension to IRNet for handling calculation SQL queries.",
+}
+@article{DBLP:journals/corr/abs-2109-05395,
+    author    = {Yongrui Chen and
+            Xinnan Guo and
+            Chaojie Wang and
+            Jian Qiu and
+            Guilin Qi and
+            Meng Wang and
+            Huiying Li},
+    title     = {Leveraging Table Content for Zero-shot Text-to-SQL with Meta-Learning},
+    journal   = {CoRR},
+    volume    = {abs/2109.05395},
+    year      = {2021},
+    url       = {https://arxiv.org/abs/2109.05395},
+    eprinttype = {arXiv},
+    eprint    = {2109.05395},
+    timestamp = {Fri, 15 Jul 2022 16:46:45 +0200},
+    biburl    = {https://dblp.org/rec/journals/corr/abs-2109-05395.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@inproceedings{tuan-nguyen-etal-2020-pilot,
+title = "A Pilot Study of Text-to-{SQL} Semantic Parsing for {V}ietnamese",
+author = "Tuan Nguyen, Anh  and
+Dao, Mai Hoang  and
+Nguyen, Dat Quoc",
+booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2020",
+month = nov,
+year = "2020",
+address = "Online",
+publisher = "Association for Computational Linguistics",
+url = "https://aclanthology.org/2020.findings-emnlp.364",
+doi = "10.18653/v1/2020.findings-emnlp.364",
+pages = "4079--4085",
+abstract = "Semantic parsing is an important NLP task. However, Vietnamese is a low-resource language in this research area. In this paper, we present the first public large-scale Text-to-SQL semantic parsing dataset for Vietnamese. We extend and evaluate two strong semantic parsing baselines EditSQL (Zhang et al., 2019) and IRNet (Guo et al., 2019) on our dataset. We compare the two baselines with key configurations and find that: automatic Vietnamese word segmentation improves the parsing results of both baselines; the normalized pointwise mutual information (NPMI) score (Bouma, 2009) is useful for schema linking; latent syntactic features extracted from a neural dependency parser for Vietnamese also improve the results; and the monolingual language model PhoBERT for Vietnamese (Nguyen and Nguyen, 2020) helps produce higher performances than the recent best multilingual language model XLM-R (Conneau et al., 2020).",
+}
+@article{DBLP:journals/corr/abs-2110-03546,
+author    = {Marcelo Archanjo Jos{\'{e}} and
+F{\'{a}}bio Gagliardi Cozman},
+title     = {mRAT-SQL+GAP: {A} Portuguese Text-to-SQL Transformer},
+journal   = {CoRR},
+volume    = {abs/2110.03546},
+year      = {2021},
+url       = {https://arxiv.org/abs/2110.03546},
+eprinttype = {arXiv},
+eprint    = {2110.03546},
+timestamp = {Thu, 21 Oct 2021 16:20:08 +0200},
+biburl    = {https://dblp.org/rec/journals/corr/abs-2110-03546.bib},
+bibsource = {dblp computer science bibliography, https://dblp.org}
+}

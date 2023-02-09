@@ -6,57 +6,12 @@ Additionally, new datasets include more advanced queries to assess the generaliz
 
 \subsection{Single-Domain}
 
-\subsubsection{ATIS (Air Travel Information System) and GeoQuery}
-
-ATIS (Air Travel Information System)\cite{dahl-etal-1994-expanding} and GeoQuery\cite{10.1007/3-540-44795-4_40} are two datasets that are frequently utilized for semantic parsing, a technique for converting natural language inquiries into a structured meaning representation. The ATIS dataset consists of audio recordings and hand transcripts of individuals using automated travel inquiry systems to search for information regarding flights. It is structured using a relational schema to organize data from the official airline guide, with 25 tables containing information concerning fares, airlines, flights, cities, airports, and ground services.
-All questions concerning this dataset can be answered using a single relational query. This makes it an ideal choice for training deep learning models, as it is designed for a specific domain and the queries are relatively straightforward.
-
-Furthermore, the questions in the ATIS dataset are mainly limited to select and project queries. On the other hand, GeoQuery is made up of seven tables from the US geography database and 880 natural languages to SQL pairings. It includes geographic and topographical characteristics such as capitals, populations, and landforms. While both datasets are regularly employed to train deep learning models, GeoQuery is more comprehensive and provides a wider range of queries than ATIS. This includes join and nested queries, as well as grouping and ordering queries, which are absent in the ATIS dataset. As a result, GeoQuery is better equipped to answer more complex queries, making it a better choice for training AI models.
-
-% A relational schema is used to organize data from the official airline guide in the ATIS corpus. There are 25 tables containing information about fares, airlines, flights, cities, airports, and ground services. All questions related to this dataset can be answered using a single relational query. The relational database uses shorter tables for this dataset to answer queries intuitively.
-
-% Here is an example query from the ATIS dataset: Input is in natural language, and the output is in \lambda calculus.
-
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{pics/db/ATIS.png}
-%     \caption{Example from ATIS dataset for semantic parsing}
-%     \label{fig:ATIS}
-% \end{figure}
-
-% \subsubsection{GeoQuery Dataset}
-
-% United States geography is represented in the Geoquery dataset. About 800 facts are expressed in Prolog. State, city, river, and mountain information can be found in the database. Geographic and topographical attributes such as capitals and populations make up the majority of the attributes.
-
-\subsubsection{IMDb Dataset}
-
-The IMDb dataset is a well-known dataset in the machine learning community. It contains 50,000 reviews from IMDb and has a limit of 30 reviews per movie\cite{maas-EtAl:2011:ACL-HLT2011}. It is noteworthy that the dataset is balanced in terms of positive and negative reviews, which are equally represented. When creating the dataset, reviews with a score of 4 out of 10 were considered negative and those with a score of 7 out of 10 were considered positive. Neural reviews were excluded to maintain the quality of the dataset. The dataset is divided into training and testing datasets, each with an equal portion. To ensure fairness and accuracy in the results, the dataset creators have taken special care to keep the training and testing datasets balanced.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{pics/db/IMDb.png}
-    \caption{Database Structure of IMDb dataset\cite{dahl-etal-1994-expanding}}
-    \label{fig:IMDb}
-\end{figure}
-
-% \newpage % to avoid page break
-
-\subsubsection{Advising Dataset}
-
-The Advising dataset\cite{finegan-dollak-etal-2018-improving} was created in order to propose improvements in Text-to-SQL systems. The creators of the dataset compare human-generated and automatically generated questions, citing properties of queries that relate to real-world applications. The dataset consists of questions from the University of Michigan students about courses that lead to particularly complex queries. The data is obtained from a fictional student database which includes student profile information such as recommended courses, grades, and previous courses. Moreover, in order to obtain the data for the dataset, academic advising meetings were conducted where students were asked to formulate questions they would ask if they knew the database. After obtaining the questions, the creators of the dataset compared the query results with those from other datasets such as ATIS, GeoQuery, and Scholar. Many of the queries in the Advising dataset were the same as those found in the other datasets.
-
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics[width=0.5\textwidth]{pics/db/Advising.png}
-%     \caption{Example from Advising dataset \cite{vig_comparison_2019}}
-%     \label{fig:Advising}
-% \end{figure}
-
-\subsubsection{MAS (Microsoft Academic Search)}
-
-MAS, or Microsoft Academic Search\cite{roy2013the}, is a database of academic and social networks and a collection of queries. It has a total of 17 tables in its database, as well as 196 natural languages to SQL pairs. MAS can handle join, grouping, and nested queries but does not support ordering queries.
-
-There are a few limitations to be aware of when using natural language queries within MAS. Firstly, all-natural language questions must begin with the phrase ”return me” and can not include an interrogative statement or a collection of keywords. Additionally, all queries must follow the proper grammatical conventions.
+\input{inc/datasets/atis}
+\input{inc/datasets/imdb}
+\input{inc/datasets/advising}
+\input{inc/datasets/mas}
+\input{inc/datasets/sede}
+\input{inc/datasets/seoss}
 
 \clearpage
 
@@ -64,8 +19,7 @@ There are a few limitations to be aware of when using natural language queries w
 
 \input{inc/datasets/wikisql}
 \input{inc/datasets/spider}
-\input{inc/datasets/sede}
-\input{inc/datasets/seoss}
+\input{inc/datasets/otherlanguages}
 
 % \clearpage
 
