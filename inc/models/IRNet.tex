@@ -39,7 +39,7 @@ Using context-free grammar, the decoder synthesizes SemQL queries.
     \label{fig:overview}
 \end{figure}
 
-They leverage BERT (Devlin et al., 2018) to encode questions, database schemas, and schema-linking results. The decoder stays the same. Notably, the sequence of spans in the question is concatenated with all the different column names in the schema. Each column name is divided with a unique token [SEP]. BERT takes the concatenation as input.
+They leverage Devlin et al., 2018 BERT\cite{devlin-etal-2019-bert} to encode questions, database schemas, and schema-linking results. The decoder stays the same. Notably, the sequence of spans in the question is concatenated with all the different column names in the schema. Each column name is divided with a unique token [SEP]. BERT takes the concatenation as input.
 
 On the SPIDER dataset, IRNet performs 46.7\% better than previous benchmark models by 19\%. The accuracy of 54.7\% is achieved fine-tuneing BERT for IRNet.
 
