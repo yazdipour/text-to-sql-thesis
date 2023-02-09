@@ -1,0 +1,32 @@
+// https://mermaid.live/
+graph G {
+	node [shape=record];
+	TextToSQL [shape=square];
+	TextToSQL -- Datasets;
+	TextToSQL -- Methodologies;
+	TextToSQL -- "Evaluation Metrics";
+
+	db [label = "{ATIS|GeoQuery|IMDB|Yelp|Advising|MAS|SEDE|SEOSS}"];
+	Datasets -- "Single Domain" -- db;
+
+	ds [label = "{WikiSQL|SPIDER|Conversational\nDatasets\n(CSpider, CoSQL,...)}"];
+	Datasets -- "Large Scale \nCross-Domain"  -- ds;
+
+	Methodologies -- Encoding;
+	Methodologies -- Decoding;
+	Encoding -- "Encode Token Type" -- TypeSQL;
+	Encoding -- "Self-attention" -- RatSQL;
+	Encoding -- "Pre-training" -- TaBERT;
+
+	Decoding -- "Copy\nMechanism" -- Seq2SQL;
+	Decoding -- "Tree-based" -- SyntaxSQLNet;
+	Decoding -- "Sketch-based" -- SQLNet, IRNet;
+	Decoding -- "Intermediate\nRepresentation" -- IRNet;
+	Decoding -- "Constrainedn\ndecoding" -- PICARD;
+
+	ds1 [label = "{WikiSQL|Advising}"];
+	"Evaluation Metrics" -- "Exact String Match" -- ds1;
+	"Evaluation Metrics" -- "Exact Set Match" -- Spider;
+	ds2 [label = "{GeoQuery|IMDB|Yelp|WikiSQL}"];
+	"Evaluation Metrics" -- "Execution Accuracy" -- ds2;
+}
