@@ -52,13 +52,4 @@ PICARD can be applied as an optional feature during inference but is not necessa
 
 Picard warps model prediction scores and integrates trivially with existing greedy and beam search algorithms. In addition to the token ids of the current hypothesis, the model's language modeling head also predicts the log-softmax scores for each vocabulary token. Additionally, Picard has access to SQL schema information, including table and column names and which column resides in which table.
 
-Motivated by the success of Shaw et al. (2021)\cite{shaw-etal-2021-compositional}, who demonstrated that a pre-trained T5-Base or T5-3B model could effectively learn the text-to-SQL task, generalize to never-before-seen databases, and even rival the state-of-the-art methods of Choi et al. (2021)\cite{10.1162/coli_a_00403} without any modifications to the model itself, the researchers opted to use T5 as the baseline for all their experiments. The results from Shaw et al. (2021)\cite{shaw-etal-2021-compositional} suggest that T5-based models had the potential to improve the field of natural language processing significantly. Therefore, the researchers sought to take advantage of the capabilities of T5 in order to gain new insights into how natural language can be effectively utilized to solve complex tasks.
-
-
-% add SPIDER benchmark diagram image
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.99\linewidth]{pics/picard/benchmarkeps}
-    \caption{SPIDER benchmark Exact Match Results in 2022}
-    \label{fig:benchmark}
-\end{figure}
+Motivated by the success of Shaw et al. \cite{shaw-etal-2021-compositional}, who demonstrated that a pre-trained T5-Base or T5-3B model could effectively learn the text-to-SQL task, generalize to never-before-seen databases, and even rival the state-of-the-art methods of Choi et al.\cite{10.1162/coli_a_00403} without any modifications to the model itself, the researchers opted to use T5 as the baseline for all their experiments. The results from Shaw et al.\cite{shaw-etal-2021-compositional} suggest that T5-based models had the potential to improve the field of natural language processing significantly. Therefore, the researchers sought to take advantage of the capabilities of T5 in order to gain new insights into how natural language can be effectively utilized to solve complex tasks.

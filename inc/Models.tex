@@ -17,6 +17,15 @@ Assuming that words have numerical representations that differ from those of oth
 Recently Language models have been shown to excel at NL tasks as a new type of pre-trained neural network. It is important to note that language models are not a replacement for word embeddings since they are neural networks and need a way to transform words into vectors.
 Depending on the specific problem they want to solve, researchers can adapt the pre-trained model's inputs and outputs and train it for an additional number of epochs on their dataset. Thus, we can achieve state-of-the-art performance without complex architectures \cite{DBLP:journals/corr/abs-1810-04805}. Recent neural network architectures, like the Transformer\cite{DBLP:journals/corr/VaswaniSPUJGKP17}, have been used to achieve such performance by these models, which excel at handling NL and sequences of NL that are characterized by connections between words. Several language models have been used to handle the text-to-SQL task, including BERT \cite{DBLP:journals/corr/abs-1810-04805}. BERT is a pre-trained language model that has been shown to achieve state-of-the-art performance in a variety of NLP tasks. BERT is a Transformer-based model that uses a bidirectional encoder to learn the representation of a word based on the context in which it appears. BERT has been used in several text-to-SQL models, such as BRIDGE \cite{lin_bridging_2020} and RAT-SQL \cite{wang_rat-sql_2021}.
 
+
+% add SPIDER benchmark diagram image
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\linewidth]{pics/benchmarkeps}
+    \caption{SPIDER benchmark Exact Match Results in 2022}
+    \label{fig:benchmark}
+\end{figure}
+
 \input{inc/models/Seq2sql}
 \input{inc/models/SQLNet}
 \input{inc/models/SyntaxSQLNet}
