@@ -1,0 +1,56 @@
+\section{Encoders}
+\label{sec:encoders}
+
+\begin{table}
+    \centering
+    \newcolumntype{g}{>{\columncolor{Gray}}c}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \rowcolor{Gray}
+        \textbf{Methods}                & \textbf{Adopted by} & \textbf{Applied datasets} & \textbf{Addressed challenges}                                                                              \\
+        \hline
+
+        Encode token type               & TypeSQL             & WikiSQL                   & Representing question meaning                                                                              \\
+        \hline
+        \multirow{8}{*}{Graph-based}    & GNN                 & Spider                    & \multirow{8}{*}{\parbox{5cm}{Representing question and DB schemas in a structured way and Schema linking}} \\
+                                        & Global-GCN          & Spider                    &                                                                                                            \\
+                                        & IGSQL               & Sparc, CoSQL              &                                                                                                            \\
+                                        & RAT-SQL             & Spider                    &                                                                                                            \\
+                                        & LEGSQL              & Spider                    &                                                                                                            \\
+                                        & SADGA               & Spider                    &                                                                                                            \\
+                                        & ShawdowGNN          & Spider                    &                                                                                                            \\
+                                        & S2SQL               & Spider                    &                                                                                                            \\
+        \hline
+        \multirow{5}{*}{Self-attention} & X-SQL               & WikiSQL                   & \multirow{5}{*}{\parbox{5cm}{Representing question and DB schemas in a structured way and Schema linking}} \\
+                                        & SQLova              & WikiSQL                   &                                                                                                            \\
+                                        & RAT-SQL             & Spider                    &                                                                                                            \\
+                                        & DuoRAT              & Spider                    &                                                                                                            \\
+                                        & UnifiedSKG          & WikiSQL, Spider           &                                                                                                            \\
+        \hline
+        \multirow{4}{*}{Adapt PLM}      & X-SQL               & WikiSQL                   & \multirow{4}{*}{\parbox{5cm}{Leveraging external data to represent question and DB schemas}}               \\
+                                        & SQLova              & WikiSQL                   &                                                                                                            \\
+                                        & Content Enhanced    & WikiSQL                   &                                                                                                            \\
+                                        & HydraNet            & WikiSQL                   &                                                                                                            \\
+        \hline
+        \multirow{3}{*}{Pre-training}   & TaBERT              & Spider                    & \multirow{3}{*}{\parbox{5cm}{Leveraging external data to represent question and DB schemas}}               \\
+                                        & GraPPA              & Spider                    &                                                                                                            \\
+                                        & GAP                 & Spider                    &                                                                                                            \\
+        \hline
+    \end{tabular}
+    \caption{Methods used for encoding in text-to-SQL.}
+    \label{tab:methods}
+\end{table}
+
+
+\subsection{Encode Token Types}
+
+\subsection{Graph-based Methods}
+
+\subsection{Self-attention}
+
+\subsection{Adapt PLM} %Pre-trained Language Models
+
+\subsection{Pre-training}
+
+\subsection{Ranking-enhanced Encoder}
+

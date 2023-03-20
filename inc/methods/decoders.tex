@@ -1,0 +1,88 @@
+\section{Decoders}
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \rowcolor{Gray}
+        \textbf{Methods}                                           & \textbf{Adopted by} & \textbf{Applied datasets} & \textbf{Addressed challenges}                                                            \\
+        \hline
+        \multirow{3}{*}{Tree-based}                                & Seq2Tree            & -                         & \multirow{3}{*}{Hierarchical decoding}                                                   \\
+                                                                   & Seq2AST             & -                         &                                                                                          \\
+                                                                   & SyntaxSQLNet        & Spider                    &                                                                                          \\
+        \hline
+        \multirow{4}{*}{Sketch-based}                              & SQLNet              & WikiSQL                   & \multirow{4}{*}{Hierarchical decoding}                                                   \\
+                                                                   &                     & WikiSQL                   &                                                                                          \\
+                                                                   & IRNet               & Spider                    &                                                                                          \\
+                                                                   & RYANSQL             & Spider                    &                                                                                          \\
+        \hline
+        Bottom-up                                                  & SmBop               & Spider                    & Hierarchical decoding                                                                    \\
+        \hline
+        \multirow{2}{*}{Self-Attention}                            & Seq2Tree            & -                         & \multirow{2}{*}{ Synthesizing information}                                               \\
+                                                                   & Seq2SQL             & WikiSQL                   &                                                                                          \\
+        \hline
+        Bi-attention                                               & SmBop               & Spider                    & Synthesizing information                                                                 \\
+        \hline
+        Structured attention                                       & SmBop               & Spider                    & Synthesizing information                                                                 \\
+        \hline
+        \parbox{3cm}{Relation-aware Self-attention}                & SmBop               & Spider                    & Synthesizing information                                                                 \\
+        \hline
+        \multirow{4}{*}{Copy Mechanism}                            & Seq2AST             & -                         & \multirow{4}{*}{ Synthesizing information}                                               \\
+                                                                   & Seq2SQL             & WikiSQL                   &                                                                                          \\
+                                                                   &                     & WikiSQL                   &                                                                                          \\
+                                                                   & SeqGenSQL           & WikiSQL                   &                                                                                          \\
+        \hline
+        \multirow{6}{*}{\parbox{3cm}{Intermediate Representation}} & IncSQL              & WikiSQL                   & \multirow{6}{*}{{\parbox{5cm}{Bridging the gap between natural language and SQL query}}} \\
+                                                                   & IRNet               & WikiSQL                   &                                                                                          \\
+                                                                   & ?                   & Spider                    &                                                                                          \\
+                                                                   & ?                   & Spider                    &                                                                                          \\  & ?                   & GeoQuery, ATIS
+                                                                   &                                                                                                                                            \\  & ?                   & Spider                    &                                                        \\
+        \hline
+        \multirow{2}{*}{Constrained decoding}                      & UniSAr              & WikiSQL, Spider           & \multirow{2}{*}{Fine-grained decoding}                                                   \\
+                                                                   & PICARD              & Spider, CoSQL
+                                                                   &                                                                                                                                            \\
+        \hline
+        \multirow{2}{*}{Execution-guided}                          & SQLova              & WikiSQL                   & \multirow{2}{*}{Fine-grained decoding}                                                   \\
+                                                                   & ?                   & WikiSQL
+                                                                   &                                                                                                                                            \\
+        \hline
+        \multirow{2}{*}{Discriminative re-ranking}                 & Global-GCN          &                           & \multirow{2}{*}{SQL Ranking
+        }                                                                                                                                                                                                       \\
+                                                                   & ?                   & Spider
+                                                                   &                                                                                                                                            \\
+        \hline
+        \multirow{3}{*}{Constrained decoding}                      & SQLNet              & WikiSQL                   & \multirow{3}{*}{Easier decoding
+        }                                                                                                                                                                                                       \\
+                                                                   & ?                   & WikiSQL
+                                                                   &                                                                                                                                            \\
+                                                                   & ?                   & Spider
+                                                                   &                                                                                                                                            \\
+        \hline
+        BPE                                                        & UniSAr              & WikiSQL, Spider           & Easier decoding
+        \\
+        \hline
+        Link gating                                                & SmBop               & Spider                    & Synthesizing information                                                                 \\
+        \hline
+    \end{tabular}
+    \caption{Methods used for encoding in text-to-SQL.}
+    \label{tab:methods}
+\end{table}
+
+\subsection{Tree-based}
+
+\subsection{Sketch-based}
+
+\subsection{Bottom-up}
+
+\subsection{Attention Mechanism}
+
+\subsection{Copy Mechanism}
+
+\subsection{Intermediate Representations}
+
+\subsection{Prevent Invalid Tokens}
+
+\subsection{Skeleton-aware Decoder}
+
+Schema linking is a component of text-to-SQL models that helps map natural language phrases to elements of a database schema.
+Skeleton parsing is a component of text-to-SQL models that helps generate the structure of an SQL query based on a natural language question. It focuses on generating the pure skeleton of an SQL query (i.e., SQL keywords).
