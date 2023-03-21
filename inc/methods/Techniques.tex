@@ -1,14 +1,35 @@
 \section{Learning Techniques}
 
-\subsection{Fully Supervised}
+The advancement of Text-to-SQL research has been driven by various learning techniques that address specific challenges in the field. This chapter provides a comprehensive overview of these learning techniques, focusing on both fully supervised and weakly supervised methods.
 
-Active learning (Ni et al., 2020)
-Interactive/Imitation learning (Yao et al., 2019) (Yao et al., 2020)
-Meta-learning (Huang et al., 2018) (Wang et al., 2021a) (Chen et al., 2021a)
-Multi-task learning (Chang et al., 2020) (Xuan et al., 2021) (Hui et al., 2021b) (Shi et al., 2021) (McCann et al., 2018) (Xie et al., 2022)
+\subsection{Fully Supervised Learning Techniques}
 
-\subsection{Weakly Supervised}
+Fully supervised learning techniques rely on labeled data to train models. We discuss several state-of-the-art methods that have been proposed to improve Text-to-SQL generation.
 
-Reinforcement learning (Zhong et al., 2017) (Liang et al., 2018)
-Meta-learning and Bayesian optimization (Agarwal et al., 2019)
-(Min et al., 2019b)
+\subsubsection{Active Learning (Ni et al., 2020)}
+
+Active learning aims to minimize the amount of labeled data required for training by selectively choosing the most informative examples. Ni et al. (2020) proposed an active learning framework that leverages uncertainty estimation to identify samples that would benefit most from human annotations.
+
+\subsubsection{Interactive/Imitation Learning (Yao et al., 2019)}
+
+Interactive or imitation learning focuses on learning from demonstrations, where a model attempts to mimic expert behavior. Yao et al. (2019) introduced an interactive learning approach that incorporates user feedback to refine the model's understanding of complex SQL queries.
+
+\subsubsection{Meta-learning (Huang et al., 2018)}
+
+Meta-learning involves training models to learn how to learn efficiently. Huang et al. (2018) proposed a meta-learning technique for Text-to-SQL tasks, which allows the model to adapt quickly to new tasks or domains with limited labeled data.
+
+\subsubsection{Multi-task Learning (Chang et al., 2020)}
+
+Multi-task learning involves training a single model on multiple related tasks simultaneously. Chang et al. (2020) explored a multi-task learning framework for Text-to-SQL generation, demonstrating that sharing information across tasks can lead to improved performance.
+
+\subsection{Weakly Supervised Learning Techniques}
+
+Weakly supervised learning techniques use weak or noisy labels for training, often reducing the need for extensive human annotation.
+
+\subsubsection{Reinforcement Learning (Zhong et al., 2017)}
+
+Reinforcement learning focuses on learning by trial and error, with models receiving feedback through rewards or penalties. Zhong et al. (2017) applied reinforcement learning to Text-to-SQL generation, showing that such an approach can effectively learn from weak supervision.
+
+\subsubsection{Meta-learning and Bayesian Optimization (Agarwal et al., 2019)}
+
+Agarwal et al. (2019) combined meta-learning and Bayesian optimization for weakly supervised Text-to-SQL tasks. This approach allows models to adapt to new tasks more efficiently while leveraging limited supervision, ultimately reducing the need for large amounts of labeled data.
