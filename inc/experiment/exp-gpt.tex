@@ -1,0 +1,28 @@
+\subsection{SEOSS + GPT 3.5}
+
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|L|L|}
+        \hline
+        Model & Version   & \textbf{Exact Matching Accuracy} & \textbf{Execution Accuracy} \\ \hline
+        GPT   & 3.5-turbo & 0.423                            & 0.447                       \\ \hline
+    \end{tabular}
+    \caption{Expermiment Accuracy Results}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multirow{2}*{Exact Match Accuracy} & easy  & medium & hard  & extra hard & all   \\
+                                            & 392   & 378    & 77    & 84         & 931   \\ \hline
+        SQLNet                              & 0.023 & 0.000  & 0.000 & 0.000      & 0.010 \\ \hline
+        RatSQL + Glove                      & 0.309 & 0.214  & 0.091 & 0.000      & 0.224 \\ \hline
+        RatSQL + Bert                       & 0.161 & 0.201  & 0.065 & 0.012      & 0.156 \\ \hline
+        PICARD + T5Base + 4Beam             & 0.446 & 0.254  & 0.182 & 0.012      & 0.307 \\ \hline
+        PICARD + T5Large + 4Beam            & 0.571 & 0.410  & 0.182 & 0.060      & 0.427 \\ \hline
+        GPT 3.5-turbo                       & 0.551 & 0.460  & 0.130 & 0.190      & 0.447 \\ \hline
+    \end{tabular}
+    \caption{Comparison between Exact Match Accuracy}
+\end{table}
