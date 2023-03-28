@@ -1,1 +1,35 @@
 \subsubsection{Graph-based Methods}
+
+Graph-based methods are an effective approach for encoding the structural information found in database schemas. They have become particularly important as DBs have grown more complex, such as those found in the Spider dataset. These methods involve using graphs to represent the DB schema structure, with nodes representing tables and columns, and edges representing relationships between them, such as primary and foreign key constraints.
+
+Bogin et al.\cite{bogin-etal-2019-representing} were among the first to propose using graphs in this manner, utilizing Graph Neural Networks (GNNs)\cite{li2017gated} to encode the graph structure. Also, They employed Graph Convolutional Networks (GCNs) and gated GCNs for capturing DB structures and selecting relevant information for SQL generation. RAT-SQL\cite{wang_rat_sql_2021} added more relationships to the DB schema graphs, such as "both columns are from the same table."
+
+In addition to encoding DB schema information, graph-based methods have been used to represent natural language (NL) questions alongside the schema. Various types of graphs have been used to capture semantics in NL and facilitate linking between NL and table schema. For example, LGESQL\cite{cao-etal-2021-lgesql} utilized line graphs to capture multi-hop semantics using meta-paths, while SADGA\cite{cai_sadga_2022} adopted a graph structure to provide a unified encoding for both natural language utterances and DB schemas, assisting in question-schema linking.
+
+In order to improve the generalization of graph-based methods for unseen domains, ShadowGNN \cite{chen-etal-2021-shadowgnn} takes a unique approach. It disregards the names of tables or columns in the database and instead employs abstract schemas within the graph projection neural network. This results in delexicalized representations of questions and DB schemas, allowing the model to better handle new or previously unseen domains.
+S2SQL\cite{hui2022s2sql} integrated syntax dependency among question tokens into the graph to enhance model performance even more.
+
+\begin{table}[t]
+  \centering
+  \scalebox{0.8}{
+    \begin{tabular}{lcc}
+      \toprule
+      \textbf{Model}                                  & \textbf{EMA} \\
+      \midrule
+      TypeSQL\cite{DBLP:journals/corr/abs-1804-09769} & 8.0          \\
+      EditSQL \cite{tuan-nguyen-etal-2020-pilot}      & 36.4         \\
+      \midrule
+      GNN \cite{bogin-etal-2019-representing}         & 40.7         \\
+      Global-GNN \cite{bogin-etal-2019-representing}  & 52.7         \\
+      RATSQL \cite{wang_rat_sql_2021}                 & 69.7         \\
+      ShadowGNN\cite{chen-etal-2021-shadowgnn}        & 72.3         \\
+      LGESQL\cite{cao-etal-2021-lgesql}               & 75.1         \\
+      S$^2$SQL\cite{hui2022s2sql}                     & 76.4         \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{The exact match accuracy on the Spider dev set.}
+  \label{table:graph-based-methods}
+\end{table}
+
+In summary, graph-based methods have proven to be valuable for encoding structural information in DB schemas, bridging the gap between natural language questions and schema elements, and enhancing the performance of models in context-dependent text-to-SQL tasks. Upon examining the results from the Spider benchmark \(Table\ref{table:graph-based-methods}\), it is evident that there has been a significant overall performance improvement when comparing graph-based methods.

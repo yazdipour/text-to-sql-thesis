@@ -1,1 +1,28 @@
 \subsubsection{Pre-training}
+
+Pre-training methods are a crucial part of training transformer-based models for text-to-SQL tasks. These methods aim to align the models with the required tasks by using various objectives and pre-training data. Some popular pre-training methods include TaBERT\cite{yin_tabert_2020}, Grappa\cite{DBLP:journals/corr/abs-2009-13845}, and GAP\cite{shi2020learning}, which utilize different strategies to achieve their goals.
+
+TaBERT \cite{yin_tabert_2020} focuses on tabular data for pre-training. It employs two main objectives: masked column prediction and cell value recovery. These objectives help the model better understand the structure and semantics of tables, allowing it to generate SQL queries more effectively.
+
+Grappa \cite{DBLP:journals/corr/abs-2009-13845} generates synthetic question-SQL pairs over tables for pre-training. It uses BERT and relies on two primary objectives: masked language modeling (MLM) and predicting column presence and SQL operations. MLM helps the model understand the language structure in the context of SQL queries while predicting column presence and SQL operations allowing it to learn how columns and operations are related to the questions.
+
+GAP \cite{shi2020learning} pre-trains BART \cite{lewis-etal-2020-bart} on both synthesized text-to-SQL and tabular data. It utilizes four objectives: MLM, column prediction, column recovery, and SQL generation. The combination of these objectives enables the model to understand language patterns and table structures while also learning to generate SQL queries that match the given text.
+
+In summary, various pre-training methods have been proposed to better align transformer-based models with text-to-SQL tasks. A glance at the SPIDER Benchmark results \(Table\ref{table:methods:encoders:PreTraining}\) highlights the performance improvement when incorporating advanced pre-training methods with RATSQL. The integration of GAP, which leverages multiple objectives, leads to a more effective understanding of text-to-SQL tasks. A further enhancement is observed when combining RATSQL with GraPPa, a method that uses synthesized question-SQL pairs. These findings emphasize the value of using cutting-edge pre-training techniques to boost transformer-based models like RATSQL in text-to-SQL tasks.
+
+\begin{table}[htbp]
+    \centering
+    \scalebox{0.8}{
+        \begin{tabular}{lc}
+            \toprule
+            \textbf{Model}  & \textbf{EMA Dev.} \\
+            \midrule
+            RATSQL          & 62.7              \\
+            RATSQL + GAP    & 71.8              \\
+            RATSQL + GraPPa & 73.4              \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{The exact match accuracy on the Spider dev set.}
+    \label{table:methods:encoders:PreTraining}
+\end{table}

@@ -16,6 +16,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\usepackage{adjustbox}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
@@ -63,6 +64,10 @@
 \pagenumbering{roman}
 
 \pagenumbering{arabic}
+
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
 \input{inc/content}
 

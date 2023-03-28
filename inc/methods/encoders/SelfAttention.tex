@@ -1,1 +1,29 @@
 \subsubsection{Self-attention}
+\label{sec:methods:encoders:SelfAttention}
+
+Self-attention is a fundamental component in natural language processing (NLP) models, particularly those based on the Transformer architecture. It serves as the primary building block of the transformer structure, as mentioned in the works of X-SQL\cite{he2019xsql}, SQLova\cite{DBLP:journals/corr/abs-1902-01069}, and UnifiedSKG\cite{xie2022unifiedskg}. These models employ the original self-attention mechanism by default.
+
+The self-attention mechanism allows the model to weigh and aggregate different words or tokens in a sequence based on their relative importance\cite{https://doi.org/10.48550/arxiv.1706.03762}. In essence, it helps the model to focus on the most relevant parts of a given input while processing it. This is accomplished by computing attention scores between each pair of tokens in the input, which are then used to produce a weighted sum of the input tokens. The mechanism is particularly effective in handling long-range dependencies within the text.
+
+However, the original self-attention mechanism can be modified to cater to specific tasks or address particular challenges. One such modification is relation-aware self-attention, employed by RAT-SQL\cite{wang_rat_sql_2021} and DuoRAT\cite{scholak-etal-2021-duorat}. This variation of self-attention is designed to take advantage of the relationships between tables and columns when working with structured data.
+
+Relation-aware self-attention extends the original self-attention by incorporating information about the structure and relations in the input data. This additional information is used to adjust the attention scores, allowing the model to focus on the most relevant relationships between different elements in the input. As a result, models equipped with relation-aware self-attention can better handle tasks involving structured data, such as SQL query generation or table-based reasoning.
+
+% \begin{table}[t]
+%     \centering
+%     \scalebox{0.8}{
+%         \begin{tabular}{lcc}
+%             \toprule
+%             \textbf{Model}                                 & \textbf{EMA Dev.} \\
+%             \midrule
+%             X-SQL\cite{he2019xsql}                         & 89.5              \\
+%             SQLova\cite{DBLP:journals/corr/abs-1902-01069} & 87.2              \\
+%             RATSQL \cite{wang_rat_sql_2021}                & 69.7              \\
+%             UnifiedSKG\cite{xie2022unifiedskg}             & 72.3              \\
+%             DuoRAT\cite{scholak-etal-2021-duorat}          & 75.1              \\
+%             \bottomrule
+%         \end{tabular}
+%     }
+%     \caption{The exact match accuracy on the Spider dev set.}
+%     \label{table:methods:encoders:SelfAttention}
+% \end{table}

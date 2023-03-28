@@ -1,1 +1,26 @@
 \subsubsection{Encode Token Types}
+
+Token Type Encoding is an innovative technique introduced in TypeSQL\cite{DBLP:journals/corr/abs-1804-09769}, which focuses on transforming natural language queries into SQL-like structures by annotating each token with its corresponding SQL token type. This method has demonstrated impressive performance in accurately encoding intricate queries that involve multiple subqueries and join operations, thereby providing a more effective means of bridging the gap between natural language and SQL.
+
+\subsubsection*{TypeSQL}
+
+In TypeSQL, the core methodology involves a knowledge-based type system and a type-aware neural network model\cite{DBLP:journals/corr/abs-1804-09769}. The knowledge-based type system is responsible for identifying and disambiguating the types of entities and values mentioned in the input text. This system uses a combination of pre-defined types, a type dictionary, and a type hierarchy. The type dictionary maps entities and values to their corresponding types, while the type hierarchy defines the relationships between different types, allowing the model to infer implicit relationships between entities in the input text.
+TypeSQL, similar to SQLNet, adopts a sketch-based approach and treats the task as a slot-filling problem. As shown in Figure \ref{fig:sql_sketch}, the model is tasked with predicting the slots starting with '\$'.
+
+
+% The type-aware neural network model in TypeSQL builds on the knowledge-based type system by utilizing the type information to guide the generation of SQL queries. The model is composed of two main components: the SQL pattern encoder and the column attention mechanism. The SQL pattern encoder learns to encode possible SQL query patterns based on the type information, ensuring that the generated SQL query is both syntactically and semantically correct. The column attention mechanism focuses on identifying the relevant database columns based on the entities and values in the input text, improving the model's ability to map natural language inputs to the correct database schema.
+
+The results of TypeSQL demonstrate its effectiveness in generating SQL queries from natural language inputs. When tested on the WikiSQL dataset without considering the content of databases, TypeSQL surpasses the previous best model by 5.5\% in execution accuracy. TypeSQL's simpler yet effective approach of encoding column names and logically grouping model components leads to significant improvements in the challenging WHERE clause sub-task. Moreover, the incorporation of word types enables TypeSQL to better encode rare entities and numbers. When given complete access to the database, TypeSQL achieves an execution accuracy of 82.6\%, outperforming the previous content-aware system, SQLNet by a remarkable 17.5\%.
+
+Despite its success, the Token Type Encoding approach in TypeSQL does have certain limitations, particularly when it comes to handling queries with ambiguous or uncommon syntax patterns. Additionally, this methodology encounters challenges when faced with queries containing nested subqueries or intricate aggregation operations, as it may struggle to accurately capture the relationships and dependencies among the various tokens.
+
+Another drawback of TypeSQL's Token Type Encoding technique is its susceptibility to issues when dealing with out-of-vocabulary words. In these cases, the method may generate incorrect or incomplete SQL encodings, which can adversely impact the overall effectiveness of the system. Nonetheless, the introduction of Token Type Encoding in TypeSQL has laid the foundation for further research and development in the field of neural text-to-SQL generation, providing valuable insights and paving the way for more advanced techniques to address these limitations and improve the overall performance of natural language to SQL conversion systems.
+
+\begin{figure}[!t]
+    \centering
+    \adjustbox{}{\textbf{SELECT} \texttt{\$AGG} \texttt{\$SELECT\_COL}}
+    \adjustbox{}{\textbf{WHERE} \texttt{\$COND\_COL} \texttt{\$OP} \texttt{\$COND\_VAL}}
+    \adjustbox{}{(\textbf{AND} \texttt{\$COND\_COL} \texttt{\$OP \texttt{\$COND\_VAL}})*}
+    \caption{\centering SQL Sketch. The tokens starting with ``\$" are slots to fill. ``*" indicates zero or more \textbf{AND} clauses.\cite{DBLP:journals/corr/abs-1804-09769}}
+    \label{fig:sql_sketch}
+\end{figure}

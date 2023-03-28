@@ -1,15 +1,23 @@
-\subsection{Encoders}
+\subsection{Encoding}
 \label{sec:encoders}
 
-Several approaches have been explored to address the challenges of representing the meaning of questions, capturing the structure of database schemas, and establishing connections between database content and questions in the text-to-SQL domain. These methods play a crucial role in facilitating the understanding of the complex relationships between natural language questions and their corresponding SQL queries.
+Encoders\cite{kumar2022deep} are a crucial component in natural language processing tasks and consist of a multi-layered assembly of recurrent elements, such as Long Short-Term Memory (LSTM) units, Gated Recurrent Units (GRUs), or other similar structures. These recurrent elements work in tandem to process an input sequence, with each unit being responsible for handling a single element within the sequence, capturing the pertinent information for that specific element, and subsequently propagating this information forward to the next recurrent unit in the stack.
+
+The primary function of an encoder is to systematically transform textual data into a suitable numerical or vector representation that retains the inherent relationships and dependencies among words, phrases, and sentences\cite{cho-etal-2014-learning}. This is achieved through a combination of techniques, such as tokenization, embedding, and the use of attention mechanisms, which together facilitate the encoding process.
+
+Tokenization serves to break down the input text into smaller, manageable units, such as words or subwords, while embeddings assign a dense vector representation to each token, thus allowing machines to efficiently process and compare these tokens. Attention mechanisms, on the other hand, enable encoders to weigh the importance of different input elements and selectively focus on the most relevant parts of the input sequence when generating the final encoded representation.
+
+By effectively converting the textual data into a machine-understandable format, encoders play a pivotal role in empowering machines to recognize intricate patterns, relationships, and contextual cues within the text. Consequently, this ability to accurately discern the context of sentences and phrases forms the foundation for a wide array of natural language processing tasks, ranging from machine translation and sentiment analysis to text summarization and question-answering systems.
+
+Several approaches have been explored to address the challenges of representing the meaning of questions, capturing the structure of database schemas, and establishing connections between database content and questions in the text-to-SQL domain\cite{deng2022recent}. These methods play a crucial role in facilitating the understanding of the complex relationships between natural language questions and their corresponding SQL queries.
 
 One of the main challenges in text-to-SQL research is effectively representing the meaning of questions. Various encoding methods have been used to capture the semantics of natural language questions, ranging from traditional word embeddings like Word2Vec and GloVe to more advanced contextualized representations like BERT and its variants. These encoding techniques aim to produce meaningful vector representations of questions that models can use to understand and generate accurate SQL queries.
 
 Another important aspect is representing database schemas, which serve as blueprints for organizing and structuring databases. Researchers have used various strategies to encapsulate database schema information, such as graph-based, tree-structured, and sequence-based encodings. These approaches enable text-to-SQL models to understand the hierarchical relationships and dependencies among various database elements. This allows for more accurate and efficient query generation.
 
-Linking database content to questions is a vital task for text-to-SQL systems. It involves the identification and mapping of relevant entities and attributes from the question to the database schema. To achieve this, various methods have been employed, including attention mechanisms, entity-linking techniques, and schema-agnostic encodings. These approaches help models identify relevant portions of the database schema and generate SQL queries that accurately reflect the intended meaning of the natural language questions.
+Linking database content to questions is a vital task for text-to-SQL systems\cite{deng2022recent}. It involves the identification and mapping of relevant entities and attributes from the question to the database schema. To achieve this, various methods have been employed, including attention mechanisms, entity-linking techniques, and schema-agnostic encodings. These approaches help models identify relevant portions of the database schema and generate SQL queries that accurately reflect the intended meaning of the natural language questions.
 
-Encoding methods and encoders play a crucial role in addressing the challenges of representing question semantics, encapsulating database schema structures, and linking database content to questions in the text-to-SQL domain. The exploration of diverse encoding techniques has led to significant advancements in the development of more accurate and efficient text-to-SQL models, furthering the field's understanding of the complex relationships between natural language questions and SQL queries.
+Encoding methods and encoders play a crucial role in addressing the challenges of representing question semantics, encapsulating database schema structures, and linking database content to questions in the text-to-SQL domain. The exploration of diverse encoding techniques has led to significant advancements in the development of more accurate and efficient text-to-SQL models, furthering the field's understanding of the complex relationships between natural language questions and SQL queries\cite{deng2022recent}.
 
 \begin{table}
     \centering
@@ -39,7 +47,7 @@ Encoding methods and encoders play a crucial role in addressing the challenges o
         \hline
         \multirow{4}{*}{Adapt PLM}      & X-SQL               & WikiSQL                   & \multirow{4}{*}{\parbox{5cm}{Leveraging external data to represent question and DB schemas}}               \\
                                         & SQLova              & WikiSQL                   &                                                                                                            \\
-                                        & Content Enhanced    & WikiSQL                   &                                                                                                            \\
+                                        & Guo                 & WikiSQL                   &                                                                                                            \\
                                         & HydraNet            & WikiSQL                   &                                                                                                            \\
         \hline
         \multirow{3}{*}{Pre-training}   & TaBERT              & Spider                    & \multirow{3}{*}{\parbox{5cm}{Leveraging external data to represent question and DB schemas}}               \\
@@ -47,7 +55,7 @@ Encoding methods and encoders play a crucial role in addressing the challenges o
                                         & GAP                 & Spider                    &                                                                                                            \\
         \hline
     \end{tabular}
-    \caption{Methods used for encoding in text-to-SQL.}
+    \caption{Methods used for encoding in text-to-SQL \cite{deng2022recent}}
     \label{tab:methods}
 \end{table}
 
@@ -56,5 +64,4 @@ Encoding methods and encoders play a crucial role in addressing the challenges o
 \input{inc/methods/encoders/SelfAttention.tex}
 \input{inc/methods/encoders/AdaptPLM.tex}
 \input{inc/methods/encoders/PreTraining.tex}
-\input{inc/methods/encoders/RankingEnhancedEncoder.tex}
 
