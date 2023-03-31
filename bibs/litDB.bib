@@ -1168,3 +1168,240 @@ bibsource = {dblp computer science bibliography, https://dblp.org}
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 }
+@inproceedings{dong-lapata-2016-language,
+    title = "Language to Logical Form with Neural Attention",
+    author = "Dong, Li  and
+      Lapata, Mirella",
+    booktitle = "Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2016",
+    address = "Berlin, Germany",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P16-1004",
+    doi = "10.18653/v1/P16-1004",
+    pages = "33--43",
+}
+@inproceedings{yin-neubig-2017-syntactic,
+    title = "A Syntactic Neural Model for General-Purpose Code Generation",
+    author = "Yin, Pengcheng  and
+      Neubig, Graham",
+    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2017",
+    address = "Vancouver, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P17-1041",
+    doi = "10.18653/v1/P17-1041",
+    pages = "440--450",
+    abstract = "We consider the problem of parsing natural language descriptions into source code written in a general-purpose programming language like Python. Existing data-driven methods treat this problem as a language generation task without considering the underlying syntax of the target programming language. Informed by previous work in semantic parsing, in this paper we propose a novel neural architecture powered by a grammar model to explicitly capture the target syntax as prior knowledge. Experiments find this an effective way to scale up to generation of complex programs from natural language descriptions, achieving state-of-the-art results that well outperform previous code generation and semantic parsing approaches.",
+}
+@inproceedings{dong-lapata-2018-coarse,
+    title = "Coarse-to-Fine Decoding for Neural Semantic Parsing",
+    author = "Dong, Li  and
+      Lapata, Mirella",
+    booktitle = "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2018",
+    address = "Melbourne, Australia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P18-1068",
+    doi = "10.18653/v1/P18-1068",
+    pages = "731--742",
+    abstract = "Semantic parsing aims at mapping natural language utterances into structured meaning representations. In this work, we propose a structure-aware neural architecture which decomposes the semantic parsing process into two stages. Given an input utterance, we first generate a rough sketch of its meaning, where low-level information (such as variable names and arguments) is glossed over. Then, we fill in missing details by taking into account the natural language input and the sketch itself. Experimental results on four datasets characteristic of different domains and meaning representations show that our approach consistently improves performance, achieving competitive results despite the use of relatively simple decoders.",
+}
+@inproceedings{rubin-berant-2021-smbop,
+    title = "{S}m{B}o{P}: Semi-autoregressive Bottom-up Semantic Parsing",
+    author = "Rubin, Ohad  and
+      Berant, Jonathan",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.naacl-main.29",
+    doi = "10.18653/v1/2021.naacl-main.29",
+    pages = "311--324",
+    abstract = "The de-facto standard decoding method for semantic parsing in recent years has been to autoregressively decode the abstract syntax tree of the target program using a top-down depth-first traversal. In this work, we propose an alternative approach: a Semi-autoregressive Bottom-up Parser (SmBoP) that constructs at decoding step t the top-K sub-trees of height {\mbox{$\leq$}} t. Our parser enjoys several benefits compared to top-down autoregressive parsing. From an efficiency perspective, bottom-up parsing allows to decode all sub-trees of a certain height in parallel, leading to logarithmic runtime complexity rather than linear. From a modeling perspective, a bottom-up parser learns representations for meaningful semantic sub-programs at each step, rather than for semantically-vacuous partial trees. We apply SmBoP on Spider, a challenging zero-shot semantic parsing benchmark, and show that SmBoP leads to a 2.2x speed-up in decoding time and a {\textasciitilde}5x speed-up in training time, compared to a semantic parser that uses autoregressive decoding. SmBoP obtains 71.1 denotation accuracy on Spider, establishing a new state-of-the-art, and 69.5 exact match, comparable to the 69.6 exact match of the autoregressive RAT-SQL+GraPPa.",
+}
+@inproceedings{wang-etal-2019-learning,
+    title = "Learning Semantic Parsers from Denotations with Latent Structured Alignments and Abstract Programs",
+    author = "Wang, Bailin  and
+      Titov, Ivan  and
+      Lapata, Mirella",
+    booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+    month = nov,
+    year = "2019",
+    address = "Hong Kong, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D19-1391",
+    doi = "10.18653/v1/D19-1391",
+    pages = "3774--3785",
+    abstract = "Semantic parsing aims to map natural language utterances onto machine interpretable meaning representations, aka programs whose execution against a real-world environment produces a denotation. Weakly-supervised semantic parsers are trained on utterance-denotation pairs treating programs as latent. The task is challenging due to the large search space and spuriousness of programs which may execute to the correct answer but do not generalize to unseen examples. Our goal is to instill an inductive bias in the parser to help it distinguish between spurious and correct programs. We capitalize on the intuition that correct programs would likely respect certain structural constraints were they to be aligned to the question (e.g., program fragments are unlikely to align to overlapping text spans) and propose to model alignments as structured latent variables. In order to make the latent-alignment framework tractable, we decompose the parsing task into (1) predicting a partial {``}abstract program{''} and (2) refining it while modeling structured alignments with differential dynamic programming. We obtain state-of-the-art performance on the WikiTableQuestions and WikiSQL datasets. When compared to a standard attention baseline, we observe that the proposed structured-alignment mechanism is highly beneficial.",
+}
+@inproceedings{
+kim2017structured,
+title={Structured Attention Networks},
+author={Yoon Kim and Carl Denton and Luong Hoang and Alexander M. Rush},
+booktitle={International Conference on Learning Representations},
+year={2017},
+url={https://openreview.net/forum?id=HkE0Nvqlg}
+}
+@misc{vinyals2017pointer,
+      title={Pointer Networks}, 
+      author={Oriol Vinyals and Meire Fortunato and Navdeep Jaitly},
+      year={2017},
+      eprint={1506.03134},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}
+}
+@inproceedings{wang-etal-2020-pg,
+    title = "{PG}-{GSQL}: Pointer-Generator Network with Guide Decoding for Cross-Domain Context-Dependent Text-to-{SQL} Generation",
+    author = "Wang, Huajie  and
+      Li, Mei  and
+      Chen, Lei",
+    booktitle = "Proceedings of the 28th International Conference on Computational Linguistics",
+    month = dec,
+    year = "2020",
+    address = "Barcelona, Spain (Online)",
+    publisher = "International Committee on Computational Linguistics",
+    url = "https://aclanthology.org/2020.coling-main.33",
+    doi = "10.18653/v1/2020.coling-main.33",
+    pages = "370--380",
+    abstract = "Text-to-SQL is a task of translating utterances to SQL queries, and most existing neural approaches of text-to-SQL focus on the cross-domain context-independent generation task. We pay close attention to the cross-domain context-dependent text-to-SQL generation task, which requires a model to depend on the interaction history and current utterance to generate SQL query. In this paper, we present an encoder-decoder model called PG-GSQL based on the interaction-level encoder and with two effective innovations in decoder to solve cross-domain context-dependent text-to-SQL task. 1) To effectively capture historical information of SQL query and reuse the previous SQL query tokens, we use a hybrid pointer-generator network as decoder to copy tokens from the previous SQL query via pointer, the generator part is utilized to generate new tokens. 2) We propose a guide component to limit the prediction space of vocabulary for avoiding table-column dependency and foreign key dependency errors during decoding phase. In addition, we design a column-table linking mechanism to improve the prediction accuracy of tables. On the challenging cross-domain context-dependent text-to-SQL benchmark SParC, PG-GSQL achieves 34.0{\%} question matching accuracy and 19.0{\%} interaction matching accuracy on the dev set. With BERT augmentation, PG-GSQL obtains 53.1{\%} question matching accuracy and 34.7{\%} interaction matching accuracy on the dev set, outperforms the previous state-of-the-art model by 5.9{\%} question matching accuracy and 5.2{\%} interaction matching accuracy. Our code is publicly available.",
+}
+@techreport{wang2017pointing,
+author = {Wang, Chenglong and Brockschmidt, Marc and Singh, Rishabh},
+title = {Pointing Out SQL Queries From Text},
+year = {2017},
+month = {November},
+abstract = {The digitization of data has resulted in making datasets available to millions of users in the form of relational databases and spreadsheet tables. However, a majority of these users come from diverse backgrounds and lack the programming expertise to query and analyze such tables. We present a system that allows for querying data tables using natural language questions, where the system translates the question into an executable SQL query. We use a deep sequence to sequence model in wich the decoder uses a simple type system of SQL expressions to structure the output prediction. Based on the type, the decoder either copies an output token from the input question using an attention-based copying mechanism or generates it from a fixed vocabulary. We also introduce a value-based loss function that transforms a distribution over locations to copy from into a distribution over the set of input tokens to improve training of our model. We evaluate our model on the recently released WikiSQL dataset and show that our model trained using only supervised learning significantly outperforms the current state-of-the-art Seq2SQL model that uses reinforcement learning.},
+url = {https://www.microsoft.com/en-us/research/publication/pointing-sql-queries-text/},
+number = {MSR-TR-2017-45},
+}
+@misc{shi2018incsql,
+      title={IncSQL: Training Incremental Text-to-SQL Parsers with Non-Deterministic Oracles}, 
+      author={Tianze Shi and Kedar Tatwawadi and Kaushik Chakrabarti and Yi Mao and Oleksandr Polozov and Weizhu Chen},
+      year={2018},
+      eprint={1809.05054},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@inproceedings{gan-etal-2021-natural-sql,
+    title = "Natural {SQL}: Making {SQL} Easier to Infer from Natural Language Specifications",
+    author = "Gan, Yujian  and
+      Chen, Xinyun  and
+      Xie, Jinxia  and
+      Purver, Matthew  and
+      Woodward, John R.  and
+      Drake, John  and
+      Zhang, Qiaofu",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2021",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-emnlp.174",
+    doi = "10.18653/v1/2021.findings-emnlp.174",
+    pages = "2030--2042",
+    abstract = "Addressing the mismatch between natural language descriptions and the corresponding SQL queries is a key challenge for text-to-SQL translation. To bridge this gap, we propose an SQL intermediate representation (IR) called Natural SQL (NatSQL). Specifically, NatSQL preserves the core functionalities of SQL, while it simplifies the queries as follows: (1) dispensing with operators and keywords such as GROUP BY, HAVING, FROM, JOIN ON, which are usually hard to find counterparts in the text descriptions; (2) removing the need of nested subqueries and set operators; and (3) making the schema linking easier by reducing the required number of schema items. On Spider, a challenging text-to-SQL benchmark that contains complex and nested SQL queries, we demonstrate that NatSQL outperforms other IRs, and significantly improves the performance of several previous SOTA models. Furthermore, for existing models that do not support executable SQL generation, NatSQL easily enables them to generate executable SQL queries, and achieves the new state-of-the-art execution accuracy.",
+}
+@misc{brunner2021valuenet,
+      title={ValueNet: A Natural Language-to-SQL System that Learns from Database Information}, 
+      author={Ursin Brunner and Kurt Stockinger},
+      year={2021},
+      eprint={2006.00888},
+      archivePrefix={arXiv},
+      primaryClass={cs.DB}
+}
+@misc{herzig2021unlocking,
+      title={Unlocking Compositional Generalization in Pre-trained Models Using Intermediate Representations}, 
+      author={Jonathan Herzig and Peter Shaw and Ming-Wei Chang and Kelvin Guu and Panupong Pasupat and Yuan Zhang},
+      year={2021},
+      eprint={2104.07478},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+@inproceedings{saparina-osokin-2021-sparqling,
+    title = "{SPARQL}ing Database Queries from Intermediate Question Decompositions",
+    author = "Saparina, Irina  and
+      Osokin, Anton",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.708",
+    doi = "10.18653/v1/2021.emnlp-main.708",
+    pages = "8984--8998",
+    abstract = "To translate natural language questions into executable database queries, most approaches rely on a fully annotated training set. Annotating a large dataset with queries is difficult as it requires query-language expertise. We reduce this burden using grounded in databases intermediate question representations. These representations are simpler to collect and were originally crowdsourced within the Break dataset (Wolfson et al., 2020). Our pipeline consists of two parts: a neural semantic parser that converts natural language questions into the intermediate representations and a non-trainable transpiler to the SPARQL query language (a standard language for accessing knowledge graphs and semantic web). We chose SPARQL because its queries are structurally closer to our intermediate representations (compared to SQL). We observe that the execution accuracy of queries constructed by our model on the challenging Spider dataset is comparable with the state-of-the-art text-to-SQL methods trained with annotated SQL queries. Our code and data are publicly available (https://github.com/yandex-research/sparqling-queries).",
+}
+@misc{wang2018robust,
+      title={Robust Text-to-SQL Generation with Execution-Guided Decoding}, 
+      author={Chenglong Wang and Kedar Tatwawadi and Marc Brockschmidt and Po-Sen Huang and Yi Mao and Oleksandr Polozov and Rishabh Singh},
+      year={2018},
+      eprint={1807.03100},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+@inproceedings{bogin-etal-2019-global,
+    title = "Global Reasoning over Database Structures for Text-to-{SQL} Parsing",
+    author = "Bogin, Ben  and
+      Gardner, Matt  and
+      Berant, Jonathan",
+    booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+    month = nov,
+    year = "2019",
+    address = "Hong Kong, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D19-1378",
+    doi = "10.18653/v1/D19-1378",
+    pages = "3659--3664",
+    abstract = "State-of-the-art semantic parsers rely on auto-regressive decoding, emitting one symbol at a time. When tested against complex databases that are unobserved at training time (zero-shot), the parser often struggles to select the correct set of database constants in the new database, due to the local nature of decoding. {\%}since their decisions are based on weak, local information only. In this work, we propose a semantic parser that globally reasons about the structure of the output query to make a more contextually-informed selection of database constants. We use message-passing through a graph neural network to softly select a subset of database constants for the output query, conditioned on the question. Moreover, we train a model to rank queries based on the global alignment of database constants to question words. We apply our techniques to the current state-of-the-art model for Spider, a zero-shot semantic parsing dataset with complex databases, increasing accuracy from 39.4{\%} to 47.4{\%}.",
+}
+@misc{kelkar2020bertranddr,
+      title={Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker}, 
+      author={Amol Kelkar and Rohan Relan and Vaishali Bhardwaj and Saurabh Vaichal and Chandra Khatri and Peter Relan},
+      year={2020},
+      eprint={2002.00557},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+@inproceedings{chen-etal-2020-tale,
+    title = "A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-{SQL} Parsing",
+    author = "Chen, Sanxing  and
+      San, Aidan  and
+      Liu, Xiaodong  and
+      Ji, Yangfeng",
+    booktitle = "Proceedings of the 28th International Conference on Computational Linguistics",
+    month = dec,
+    year = "2020",
+    address = "Barcelona, Spain (Online)",
+    publisher = "International Committee on Computational Linguistics",
+    url = "https://aclanthology.org/2020.coling-main.260",
+    doi = "10.18653/v1/2020.coling-main.260",
+    pages = "2900--2912",
+    abstract = "In Text-to-SQL semantic parsing, selecting the correct entities (tables and columns) for the generated SQL query is both crucial and challenging; the parser is required to connect the natural language (NL) question and the SQL query to the structured knowledge in the database. We formulate two linking processes to address this challenge: schema linking which links explicit NL mentions to the database and structural linking which links the entities in the output SQL with their structural relationships in the database schema. Intuitively, the effectiveness of these two linking processes changes based on the entity being generated, thus we propose to dynamically choose between them using a gating mechanism. Integrating the proposed method with two graph neural network-based semantic parsers together with BERT representations demonstrates substantial gains in parsing accuracy on the challenging Spider dataset. Analyses show that our proposed method helps to enhance the structure of the model output when generating complicated SQL queries and offers more explainable predictions.",
+}
+@inproceedings{sennrich-etal-2016-neural,
+    title = "Neural Machine Translation of Rare Words with Subword Units",
+    author = "Sennrich, Rico  and
+      Haddow, Barry  and
+      Birch, Alexandra",
+    booktitle = "Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2016",
+    address = "Berlin, Germany",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P16-1162",
+    doi = "10.18653/v1/P16-1162",
+    pages = "1715--1725",
+}
+@misc{müller2019bytepair,
+      title={Byte-Pair Encoding for Text-to-SQL Generation}, 
+      author={Samuel Müller and Andreas Vlachos},
+      year={2019},
+      eprint={1910.08962},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}

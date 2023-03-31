@@ -1,1 +1,15 @@
 \subsubsection{Attention Mechanism}
+
+Attention mechanism decoders play a critical role in integrating encoder-side information during the decoding process. By computing attention scores and multiplying them with hidden vectors from the encoder, a context vector is generated, which is then used to produce an output token.
+
+Various attention structures have been employed to enhance the decoder's performance and effectively propagate the information encoded from questions and database schemas. One such example is SQLNet (Xu et al., 2017) \cite{xu_sqlnet_2017}, which introduces the concept of column attention. This technique involves using hidden states from columns and multiplying them by embeddings for the question to calculate attention scores for a given column. The attention scores are then used to help the model focus on relevant columns when generating the SQL query.
+
+Another approach, proposed by Guo and Gao (2018) \cite{guo2020content}, incorporates bi-attention over a question and column names for SQL component selection. This method enables the model to simultaneously attend to both the question and column names, which can improve the model's ability to identify and select relevant SQL components.
+
+Wang et al. (2019) \cite{wang-etal-2019-learning} adopt a structured attention mechanism \cite{kim2017structured} that computes marginal probabilities to fill in the slots of their generated abstract SQL queries. This approach allows the model to better capture the structure of SQL queries and enhances the overall generation process.
+
+DuoRAT \cite{scholak-etal-2021-duorat} implements a relation-aware self-attention mechanism in both its encoder and decoder components. This attention mechanism accounts for relationships between different elements within the input data, thus improving the model's ability to comprehend and generate accurate SQL queries.
+
+Other works, such as those by Scholak et al. PICARD (2021b) \cite{Scholak2021:PICARD} and UnifiedSKG by Xie et al. (2022) \cite{xie2022unifiedskg}, use sequence-to-sequence transformer-based models or decoder-only transformer-based models that incorporate the self-attention mechanism by default. The self-attention mechanism allows the model to weigh the significance of each input token concerning other tokens in the sequence, which can enhance the quality and coherence of the generated output.
+
+In summary, attention mechanism decoders have been an essential aspect of Text-to-SQL research, with various structures designed to improve the propagation of information and the generation of accurate SQL queries. By continuously refining and adapting these attention mechanisms, researchers aim to further enhance the performance of Text-to-SQL models.

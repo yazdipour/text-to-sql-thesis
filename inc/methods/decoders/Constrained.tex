@@ -1,0 +1,13 @@
+\subsubsection{Constrained decoding}
+
+Constrained decoding methods are employed in natural language processing tasks, such as text-to-SQL, to improve the quality of generated outputs by imposing certain constraints or utilizing auxiliary models during the decoding process. These methods aim to prevent the generation of invalid tokens, exclude non-executable partial SQL queries, or facilitate the generation of complete SQL queries.
+
+PICARD (Scholak et al., 2021b) \cite{Scholak2021:PICARD} is an example of a method that sets constraints on the decoder to avoid generating invalid tokens. Other methods, such as those proposed by Wang et al. (2018b) \cite{wang2018robust} and Hwang et al. (2019) \cite{DBLP:journals/corr/abs-1902-01069}, adopt an execution-guided decoding mechanism that eliminates non-executable partial SQL queries from the output candidates.
+
+Some approaches, like Global-GNN (Bogin et al., 2019b) \cite{bogin-etal-2019-global} and Kelkar et al. (2020) \cite{kelkar2020bertranddr}, use separately trained discriminative models to rerank the top-K SQL queries in the decoder's output beam. This technique allows the model to reason about complete SQL queries rather than considering each word and database schema in isolation.
+
+Chen et al. (2020b) \cite{chen-etal-2020-tale} employ a gating mechanism to select between the output sequence encoded for the question and the output sequence from the previous decoding steps at each step for SQL generation. This approach helps in generating more accurate and coherent SQL queries.
+
+Müller and Vlachos (2019) \cite{müller2019bytepair} draw inspiration from machine translation and apply byte-pair encoding (BPE) (Sennrich et al., 2016) \cite{sennrich-etal-2016-neural} to compress SQL queries into shorter sequences, guided by abstract syntax trees (AST). This technique reduces the difficulties in SQL generation, leading to improved performance in text-to-SQL tasks.
+
+\input{inc/models/Picard.tex}

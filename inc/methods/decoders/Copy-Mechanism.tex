@@ -1,1 +1,11 @@
 \subsubsection{Copy Mechanism}
+
+The Copy mechanism is a vital component in various Text-to-SQL models, as it facilitates the direct copying of specific words or tokens from the input sequence to the generated output. Several research papers have implemented this mechanism to improve the performance of their models.
+
+Seq2AST by Yin and Neubig (2017) \cite{yin-neubig-2017-syntactic} and Seq2SQL by Zhong et al. (2017) \cite{zhong_seq2sql_2017} both employ the pointer network, introduced by Vinyals et al. (2015) \cite{vinyals2017pointer}, to calculate the probability of copying words from the input sequence. The pointer network is a type of neural network that can learn to point to specific positions in the input data, allowing the model to copy tokens directly from the input when generating output sequences.
+
+Wang et al. (2018a) \cite{wang2017pointing} take a different approach to the copy mechanism by using types, such as columns, SQL operators, and constants from questions, to explicitly restrict the locations in the query that can be copied from. This method helps the model focus on copying only relevant tokens to generate coherent and accurate SQL queries. Additionally, they develop a new training objective that encourages the model to only copy from the first occurrence of a token in the input sequence, which can prevent potential redundancies in the generated output.
+
+Furthermore, the copy mechanism has been adopted in the context-dependent text-to-SQL task, as demonstrated by Wang et al. (2020b) \cite{wang-etal-2020-pg}. In this scenario, the copy mechanism is particularly beneficial for models that need to handle complex input data, such as multiple questions or queries, and generate output sequences that accurately reflect the context.
+
+In summary, the copy mechanism plays a crucial role in various Text-to-SQL models by allowing them to copy specific tokens from the input sequence directly, enhancing the accuracy and coherence of the generated SQL queries. By adopting different techniques and refining the copy mechanism, researchers continue to improve the performance of their models in the Text-to-SQL domain.

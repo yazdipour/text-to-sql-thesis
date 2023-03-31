@@ -41,17 +41,15 @@ Numerous approaches have been suggested to enhance the decoding process for more
                                                                    & IRNet               & WikiSQL                   &                                                                                          \\
                                                                    & ValueNet            & Spider                    &                                                                                          \\
         \hline
-        \multirow{2}{*}{Constrained decoding}                      & UniSAr              & WikiSQL, Spider           & \multirow{2}{*}{Fine-grained decoding}                                                   \\
-                                                                   & PICARD              & Spider, CoSQL
-                                                                   &                                                                                                                                            \\
-        \hline
-        Execution-guided                                           & SQLova              & WikiSQL                   & Fine-grained decoding                                                                    \\
-        \hline
-        Separate submodule                                         & SQLNet              & WikiSQL                   & Easier decoding                                                                          \\
-        \hline
-        BPE                                                        & BPESQL              & Advising, ATIS
-                                                                   & Easier decoding
-        \\
+        Constrained decoding                                       & PICARD              & Spider                    & Fine-grained decoding                                                                    \\
+        % \hline
+        % Execution-guided                                           & SQLova              & WikiSQL                   & Fine-grained decoding                                                                    \\
+        % \hline
+        % Separate submodule                                         & SQLNet              & WikiSQL                   & Easier decoding                                                                          \\
+        % \hline
+        % BPE                                                        & BPESQL              & Advising, ATIS
+        %    & Easier decoding
+        % \\
         \hline
     \end{tabular}
     \caption{Methods used for decoding in text-to-SQL \cite{deng2022recent}}
@@ -64,8 +62,7 @@ Numerous approaches have been suggested to enhance the decoding process for more
 \input{inc/methods/decoders/Attention-Mechanism.tex}
 \input{inc/methods/decoders/Copy-Mechanism.tex}
 \input{inc/methods/decoders/Intermediate-Representations.tex}
-\input{inc/methods/decoders/Prevent-Invalid-Tokens.tex}
-\input{inc/methods/decoders/Skeleton-aware-Decoder.tex}
+\input{inc/methods/decoders/Constrained.tex}
 
-Schema linking is a component of text-to-SQL models that helps map natural language phrases to elements of a database schema.
-Skeleton parsing is a component of text-to-SQL models that helps generate the structure of an SQL query based on a natural language question. It focuses on generating the pure skeleton of an SQL query (i.e., SQL keywords).
+% Schema linking is a component of text-to-SQL models that helps map natural language phrases to elements of a database schema.
+% Skeleton parsing is a component of text-to-SQL models that helps generate the structure of an SQL query based on a natural language question. It focuses on generating the pure skeleton of an SQL query (i.e., SQL keywords).

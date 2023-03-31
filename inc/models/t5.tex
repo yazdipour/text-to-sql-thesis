@@ -1,4 +1,4 @@
-\subsection{T5 + PICARD} \label{picard}
+\subsubsection{T5 + PICARD} \label{picard}
 
 % \begin{figure}[h]
 %     \centering
@@ -8,7 +8,7 @@
 
 After the release of Google T5, researchers have been using it to improve the accuracy of text-to-SQL models instead of BERT. New solutions have been released, such as the PICARD with T5-3B model, that significantly improved the SPIDER challenge's accuracy and are motivating researchers to use T5 in their work with innovative approaches since 2021.
 
-\subsubsection{T5}
+\subsubsection*{T5}
 
 In Transfer Learning, we start by training our model in an unsupervised fashion on unlabeled data. Then fine-tuning it on a labeled dataset some tasks that we care about, which we call the downstream tasks. For instance, in our unsupervised free training task, we take some text, drop out some of the words, and train the model to predict the missing words. Next, we will fine-tune it on a supervised task like sentiment analysis classifying movie reviews as a given label. This way of training has become an incredible recipe for natural language processing.
 
