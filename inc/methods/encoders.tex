@@ -1,13 +1,6 @@
 \subsection{Encoding}
 \label{sec:encoders}
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=\textwidth]{pics/enc/fig_encode}
-    \caption{Network architecture of the proposed input encoder. \raisebox{-0.5ex}{\includegraphics[height=3.3mm]{pics/enc/mark_1}} represents vector concatenation, \raisebox{-0.5ex}{\includegraphics[height=3.3mm]{pics/enc/mark_2}} represents max-pooling and \raisebox{-0.5ex}{\includegraphics[height=3.3mm]{pics/enc/mark_3}} represents self-attention.\cite{choi_ryansql_2020}}
-    \label{fig:encode}
-\end{figure*}
-
 Encoders\cite{kumar2022deep} are a crucial component in natural language processing tasks and consist of a multi-layered assembly of recurrent elements, such as Long Short-Term Memory (LSTM) units, Gated Recurrent Units (GRUs), or other similar structures. These recurrent elements work in tandem to process an input sequence, with each unit being responsible for handling a single element within the sequence, capturing the pertinent information for that specific element, and subsequently propagating this information forward to the next recurrent unit in the stack.
 
 The primary function of an encoder is to systematically transform textual data into a suitable numerical or vector representation that retains the inherent relationships and dependencies among words, phrases, and sentences\cite{cho-etal-2014-learning}. This is achieved through a combination of techniques, such as tokenization, embedding, and the use of attention mechanisms, which together facilitate the encoding process.

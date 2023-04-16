@@ -1,5 +1,12 @@
 \section{Evaluation Metrics} \label{eval}
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pics/mindmap/eval/eval.eps}
+    \label{fig:evals}
+\end{figure}
+
+
 The F1 score is a metric used to evaluate the performance of many machine learning jobs. It is computed as the harmonic mean of precision and recall, where precision is the ratio of true-positive (TP) predictions to the total positive predictions, and recall is the percentage of true-positive predictions to the total actual positive values. The F1 score is between 0 and 1, with more elevated values representing better performance.
 Precision indicates the accuracy of the classifier's prediction of the positive class. It is computed by taking the number of correct positive predictions (True Positive) and dividing it by the total number of positive predictions (True Positive and False Positive). A higher precision value means that the classifier is less likely to identify a negative instance as a positive incorrectly.
 Recall measures the classifier's ability to identify all positive instances. It is determined by dividing the number of True Positive predictions by the total number of positive predictions (True Positive and False Negative). A higher recall value indicates that the classifier is less likely to miss a positive instance.
@@ -36,23 +43,15 @@ When using the correct predicted SQL statements, the correct execution rate refe
 
 % By predicting the key F1 values for SQL statements, the model can also be evaluated.
 
-% % pics/f1.png
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{pics/f1.png}
-%     % \caption{F1 score for SQL statements}
-%     \label{fig:f1}
-% \end{figure}
-
 \subsection*{Evaluation Setup}
 
-The evaluation methods for Text-to-SQL systems have advanced over time to assess different aspects of model performance and adaptability. Early datasets generally used a standard train/dev/test split to randomly divide question-SQL pairs across sets as proposed by Iyer et al. (2017), which provided a baseline for evaluation but did not specifically target model generalization capabilities.
+The evaluation methods for Text-to-SQL systems have advanced over time to assess different aspects of model performance and adaptability. Early datasets generally used a standard train/dev/test split to randomly divide question-SQL pairs across sets as proposed by Iyer et al. \cite{iyer-etal-2017-learning}, which provided a baseline for evaluation but did not specifically target model generalization capabilities.
 
-To assess the ability of models to generalize to new SQL query structures within a given domain, Finegan-Dollak et al. (2018) introduced the SQL query split method. This method ensures that SQL queries are only present in one set among the train, dev, and test sets, offering a better understanding of how well models can adapt to new query structures. This approach allows researchers to more accurately evaluate the robustness of their models when faced with novel SQL queries.
+To assess the ability of models to generalize to new SQL query structures within a given domain, Finegan-Dollak et al. \cite{finegan-dollak-etal-2018-improving} introduced the SQL query split method. This method ensures that SQL queries are only present in one set among the train, dev, and test sets, offering a better understanding of how well models can adapt to new query structures. This approach allows researchers to more accurately evaluate the robustness of their models when faced with novel SQL queries.
 
-In addition to the SQL query split, Yu et al. (2018c) proposed a database split method, which aims to evaluate the generalization capabilities of Text-to-SQL models across different databases. By withholding databases in the test set from the training phase, this method assesses the ability of models to handle unseen databases, emphasizing the importance of real-world adaptability in Text-to-SQL systems.
+In addition to the SQL query split, Yu et al. \cite{yu_spider_2019} proposed a database split method, which aims to evaluate the generalization capabilities of Text-to-SQL models across different databases. By withholding databases in the test set from the training phase, this method assesses the ability of models to handle unseen databases, emphasizing the importance of real-world adaptability in Text-to-SQL systems.
 
-Other splitting methods have also been proposed to support various research objectives. For example, Shaw et al. (2021) and Chang et al. (2020) have introduced alternative evaluation setups to address specific challenges and research questions in the Text-to-SQL domain. These methods, along with the standard train/dev/test split, SQL query split, and database split, contribute to the diverse range of evaluation strategies employed in Text-to-SQL research, enabling a more comprehensive understanding of model performance and generalization capabilities.
+Other splitting methods have also been proposed to support various research objectives. For example, Shaw et al. \cite{shaw-etal-2021-compositional} has introduced alternative evaluation setups to address specific challenges and research questions in the Text-to-SQL domain. These methods, along with the standard train/dev/test split, SQL query split, and database split, contribute to the diverse range of evaluation strategies employed in Text-to-SQL research, enabling a more comprehensive understanding of model performance and generalization capabilities.
 
 
 % Question split: split the question-SQL pairs randomly (Iyer et al., 2017).
@@ -60,7 +59,7 @@ Other splitting methods have also been proposed to support various research obje
 % Database split: databases in the test set do not appear in the training time (Yu et al., 2018c)
 % Others (Shaw et al., 2021) (Chang et al., 2020)
 
-\subsection{Naiive Execution Accuracy}
+\subsection{Naïve Execution Accuracy}
 
 Naïve Execution Accuracy (NEA) has become a popular evaluation metric for Text-to-SQL systems because it can measure the accuracy of generated SQL queries in a way that considers both syntax and meaning. Unlike other metrics that mainly focus on the syntax of the queries, NEA examines the practical impact of the queries by evaluating their execution results. Therefore, it provides a more complete view of a model's performance, allowing researchers to better understand how well their algorithms perform in real-world situations.
 
@@ -74,12 +73,12 @@ In summary, the adoption of Naïve Execution Accuracy as an evaluation metric fo
 
 \subsection{Exact String Matching}
 
-Exact Matching\cite{xu_sqlnet_2017}, a popular metric for assessing the effectiveness of Text-to-SQL models, but it has drawbacks because it can yield erroneous negative results when the semantic parser can produce innovative syntactic structures. The predicted SQL query is compared against the corresponding reference SQL query. The model is considered to have produced the proper SQL query and is given a score of 1.0 if the predicted query is an exact duplicate of the reference query. The model is deemed to have generated an invalid query and obtains a score of 0.0 if the predicted query does not match the reference query. This metric aids in evaluating the overall syntactic and semantic accuracy of the generated query, but it ignores the query's constituent parts. This measure is a reliable evaluation technique because it verifies the entire SQL query. It is, therefore, a more stringent evaluation metric because it only deems a query correct if it exactly matches the reference question, down to the capitalization, spacing, and word order.
+Exact Matching\cite{xu_sqlnet_2017}, a popular metric for assessing the effectiveness of Text-to-SQL models, but it has drawbacks because it can yield erroneous negative results when the semantic parser can produce innovative syntactic structures. The predicted SQL query is compared against the corresponding reference SQL query. The model is considered to have produced the proper SQL query and is given a score of 1.0 if the predicted query is an exact duplicate of the reference query. The model is deemed to have generated an invalid query and obtains a score of 0.0 if the predicted query does not match the reference query. This metric aids in evaluating the overall syntactic and semantic accuracy of the generated query, but it ignores the query's constituent parts. This measure is a reliable evaluation technique because it verifies the entire SQL query. It is, therefore, a more stringent evaluation metric because it only deems a query correct if it exactly matches the reference question, down to the capitalization, spacing, and word order \cite{zhong_semantic_2020}.
 
 
 \subsection{Exact Set Matching}
 
-Exact Set Matching compares the set of predicted SQL queries with the set of corresponding reference SQL queries, regardless of the elements' order, to assess the performance of a model. If every element from the set of predicted queries is included in the reference query, it returns a score of 1.0; otherwise, it returns a score of 0.0.
+Exact Set Matching compares the set of predicted SQL queries with the set of corresponding reference SQL queries, regardless of the elements' order, to assess the performance of a model \cite{yu_spider_2019}. If every element from the set of predicted queries is included in the reference query, it returns a score of 1.0; otherwise, it returns a score of 0.0.
 
 Generally, Exact Set Matching is more forgiving than Exact Matching, as the former does not take the order of elements or capitalization into account. On the other hand, Exact Matching is more stringent as it requires a perfect match including the order of words, capitalization and spaces, thus making it a reliable evaluation method.
 
