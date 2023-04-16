@@ -1,0 +1,11 @@
+graph G {
+	node [shape=record];
+    rankdir=LR;
+    
+	Datasets [shape=square];
+	db [label = "{ATIS|GeoQuery|IMDB|Yelp|Advising|MAS|SEDE|SEOSS}"];
+	Datasets -- "Single Domain" -- db;
+
+	ds [label = "{WikiSQL|SPIDER|Conversational\nDatasets\n(CSpider, CoSQL,...)}"];
+	Datasets -- "Large Scale \nCross-Domain"  -- ds;
+}

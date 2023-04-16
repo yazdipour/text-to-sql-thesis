@@ -1,0 +1,59 @@
+graph G {
+	node [shape=record];
+	rankdir=LR;
+	// highest rank in center, others around it like a star
+	ranksep=2;
+
+	Encoder -- "Encode Token Type";
+    "Encode Token Type" -- "TypeSQL" [label="Adopted by"];
+    Encoder --"Graph-based";
+    "Graph-based" -- "GNN" ;
+    "Graph-based" -- "Global-GCN" ;
+    "Graph-based" -- "IGSQL" ;
+    "Graph-based" -- "RAT-SQL" ;
+    "Graph-based" -- "LEGSQL" ;
+    "Graph-based" -- "SADGA" ;
+    "Graph-based" -- "ShadowGNN" ;
+    "Graph-based" -- "S2SQL" ;
+    Encoder --"Self-attention";
+    "Self-attention" -- "X-SQL" ;
+    "Self-attention" -- "SQLova" ;
+    "Self-attention" -- "RAT-SQL" ;
+    "Self-attention" -- "DuoRAT" ;
+    "Self-attention" -- "UnifiedSKG" ;
+    Encoder --"Adapt PLM";
+    "Adapt PLM" -- "X-SQL" ;
+    "Adapt PLM" -- "SQLova" ;
+    "Adapt PLM" -- "Guo" ;
+    "Adapt PLM" -- "HydraNet" ;
+    Encoder -- "Pre-training";
+	"Pre-training" -- "TaBERT" ;
+    "Pre-training" -- "GraPPA" ;
+    "Pre-training" -- "GAP" ;
+	
+	Decoding -- "Tree-based";
+	"Tree-based" -- "Seq2Tree";
+	"Tree-based" -- "Seq2AST";
+	"Tree-based" -- "SyntaxSQLNet";
+	Decoding -- "Sketch-based";
+	"Sketch-based" -- "SQLNet";
+	"Sketch-based" -- "Coarse2Fine";
+	"Sketch-based" -- "IRNet";
+	"Sketch-based" -- "RYANNet";
+	Decoding -- "Bottom-up" -- "SmBop";
+	Decoding -- "Self-Attention";
+	"Self-Attention" -- "Seq2SQL";
+	"Self-Attention" -- "Seq2Tree";
+	Decoding -- "Bi-attention" -- BiSQL;
+	Decoding -- "Relation-aware \nSelf-attention" -- "DuoRAT";
+	Decoding -- "Copy\nMechanism";
+	"Copy\nMechanism" -- "Seq2SQL";
+	"Copy\nMechanism" -- "Seq2AST";
+	"Copy\nMechanism" -- "SeqGenSQL";
+	Decoding -- "Intermediate\nRepresentation";
+	"Intermediate\nRepresentation" -- "IncSQL";
+	"Intermediate\nRepresentation" -- "IRNet";
+	"Intermediate\nRepresentation" -- "ValueNet";
+	Decoding -- "Constrained\nDecoding";
+	"Constrained\nDecoding" -- "PICARD";
+}

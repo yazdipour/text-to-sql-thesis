@@ -8,3 +8,14 @@ The IMDb dataset is a well-known dataset in the machine learning community. It c
 %     \caption{Database Structure of IMDb dataset\cite{dahl-etal-1994-expanding}}
 %     \label{fig:IMDb}
 % \end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Example of a complex IMDb SQL query}
+    \label{tab:IMDBsqlquery}
+    \begin{tabular}{|l|p{10cm}|}
+        \hline
+        Text & What year was the movie The Imitation Game produced?                                                                       \\ \hline
+        SQL  & \small\texttt{SELECT MOVIEalias0.RELEASE\_YEAR FROM MOVIE AS MOVIEalias0 WHERE MOVIEalias0.TITLE = 'The Imitation Game' ;} \\ \hline
+    \end{tabular}
+\end{table}

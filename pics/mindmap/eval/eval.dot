@@ -1,0 +1,11 @@
+graph G {
+	node [shape=record];
+    rankdir=LR;
+    
+	"Evaluation Metrics" -- "Exact Set Match" -- Spider;
+	ds1 [label = "{WikiSQL|Advising}"];
+	"Evaluation Metrics" -- "Exact String Match";
+    "Exact String Match" -- ds1 [label = "used in"];
+	ds2 [label = "{GeoQuery|IMDB|Yelp|WikiSQL}"];
+	"Evaluation Metrics" -- "Execution Accuracy" -- ds2;
+}

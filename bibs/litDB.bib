@@ -828,6 +828,16 @@ abstract = {This paper provides a systematically retrieved dataset consisting of
   author={Alec Radford and Karthik Narasimhan},
   year={2018}
 }
+% GPT2
+@article{radford2019language,
+  title={Language models are unsupervised multitask learners},
+  author={Radford, Alec and Wu, Jeff and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},
+  journal={OpenAI Blog},
+  volume={1},
+  number={8},
+  pages={9},
+  year={2019}
+}
 
 % 2017 openai
 @article{DBLP:journals/corr/RadfordJS17,
@@ -1404,4 +1414,73 @@ number = {MSR-TR-2017-45},
       eprint={1910.08962},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
+}
+
+@article{lunar,
+author = {Woods, William and Kaplan, Ronald and Webber, Bonnie},
+year = {1972},
+month = {01},
+pages = {},
+title = {The Lunar Science Natural Language Information System: Final Report}
+}
+
+@inproceedings{iyer-etal-2017-learning,
+    title = "Learning a Neural Semantic Parser from User Feedback",
+    author = "Iyer, Srinivasan  and
+      Konstas, Ioannis  and
+      Cheung, Alvin  and
+      Krishnamurthy, Jayant  and
+      Zettlemoyer, Luke",
+    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2017",
+    address = "Vancouver, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P17-1089",
+    doi = "10.18653/v1/P17-1089",
+    pages = "963--973",
+    abstract = "We present an approach to rapidly and easily build natural language interfaces to databases for new domains, whose performance improves over time based on user feedback, and requires minimal intervention. To achieve this, we adapt neural sequence models to map utterances directly to SQL with its full expressivity, bypassing any intermediate meaning representations. These models are immediately deployed online to solicit feedback from real users to flag incorrect queries. Finally, the popularity of SQL facilitates gathering annotations for incorrect predictions using the crowd, which is directly used to improve our models. This complete feedback loop, without intermediate representations or database specific engineering, opens up new ways of building high quality semantic parsers. Experiments suggest that this approach can be deployed quickly for any new target domain, as we show by learning a semantic parser for an online academic database from scratch.",
+}
+@inproceedings{ganitkevitch-etal-2013-ppdb,
+    title = "{PPDB}: The Paraphrase Database",
+    author = "Ganitkevitch, Juri  and
+      Van Durme, Benjamin  and
+      Callison-Burch, Chris",
+    booktitle = "Proceedings of the 2013 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2013",
+    address = "Atlanta, Georgia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N13-1092",
+    pages = "758--764",
+}
+@inproceedings{yang-etal-2021-pcfgs,
+    title = "{PCFG}s Can Do Better: Inducing Probabilistic Context-Free Grammars with Many Symbols",
+    author = "Yang, Songlin  and
+      Zhao, Yanpeng  and
+      Tu, Kewei",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.naacl-main.117",
+    doi = "10.18653/v1/2021.naacl-main.117",
+    pages = "1487--1498",
+    abstract = "Probabilistic context-free grammars (PCFGs) with neural parameterization have been shown to be effective in unsupervised phrase-structure grammar induction. However, due to the cubic computational complexity of PCFG representation and parsing, previous approaches cannot scale up to a relatively large number of (nonterminal and preterminal) symbols. In this work, we present a new parameterization form of PCFGs based on tensor decomposition, which has at most quadratic computational complexity in the symbol number and therefore allows us to use a much larger number of symbols. We further use neural parameterization for the new form to improve unsupervised parsing performance. We evaluate our model across ten languages and empirically demonstrate the effectiveness of using more symbols.",
+}
+@article{DBLP:journals/corr/abs-2010-09927,
+  author       = {Karthik Radhakrishnan and
+                  Arvind Srikantan and
+                  Xi Victoria Lin},
+  title        = {ColloQL: Robust Cross-Domain Text-to-SQL Over Search Queries},
+  journal      = {CoRR},
+  volume       = {abs/2010.09927},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2010.09927},
+  eprinttype    = {arXiv},
+  eprint       = {2010.09927},
+  timestamp    = {Mon, 26 Oct 2020 15:39:44 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2010-09927.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
