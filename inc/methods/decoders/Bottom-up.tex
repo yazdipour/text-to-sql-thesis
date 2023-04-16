@@ -1,6 +1,6 @@
 \subsubsection{Bottom-up}
 
-Bottom-up decoders offer an alternative approach to tree-based and sketch-based decoding mechanisms, which are typically top-down in nature. One example of a bottom-up decoder is the method employed by Rubin and Berant (2021) \cite{rubin-berant-2021-smbop}.
+Bottom-up decoders offer an alternative approach to tree-based and sketch-based decoding mechanisms, which are typically top-down in nature. One example of a bottom-up decoder is the method employed by Rubin and Berant \cite{rubin-berant-2021-smbop}.
 
 In a bottom-up decoding mechanism, the model starts with a set of K trees, each of height t. The decoder then scores trees of height t+1, which are constructed based on SQL grammar from the current set of trees in the beam. The K highest-scoring trees are retained, and a new representation of these trees is generated and placed in the new beam. This process iteratively builds the trees from the bottom up until a complete SQL query is formed.
 
