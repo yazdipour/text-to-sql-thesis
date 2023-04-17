@@ -1,15 +1,10 @@
-\subsection{SEOSS evaluation with GPT 3.5}
+\subsection{SEOSS evaluation with GPT 3.5 and GPT 4}
 
+\subsubsection{GPT}
 
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|c|c|L|L|}
-        \hline
-        Model & Version   & \textbf{Exact Matching Accuracy} & \textbf{Execution Accuracy} \\ \hline
-        GPT   & 3.5-turbo & 0.423                            & 0.447                       \\ \hline
-    \end{tabular}
-    \caption{Expermiment Accuracy Results}
-\end{table}
+\subsubsection{ChatGPT}
+
+\subsubsection*{Prompt}
 
 \begin{table}[h]
     \centering
@@ -23,6 +18,23 @@
         PICARD + T5Base + 4Beam             & 0.446 & 0.254  & 0.182 & 0.012      & 0.307 \\ \hline
         PICARD + T5Large + 4Beam            & 0.571 & 0.410  & 0.182 & 0.060      & 0.427 \\ \hline
         GPT 3.5-turbo                       & 0.551 & 0.460  & 0.130 & 0.190      & 0.447 \\ \hline
+        GPT 4                               & 0.709 & 0.505  & 0.104 & 0.131      & 0.524 \\ \hline
     \end{tabular}
     \caption{Comparison between Exact Match Accuracy}
+\end{table}
+
+
+The table compares the exact match accuracy of various models that are not fine-tuned for our dataset. The models are evaluated on five difficulty levels: easy, medium, hard, extra hard, and all.
+
+Overall table:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|L|L|}
+        \hline
+        Model & Version   & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Money} \\ \hline
+        GPT   & 3.5-turbo & 0.423                       & 447min        & \$0            \\ \hline
+        GPT   & 3.5-turbo & 0.423                       & 447min        & \$20           \\ \hline
+    \end{tabular}
+    \caption{Expermiment Accuracy vs Resources used}
 \end{table}

@@ -1,10 +1,25 @@
 \section{Experiments}
 
-Since SEOSS Dataset\cite{RATH2019104005} was only evaluated and trained with SQLNet and RatSQL in this section, we decided to investigate further by experimenting with this dataset using state-of-the-art solutions currently proposed for the SPIDER challenge. In order to determine the effectiveness of these methods, we compared the results obtained with those of SQLNet\ref{sec:sqlnet} and RatSQL\ref{sec:ratsql} from the SEOSS-Queries research paper\cite{TOMOVA2022108211}. The results of these experiments are presented in the following section, and they will demonstrate the potential of modern solutions for solving the SPIDER task.
+Since the SEOSS Dataset\cite{RATH2019104005} has only been evaluated and trained with SQLNet and RatSQL, in this section, we aim to further explore its potential by conducting experiments using state-of-the-art methods currently proposed for the SPIDER challenge. To assess the effectiveness of these approaches, we compare the outcomes with those of SQLNet and RatSQL, as reported in the SEOSS-Queries research paper\cite{TOMOVA2022108211}. The findings from these experiments are detailed in the subsequent section, showcasing the capabilities of contemporary solutions in tackling the SPIDER task.
+
+Additionally, taking advantage of the publicly available ChatGPT APIs, we decided to experiment with the ChatGPT model. Employing both the SPIDER and SEOSS datasets, we compared the results with those obtained from earlier experiments. The insights derived from these experiments are presented in the following section, further illustrating the potential of modern solutions in addressing the SPIDER task.
 
 \subsection{Limitations}
 
-Our experiment requires a lot of computational resources as we mainly leverage the T5 model. We used a single Nvidia RTX 3070 16GB GPU with 40GB Memory for our experiment, which unfortunately limited us to smaller models with more restrictions. Despite these limitations, we were still able to achieve excellent results. If we had used a larger T5 model, such as T5-3B, we would have been able to reach much higher scores. Therefore, investing in a more powerful GPU for our experiment is something that we must consider in order to maximize our results.
+Our experiment faced several limitations, primarily due to the extensive computational resources required when leveraging the T5 model. For our experiment, we used a single Nvidia RTX 3070 16GB GPU with 20GB Memory, which constrained us to smaller models with tighter restrictions. Despite these limitations, we managed to achieve commendable results. Utilizing a larger T5 model could have led to even higher scores. As a result, investing in a more powerful GPU for our experiment should be considered to capitalize on our model's potential fully.
+In addition, during the ChatGPT experiment, cost constraints limited our ability to experiment with GPT-4.0, as its usage cost is approximately 30 times higher than that of GPT-3.5-turbo. We had to experiment with different methods to find the best prompt for ChatGPT to force him to act as a text-to-SQL agent, but this led to wasting money.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline \textbf{Model} & \textbf{Usage}      \\
+        \hline GPT-4          & \$0.06 / 1K tokens  \\
+        \hline GPT-3.5-turbo  & \$0.002 / 1K tokens \\
+        \hline
+    \end{tabular}
+    \caption{Cost comparison between GPT-4 and GPT-3.5-turbo}
+    \label{tab:cost_comparison}
+\end{table}
 
 \input{inc/experiment/exp-seoss-t5}
 \input{inc/experiment/exp-seoss-gpt}
