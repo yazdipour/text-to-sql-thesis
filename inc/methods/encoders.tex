@@ -1,6 +1,15 @@
 \subsection{Encoding}
 \label{sec:encoders}
 
+% figure pics/transformer.jpg
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/transformer.jpg}
+    \caption{Transformer architecture featured in “Attention is all you need” \cite{https://doi.org/10.48550/arxiv.1706.03762}}
+    \label{fig:transformer}
+\end{figure}
+
 Encoders\cite{kumar2022deep} are a crucial component in natural language processing tasks and consist of a multi-layered assembly of recurrent elements, such as Long Short-Term Memory (LSTM) units, Gated Recurrent Units (GRUs), or other similar structures. These recurrent elements work in tandem to process an input sequence, with each unit being responsible for handling a single element within the sequence, capturing the pertinent information for that specific element, and subsequently propagating this information forward to the next recurrent unit in the stack.
 
 The primary function of an encoder is to systematically transform textual data into a suitable numerical or vector representation that retains the inherent relationships and dependencies among words, phrases, and sentences\cite{cho-etal-2014-learning}. This is achieved through a combination of techniques, such as tokenization, embedding, and the use of attention mechanisms, which together facilitate the encoding process.
