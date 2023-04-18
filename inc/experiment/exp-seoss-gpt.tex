@@ -38,7 +38,6 @@ In our Text-to-SQL task on the SEOSS dataset, we used the following prompt struc
                       & name is not going to be used in query again, then do not use.                                \\
                       & Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
                       & \small{If in using $COUNT(*) and COUNT(COLUMN)$ there is no difference then use $COUNT(*)$.} \\
-                      & Instead of $<>$ use $!=$.                                                                    \\
                       & Write one valid SQL in markdown format.                                                      \\ \hline
         User          & Generate syntactically correct read-only SQL to answer the following                         \\
                       & question: \$question                                                                         \\ \hline
