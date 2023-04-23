@@ -12,14 +12,14 @@ As the field of natural language processing continues to evolve, we can expect e
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        \multirow{2}*{Exact Match Accuracy} & easy  & medium & hard  & extra hard & all            \\
+        \multirow{2}*{Accuracy} & easy  & medium & hard  & extra hard & all            \\
                                             & 248   & 446    & 174   & 166        & 1034           \\ \hline
         GPT 3.5 execution                   & 0.964 & 0.883  & 0.644 & 0.596      & 0.816          \\ \hline
         GPT 3.5 exact match                 & 0.972 & 0.881  & 0.621 & 0.596      & 0.813          \\ \hline
         GPT 4 execution                     & 0.980 & 0.930  & 0.678 & 0.651      & \textbf{0.855} \\ \hline
         GPT 4 exact match                   & 0.980 & 0.933  & 0.667 & 0.639      & \textbf{0.852} \\ \hline
     \end{tabular}
-    \caption{Comparison between Exact Match Accuracy}
+    \caption{Comparison between Accuracies}
 \end{table}
 
 In conclusion, our experience using the ChatGPT API for the Text-to-SQL task on the SEOSS dataset was positive. The model's powerful natural language understanding capabilities, combined with the ease of integration through the API, make it a valuable tool for addressing such tasks. Additionally, by incorporating a few values from the database into the system input prompt, ChatGPT can better comprehend the database structure and generate more accurate queries. Also, by including the history of queries in prompts, we can improve the model's accuracy, but it will increase the overall time and money required to generate the queries. Future work could involve further fine-tuning ChatGPT specifically for Text-to-SQL tasks or exploring more advanced techniques for error correction and query validation.
@@ -50,8 +50,48 @@ A selection of brief examples was utilized within the prompt to enhance the prec
 
 Employing an identical prompt configuration as the preceding one, several records from database tables, in conjunction with the database schema, may be incorporated to facilitate GPT's comprehension of the database's intricacies. This enabled the model to assimilate the information and generate increasingly precise SQL queries.
 
-\subsubsubsection{Incorporating History}
+\subsubsubsection{Incorporating History and few shot examples}
 
-The model's capacity to learn from prior queries was augmented, thus improving the generated SQL queries' accuracy.
+The model's capacity to learn from prior queries or some examples was augmented, thus improving the generated SQL queries' accuracy.
 
-By examining previous query outcomes and employing them within the prompt in the assistant capacity, the model's generation of increasingly precise SQL queries can be supported by presenting a historical record of actions. While implementing these refinement strategies, a potential increase in API costs is an important consideration. As the number of tokens per request increases due to the inclusion of additional context and information, the cost associated with each API call may rise. It is crucial to weigh the benefits of improved accuracy and precision against the increased expenditure and strike a balance that ensures optimal model performance and cost efficiency.
+By examining previous query outcomes and employing them within the prompt in the assistant capacity, the model's generation of increasingly precise SQL queries can be supported by presenting a historical record of actions. While implementing these refinement strategies, a potential increase in API costs is an important consideration. As the number of tokens per request increases due to the inclusion of additional context and information, the cost associated with each API call will rise significantly. It is crucial to weigh the benefits of improved accuracy and precision against the increased expenditure and strike a balance that ensures optimal model performance and cost efficiency.
+
+\begin{figure}[H]
+    \begin{AIbox}{Example of a Prompt with History and Database Sample}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf role(System):} \\ 
+            You are a helpful assistant for generating syntactically correct read-only                   \\
+            SQL to answer a given question.                                                              \\
+            Database: concert\_singer                                                                         \\
+            The following are tables you can query:                                                      \\
+            ---------------------                                                                        \\
+            table name: stadium  table columns: Stadium\_ID [number (13)], Location [text (LA)], Name [text (SLA)], Capacity [number (30000)], Highest [number (20000)], Lowest [number (100)], Average [number (1000)] table name: singer  table columns: Singer\_ID [number (1)], NName [text (John Doe)],Country [text (USA)],Song\_Name [text (Beautiful Day)],Song\_release\_year [text (2020)],Age [number (30)],Is\_male [others (Yes)]      table name: concert  table columns: concert\_ID [number (101)],concert\_Name [text (Rock Night)],Theme [text (Rock Music)],Stadium\_ID [text (13)],Year [text (2023)]      table name: singer\_in\_concert  table columns: concert\_ID [number (101)], Singer\_ID [text (1)]       \\
+            ---------------------                                                                        \\
+            Do not use IN keyword.                                                                       \\
+            If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
+            name is not going to be used in query again, then do not use.                                \\
+            Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
+            If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
+            Write one valid SQL in markdown format.
+            \\
+            {\bf role(User):} \\
+            Generate syntactically correct read-only SQL to answer the following question: How many singers do we have?
+            \\
+            {\bf role(Assistant):} \\
+            SELECT count(*) FROM singer
+            \\
+            {\bf role(User):} \\
+            Generate syntactically correct read-only SQL to answer the following question: What are the names, countries, and ages for every singer in descending order of age?
+            \\
+            {\bf role(Assistant):} \\
+            SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+            \\
+            {\bf role(User):} \\
+            Generate syntactically correct read-only SQL to answer the following question: \$question
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}

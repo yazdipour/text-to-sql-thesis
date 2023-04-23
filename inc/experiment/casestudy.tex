@@ -6,7 +6,7 @@ Additionally, taking advantage of the publicly available ChatGPT APIs, we decide
 
 \subsection{Limitations}
 
-Our experiment faced several limitations, primarily due to the extensive computational resources required when leveraging the T5 model. For our experiment, we used a single Nvidia RTX 3070 16GB GPU with 20GB Memory, which constrained us to smaller models with tighter restrictions. Despite these limitations, we managed to achieve commendable results. Utilizing a larger T5 model could have led to even higher scores. As a result, investing in a more powerful GPU for our experiment should be considered to capitalize on our model's potential fully.
+Our experiment faced several limitations, primarily due to the extensive computational resources required when leveraging the T5 model. For our experiment, we used a single Nvidia RTX 3070 16GB GPU with 20GB Memory, which constrained us to smaller models with tighter restrictions. Despite these limitations, we managed to achieve admirable results. Utilizing a larger T5 model could have led to even higher scores. As a result, investing in a more powerful GPU for our experiment should be considered to capitalize on our model's potential fully.
 In addition, during the ChatGPT experiment, cost constraints limited our ability to experiment with GPT-4.0, as its usage cost is approximately 30 times higher than that of GPT-3.5-turbo. We had to experiment with different methods to find the best prompt for ChatGPT to force him to act as a text-to-SQL agent, but this led to wasting money.
 
 \begin{table}[h]
@@ -22,7 +22,8 @@ In addition, during the ChatGPT experiment, cost constraints limited our ability
 \end{table}
 
 \input{inc/experiment/exp-seoss-t5}
+\input{inc/experiment/exp-ez}
+\clearpage
 \input{inc/experiment/exp-seoss-gpt}
 \input{inc/experiment/exp-spider-gpt}
 \clearpage
-\input{inc/experiment/exp-ez}

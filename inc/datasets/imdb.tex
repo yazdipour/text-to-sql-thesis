@@ -9,13 +9,29 @@ The IMDb dataset is a well-known dataset in the machine learning community. It c
 %     \label{fig:IMDb}
 % \end{figure}
 
-\begin{table}[htbp]
-    \centering
-    \caption{Example of a complex IMDb SQL query}
+\begin{figure}[H]
     \label{tab:IMDBsqlquery}
-    \begin{tabular}{|l|p{10cm}|}
-        \hline
-        Text & What year was the movie The Imitation Game produced?                                                                       \\ \hline
-        SQL  & \small\texttt{SELECT MOVIEalias0.RELEASE\_YEAR FROM MOVIE AS MOVIEalias0 WHERE MOVIEalias0.TITLE = 'The Imitation Game' ;} \\ \hline
-    \end{tabular}
-\end{table}
+    \begin{AIbox}{Example of a complex IMDb SQL query}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Utterance:} \\ 
+            What year was the movie The Imitation Game produced?
+            \\
+            {\bf Query:} \\
+            SELECT MOVIEalias0.RELEASE\_YEAR FROM MOVIE AS MOVIEalias0 WHERE MOVIEalias0.TITLE = 'The Imitation Game' ;
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
+
+% \begin{table}[htbp]
+%     \centering
+%     \caption{Example of a complex IMDb SQL query}
+%     \begin{tabular}{|l|p{10cm}|}
+%         \hline
+%         Utterance & What year was the movie The Imitation Game produced?                                                                       \\ \hline
+%         Query  & \small\texttt{SELECT MOVIEalias0.RELEASE\_YEAR FROM MOVIE AS MOVIEalias0 WHERE MOVIEalias0.TITLE = 'The Imitation Game' ;} \\ \hline
+%     \end{tabular}
+% \end{table}

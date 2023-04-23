@@ -21,13 +21,30 @@ Furthermore, the questions in the ATIS dataset \cite{dahl-etal-1994-expanding} a
 
 % United States geography is represented in the Geoquery dataset. About 800 facts are expressed in Prolog. State, city, river, and mountain information can be found in the database. Geographic and topographical attributes such as capitals and populations make up the majority of the attributes.
 
-\begin{table}[htbp]
-    \centering
-    \caption{Example of a complex ATIS SQL query}
-    \label{tab:ATISsqlquery}
-    \begin{tabular}{|l|p{10cm}|}
-        \hline
-        Text & I would like a flight between BOSTON and ATLANTA on any day at one in the afternoon.                                                                                                                                                                                                                                                                                                                                                                                                                                    \\ \hline
-        SQL  & \small\texttt{SELECT DISTINCT flight.FLIGHT\_ID FROM AIRPORT\_SERVICE AS airport\_service , AIRPORT\_SERVICE AS airport\_service2 , CITY AS city2 , CITY AS city , FLIGHT AS flight WHERE ( city.CITY\_CODE = airport\_service2.CITY\_CODE AND city.CITY\_NAME = "ATLANTA" AND flight.DEPARTURE\_TIME = 1300 AND flight.TO\_AIRPORT = airport\_service2.AIRPORT\_CODE ) AND city2.CITY\_CODE = airport\_service.CITY\_CODE AND city2.CITY\_NAME = "BOSTON" AND flight.FROM\_AIRPORT = airport\_service.AIRPORT\_CODE ;} \\ \hline
-    \end{tabular}
-\end{table}
+% \begin{table}[htbp]
+%     \centering
+%     \caption{Example of a complex ATIS SQL query}
+%     \label{tab:ATISsqlquery}
+%     \begin{tabular}{|l|p{10cm}|}
+%         \hline
+%         Text & I would like a flight between BOSTON and ATLANTA on any day at one in the afternoon.                                                                                                                                                                                                                                                                                                                                                                                                                                    \\ \hline
+%         SQL  & \small\texttt{SELECT DISTINCT flight.FLIGHT\_ID FROM AIRPORT\_SERVICE AS airport\_service , AIRPORT\_SERVICE AS airport\_service2 , CITY AS city2 , CITY AS city , FLIGHT AS flight WHERE ( city.CITY\_CODE = airport\_service2.CITY\_CODE AND city.CITY\_NAME = "ATLANTA" AND flight.DEPARTURE\_TIME = 1300 AND flight.TO\_AIRPORT = airport\_service2.AIRPORT\_CODE ) AND city2.CITY\_CODE = airport\_service.CITY\_CODE AND city2.CITY\_NAME = "BOSTON" AND flight.FROM\_AIRPORT = airport\_service.AIRPORT\_CODE ;} \\ \hline
+%     \end{tabular}
+% \end{table}
+
+\begin{figure}[H]
+    \label{tab:IMDBsqlquery}
+    \begin{AIbox}{Example of a complex IMDb SQL query}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Utterance:} \\ 
+            I would like a flight between BOSTON and ATLANTA on any day at one in the afternoon. 
+            \\
+            {\bf Query:} \\
+            SELECT DISTINCT flight.FLIGHT\_ID FROM AIRPORT\_SERVICE AS airport\_service , AIRPORT\_SERVICE AS airport\_service2 , CITY AS city2 , CITY AS city , FLIGHT AS flight WHERE ( city.CITY\_CODE = airport\_service2.CITY\_CODE AND city.CITY\_NAME = "ATLANTA" AND flight.DEPARTURE\_TIME = 1300 AND flight.TO\_AIRPORT = airport\_service2.AIRPORT\_CODE ) AND city2.CITY\_CODE = airport\_service.CITY\_CODE AND city2.CITY\_NAME = "BOSTON" AND flight.FROM\_AIRPORT = airport\_service.AIRPORT\_CODE ;
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}

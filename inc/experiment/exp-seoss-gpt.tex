@@ -1,4 +1,4 @@
-\subsection{SEOSS evaluation with GPT 3.5 and GPT 4}
+\subsection{SEOSS evaluation with GPT 3.5 and GPT 4}  
 
 Here we discuss our experience using the ChatGPT API for the Text-to-SQL task on the SEOSS dataset. We will provide a brief overview of the GPT architecture and delve into the specifics of ChatGPT, emphasizing its capabilities and potential for addressing this particular challenge.
 \subsubsection{GPT Architecture}
@@ -7,23 +7,25 @@ Generative Pre-trained Transformers (GPT) \cite{radford2018improving} represent 
 
 Inherently generative, GPT models are designed to create text based on the context they are given. They are pre-trained on vast quantities of textual data, which enables them to learn the underlying structure and patterns present in natural language. The pre-training phase consists of unsupervised learning using a masked language modeling objective. Following pre-training, GPT models can be fine-tuned for specific tasks, such as translation, summarization, or, as in our example, Text-to-SQL.
 
-Prior to the introduction of GPT-4, OpenAI had developed three earlier GPT versions and had been refining GPT language models over an extended period. The first GPT model, launched in 2018, incorporated 117 million parameters. The next version, GPT-2, was released in 2019 and demonstrated a substantial increase, incorporating 1.5 billion parameters. GPT-3, which currently powers ChatGPT, made its debut in 2020 and operates with 175 billion parameters. OpenAI, however, has chosen not to reveal the number of parameters used in GPT-4.
+Prior to the introduction of GPT-4, OpenAI had developed three earlier GPT versions and had been refining GPT language models over an extended period. The first GPT model, launched in 2018, incorporated 117 million parameters. The next version, GPT-2, was released in 2019 and demonstrated a substantial increase, incorporating 1.5 billion parameters. GPT-3, which currently powers ChatGPT, made its debut in 2020 and operates with 175 billion parameters. OpenAI, however, has chosen not to reveal the number of parameters used in GPT-4 \cite{openai2023gpt4}.
 
-Considering the consistent growth in parameter counts with each successive model, it is logical to assume that the most recent multimodal iteration features a higher number of parameters than its predecessor, GPT-3, which consists of 175 billion parameters.
+Considering the consistent growth in parameter counts with each successive model, it is logical to assume that the most recent multimodal iteration features a higher number of parameters than its predecessor, GPT-3, which consists of 175 billion parameters. Also, some researchers have speculated that GPT-4 may have as many as 1 trillion parameters or more\cite{bubeck2023sparks}.
+
 \subsubsection{ChatGPT}
 
-ChatGPT and GPT-4 models represent an evolution in language models tailored explicitly for conversational interfaces. These models exhibit a distinct behavior compared to older GPT-3 models. While previous models operated on a text-in and text-out basis (accepting a prompt string and returning a completion to append to the prompt), ChatGPT and GPT-4 models follow a conversation-in and message-out approach. They expect input formatted in a chat-like transcript format and return a completion representing a model-generated message within the chat. This format is designed for multi-turn conversations but can also be effective in non-chat scenarios.
+ChatGPT and LLM models represent an evolution in language models tailored explicitly for conversational interfaces. These models exhibit a distinct behavior compared to older language models. While previous models operated on a text-in and text-out basis (accepting a prompt string and returning a completion to append to the prompt), GPT-3 and GPT-4 models follow a conversation-in and message-out approach \cite{bubeck2023sparks}. They expect input formatted in a chat-like transcript format and return a completion representing a model-generated message within the chat. This format is designed for multi-turn conversations but can also be effective in non-chat scenarios.
 For our experiment with the SEOSS dataset, we utilized the ChatGPT API to submit natural language questions and retrieve generated SQL queries. The API allowed for the seamless integration of ChatGPT into our workflow and provided an efficient and effective means to process the dataset.
 Throughout the evaluation, we observed that ChatGPT successfully generated accurate and syntactically correct SQL queries for a wide range of questions. The model excelled at handling complex queries and demonstrated a deep understanding of the underlying database schema.
 However, there were instances where ChatGPT generated SQL queries that deviated from the desired output, particularly in edge cases and questions with ambiguous semantics. To mitigate this issue, we employed a combination of custom LLM prompts to ensure the generated queries met the required quality standards.
 
 \subsubsection{ChatGPT Prompts and Roles}
 
-ChatGPT employs prompts to direct its response generation process \cite{white2023prompt}. Prompts are input messages with an associated role, which can fall into one of three categories: system, user, or assistant. The role of the message's author supplies context for the conversation and influences the model's response.
+ChatGPT employs prompts to direct its response generation process \cite{white2023prompt}. Prompts are input messages with an associated role, which can fall into one of three categories: system, user, or assistant. The role of the message's author supplies context for the conversation and influences the model's response. \cite{openai2023gpt4}
+
 \begin{itemize}
     \item \textbf{System}: A high-level directive for the conversation, typically used to offer guidance or establish the context for the assistant.
     \item \textbf{User}: A message submitted by the user, usually in the form of a question or a request for the assistant to process.
-    \item \textbf{Assistant}: The response produced by the assistant is based on the context provided by the system and user messages. The assistant processes the messages according to their order in the list and generates a response accordingly. Employing system instructions can effectively guide the assistant's behavior throughout the conversation.
+    \item \textbf{Assistant}: The response produced by the assistant is based on the context provided by the system and user messages. The assistant processes the messages according to their order in the list and generates a response accordingly. Employing system instructions can effectively guide the assistant's behavior throughout the conversation. The assistant prompt is usually used to provide historical context for the conversation. 
 \end{itemize}
 
 Now we outline our approach to discovering the optimal prompt for text-to-SQL ChatGPT agents and present some preliminary results.
@@ -34,47 +36,97 @@ Potential criteria include the syntactic correctness of the SQL commands (i.e., 
 Given that ChatGPT is a conversational agent, we must also consider the quality of the output in terms of the context and format of SQL.
 Consider an example from the SEOSS dataset: "Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1." ChatGPT's output, in this case, would be a conversion with a query, which is not the desired outcome.
 
-\begin{itemize}
-    \item \textbf{Prompt}: Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
-    \item \textbf{Goal}: \\\begin{lstlisting}
-        SELECT T1.field FROM issue_changelog AS T1 JOIN issue_fix_version AS T2 ON T1.issue_id = T2.issue_id WHERE T2.fix_version = "0.12.1"
-    \end{lstlisting}
-    \item \textbf{ChatGPT}: Certainly! Here's the SQL statement to return what was changed in version 0.12.1:
-          SELECT changes FROM version\_history WHERE version\_number = '0.12.1'. Note that the syntax may vary slightly depending on the specific database management system being used and the structure of your tables, but this should work in most cases assuming there is a table named version\_history with columns version\_number and changes.
-\end{itemize}
+\begin{figure}[H]
+    \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#1}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Prompt:} \\ 
+            Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
+            \\
+            {\bf ChatGPT:} \\
+            Certainly! Here's the SQL statement to return what was changed in version 0.12.1:\\
+            SELECT changes FROM version\_history WHERE version\_number = '0.12.1'. \\ Note that the syntax may vary slightly depending on the specific database management system being used and the structure of your tables,\\ but this should work in most cases assuming there is a table named version\_history with columns version\_number and changes.
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
+%     \item \textbf{Goal}: \\\begin{lstlisting}
+%     SELECT T1.field FROM issue_changelog AS T1 JOIN issue_fix_version AS T2 ON T1.issue_id = T2.issue_id WHERE T2.fix_version = "0.12.1"
+% \end{lstlisting}
 
 Now we must find a way to guide ChatGPT toward generating the correct SQL query. We can filter the result and obtain output in our desired style by specifying precisely what we want. The following is the prompt we used to enhance the quality of the output.
 
-\begin{itemize}
-    \item \textbf{Prompt}: Write one valid SQL query in markdown format without talking and giving a description. Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
-    \item \textbf{ChatGPT}: SELECT changes FROM version\_history WHERE version\_number = '0.12.1'
-\end{itemize}
+\begin{figure}[H]
+    \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#2}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Prompt:} \\ 
+            Write one valid SQL query in markdown format without talking and giving a description. Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
+            \\
+            {\bf ChatGPT:} \\
+            SELECT changes FROM version\_history WHERE version\_number = '0.12.1'
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
 
 We can utilize the system role to provide context and the user role to pose the question. In the system role, we can limit the system to acting as an agent or assistant for a specific task. We can also supply the system with a database schema. We can present the question in the user role, and the assistant will generate the SQL query. We used the following prompt to improve the output quality as a text-to-SQL agent using the SEOSS dataset.
 
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Role} & \textbf{Content}                                                                             \\ \hline
-        System        & You are a helpful assistant for generating syntactically correct read-only                   \\
-                      & SQL to answer a given question.                                                              \\
-                      & Database: \$dbname                                                                           \\
-                      & The following are tables you can query:                                                      \\
-                      & ---------------------                                                                        \\
-                      & \$schemas                                                                                    \\
-                      & ---------------------                                                                        \\
-                      & Do not use IN keyword.                                                                       \\
-                      & If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
-                      & name is not going to be used in query again, then do not use.                                \\
-                      & Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
-                      & \small{If in using $COUNT(*) and COUNT(COLUMN)$ there is no difference then use $COUNT(*)$.} \\
-                      & Write one valid SQL in markdown format.                                                      \\ \hline
-        User          & Generate syntactically correct read-only SQL to answer the following                         \\
-                      & question: \$question                                                                         \\ \hline
-    \end{tabular}
-    \caption{Prompt structure used in the Text-to-SQL task on the SEOSS dataset}
-\end{table}
+\begin{figure}[H]
+    \begin{AIbox}{Final Prompt}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf role(System):} \\ 
+            You are a helpful assistant for generating syntactically correct read-only                   \\
+            SQL to answer a given question.                                                              \\
+            Database: \$dbname                                                                           \\
+            The following are tables you can query:                                                      \\
+            ---------------------                                                                        \\
+            \$schemas                                                                                    \\
+            ---------------------                                                                        \\
+            Do not use IN keyword.                                                                       \\
+            If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
+            name is not going to be used in query again, then do not use.                                \\
+            Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
+            If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
+            Write one valid SQL in markdown format.
+            \\
+            {\bf role(User):} \\
+            Generate syntactically correct read-only SQL to answer the following question: \$question
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
+
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|l|l|}
+%         \hline
+%         \textbf{Role} & \textbf{Content}                                                                             \\ \hline
+%         System        & You are a helpful assistant for generating syntactically correct read-only                   \\
+%                       & SQL to answer a given question.                                                              \\
+%                       & Database: \$dbname                                                                           \\
+%                       & The following are tables you can query:                                                      \\
+%                       & ---------------------                                                                        \\
+%                       & \$schemas                                                                                    \\
+%                       & ---------------------                                                                        \\
+%                       & Do not use IN keyword.                                                                       \\
+%                       & If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
+%                       & name is not going to be used in query again, then do not use.                                \\
+%                       & Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
+%                       & \small{If in using $COUNT(*) and COUNT(COLUMN)$ there is no difference then use $COUNT(*)$.} \\
+%                       & Write one valid SQL in markdown format.                                                      \\ \hline
+%         User          & Generate syntactically correct read-only SQL to answer the following                         \\
+%                       & question: \$question                                                                         \\ \hline
+%     \end{tabular}
+%     \caption{Prompt structure used in the Text-to-SQL task on the SEOSS dataset}
+% \end{table}
 
 By incorporating system and user roles, we effectively guide ChatGPT to generate the desired SQL query in response to a natural language question \cite{white2023prompt}. This approach demonstrates the importance of carefully crafting prompts and roles to achieve the most accurate and contextually appropriate results from ChatGPT in text-to-SQL tasks.
 
@@ -89,12 +141,12 @@ Initially after generating queries and analyzing the results, we found that the 
         \hline
         \textbf{Prompt}         & \textbf{accuracy} \\ \hline
         Simple asking prompt    & 11\%              \\ \hline
-        // + format constraints & 28\%              \\ \hline
-        //  + DB Schema         & 44\%              \\ \hline
+        Prompt + Format constraints & 28\%              \\ \hline
+        Prompt + Format Constraints + DB Schema         & 44\%              \\ \hline
     \end{tabular}
 \end{table}
 
-After running the ChatGPT model on the SEOSS dataset, we found that the accuracy of the generated SQL queries was 44\%. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 28\% when we added the format constraints to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 44\% when we added the database schema to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. After that, we did the same with GPT 4 and we saw a significant jump in accuracy, especially for easy and medium questions.
+After running the GPT-3.5 model on the SEOSS dataset, we found that the accuracy of the generated SQL queries was 44.7\%. This is a significant improvement over the 11.6\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 28.9\% when we added the format constraints to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 44\% when we added the database schema to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. After that, we did the same with GPT 4 and we saw a significant jump in accuracy, especially for easy and medium questions.
 
 \begin{table}[h]
     \centering
@@ -119,11 +171,11 @@ The table presents a comparison of the exact match accuracy for various models t
     \centering
     \begin{tabular}{|c|c|c|L|L|}
         \hline
-        Model                    & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Cost}  \\ \hline
-        PICARD + T5Base + 4Beam  & 0.307                       & ~400min       & Local Hardware \\ \hline
-        PICARD + T5Large + 4Beam & 0.427                       & ~720min       & Local Hardware \\ \hline
-        GPT 3.5-turbo            & 0.447                       & 37min         & \$2            \\ \hline
-        GPT 4                    & 0.524                       & 78min         & \$14           \\ \hline
+        Model                    & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters}& \textbf{Cost}  \\ \hline
+        PICARD + T5Base  & 0.307                       & ~400min       & 220M & Local Hardware \\ \hline
+        PICARD + T5Large & 0.427                       & ~720min       & 770M & Local Hardware \\ \hline
+        GPT 3.5-turbo            & 0.447                       & 37min         & 175B & \$2            \\ \hline
+        GPT 4                    & 0.524                       & 78min         & 1T & \$14           \\ \hline
     \end{tabular}
     \caption{Expermiment Accuracy vs Resources used}
 \end{table}
