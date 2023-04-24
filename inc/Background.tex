@@ -2,7 +2,7 @@
 
 In this chapter, we provide background information about the technical concepts related to the main topics of this thesis, which focus on natural language understanding and text generation. We focus on early and recent approaches and the terminology needed to understand the basics of this thesis.
 
-The text-to-SQL problem, or NL2SQL, is the following: Given a Natural Language Query (NLQ) on a Relational Database (RDB), produce a SQL query equivalent to the NLQ. It has been a holy grail for the database community for over 30 years to translate user queries into SQL. Several challenges include ambiguity, schema linking, vocabulary gaps, and user errors.
+The text-to-SQL problem, or \ac{NL2SQL}, is the following: Given a Natural Language Query (NLQ) on a \ac{RDB}, produce a SQL query equivalent to the \ac{NLQ}. It has been a holy grail for the database community for over 30 years to translate user queries into SQL. Several challenges include ambiguity, schema linking, vocabulary gaps, and user errors.
 
 Early approaches to Text-to-SQL relied on rule-based and template-based methods, while recent approaches use neural networks and machine learning techniques. This allows them to handle a wide range of natural language inputs and generate more accurate SQL queries, which we will discuss further.
 
@@ -23,7 +23,7 @@ In summary, early approaches to Text-to-SQL were limited by their reliance on pr
 
 \subsection{Recent Approaches}
 
-Recent approaches to Text-to-SQL have focused on using neural networks and machine learning techniques to generate SQL queries. These methods use large amounts of training data to learn the relationship between natural language and SQL and can generate SQL queries for a wide range of inputs. These methods can handle a wide range of natural language inputs and are not limited by predefined templates or rules. Additionally, recent approaches leverage pre-trained models such as BERT \cite{devlin-etal-2019-bert}, GPT-2 \cite{radford2019language}, and T5 \cite{raffel_exploring_2020}, which have been pre-trained on a large corpus of text, to fine-tune text-to-SQL tasks, which enables them to understand the natural language inputs better and generate more accurate SQL queries.
+Recent approaches to Text-to-SQL have focused on using neural networks and machine learning techniques to generate SQL queries. These methods use large amounts of training data to learn the relationship between natural language and SQL and can generate SQL queries for a wide range of inputs. These methods can handle a wide range of natural language inputs and are not limited by predefined templates or rules. Additionally, recent approaches leverage pre-trained models such as \ac{BERT} \cite{devlin-etal-2019-bert}, GPT-2 \cite{radford2019language}, and T5 \cite{raffel_exploring_2020}, which have been pre-trained on a large corpus of text, to fine-tune text-to-SQL tasks, which enables them to understand the natural language inputs better and generate more accurate SQL queries.
 
 One favored strategy is using encoder-decoder architecture, which uses an encoder to encode the natural language input and a decoder to generate the corresponding SQL query. The encoder is a pre-trained language model such as BERT, which is fine-tuned on the task of text-to-SQL, and the decoder is a neural network that generates the SQL query. This architecture effectively generates accurate SQL queries for various natural language inputs.
 

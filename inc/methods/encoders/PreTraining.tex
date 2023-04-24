@@ -4,7 +4,7 @@ Pre-training methods are a crucial part of training transformer-based models for
 
 TaBERT \cite{yin_tabert_2020} focuses on tabular data for pre-training. It employs two main objectives: masked column prediction and cell value recovery. These objectives help the model better understand the structure and semantics of tables, allowing it to generate SQL queries more effectively.
 
-Grappa \cite{DBLP:journals/corr/abs-2009-13845} generates synthetic question-SQL pairs over tables for pre-training. It uses BERT and relies on two primary objectives: masked language modeling (MLM) and predicting column presence and SQL operations. MLM helps the model understand the language structure in the context of SQL queries while predicting column presence and SQL operations allowing it to learn how columns and operations are related to the questions.
+Grappa \cite{DBLP:journals/corr/abs-2009-13845} generates synthetic question-SQL pairs over tables for pre-training. It uses BERT and relies on two primary objectives: masked language modeling and predicting column presence and SQL operations. \ac{MLM} helps the model understand the language structure in the context of SQL queries while predicting column presence and SQL operations allowing it to learn how columns and operations are related to the questions.
 
 GAP \cite{shi2020learning} pre-trains BART \cite{lewis-etal-2020-bart} on both synthesized text-to-SQL and tabular data. It utilizes four objectives: MLM, column prediction, column recovery, and SQL generation. The combination of these objectives enables the model to understand language patterns and table structures while also learning to generate SQL queries that match the given text.
 

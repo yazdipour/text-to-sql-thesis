@@ -41,13 +41,13 @@ Self-attention \cite{https://doi.org/10.48550/arxiv.1706.03762} is a mechanism u
 
 Pre-training refers to training a model on a large dataset and then fine-tuning it on a smaller dataset for a specific task, which helps to improve the model's performance on the specific task.
 
-\subsubsection{Long Short-Term Memory (LSTM)}
+\subsubsection{\ac{LSTM}}
 
 A type of recurrent neural network designed to store information over a more extended period than traditional neural networks, allowing it to capture long-term dependencies better \cite{Hochreiter1997LongSM}.
 This makes it especially well-suited for tasks such as language modeling and text generation, where it can take into account the context of the text in order to generate more accurate outputs.
 In addition, LSTM networks can identify patterns in the data that would be difficult for traditional networks to capture. This makes them ideal for tasks such as sequence prediction and classification, where they can identify patterns that would otherwise be too subtle for traditional networks to detect.
 
-\subsubsection{Bidirectional Encoder Representations from Transformers(BERT)}
+\subsubsection{\ac{BERT}}
 
 A pre-trained Transformer model that has been trained on a large corpus of text, with the primary aim of pre-training language representations for use in natural language processing tasks\cite{devlin-etal-2019-bert}. This pre-training helps to give BERT a strong understanding of the language structure and helps in faster training times for downstream tasks. BERT can be fine-tuned for various applications, such as Text-to-SQL, where it can provide better performance than non-specialized models. By leveraging the already learned representations from the pre-trained model, BERT is able to adjust quickly to the task at hand, resulting in faster training times.
 
@@ -69,6 +69,6 @@ A decoding strategy where the model generates a sequence of tokens one at a time
 
 \subsubsection{Semantic parsing}
 
-Semantic parsing\cite{krishnamurthy-etal-2017-neural} is an area of natural language processing that involves extracting the meaning or intent from text. One class of Semantic Parsing, Text-to-SQL, involves converting natural language problems into SQL query statements. This is a challenging task, one that requires the use of advanced machine learning and natural language processing algorithms. As such, the research conducted in this field seeks to explore the various solutions and practices employed by researchers to tackle this problem effectively. Furthermore, it is also important to note that this problem is not just limited to converting natural language into SQL query statements, as other applications of Semantic Parsing have been explored, such as Natural Language Generation (NLG). Overall, by understanding the various techniques used for Semantic Parsing, we can better understand the complexities involved in this task and how best to approach it.
+Semantic parsing\cite{krishnamurthy-etal-2017-neural} is an area of natural language processing that involves extracting the meaning or intent from text. One class of Semantic Parsing, Text-to-SQL, involves converting natural language problems into SQL query statements. This is a challenging task, one that requires the use of advanced machine learning and natural language processing algorithms. As such, the research conducted in this field seeks to explore the various solutions and practices employed by researchers to tackle this problem effectively. Furthermore, it is also important to note that this problem is not just limited to converting natural language into SQL query statements, as other applications of Semantic Parsing have been explored, such as \ac{NLG}. Overall, by understanding the various techniques used for Semantic Parsing, we can better understand the complexities involved in this task and how best to approach it.
 
 \input{inc/methods/Techniques.tex}
