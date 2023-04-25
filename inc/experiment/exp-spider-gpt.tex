@@ -62,7 +62,7 @@ By examining previous query outcomes and employing them within the prompt in the
         \parbox{1\textwidth}{\scriptsize
         \begin{alltt} 
             {\bf role(System):} \\ 
-            You are a helpful assistant for generating syntactically correct read-only                   \\
+            You are a helpful text-to-sql assistant for generating syntactically correct read-only                   \\
             SQL to answer a given question.                                                              \\
             Database: concert\_singer                                                                         \\
             The following are tables you can query:                                                      \\
@@ -86,7 +86,7 @@ By examining previous query outcomes and employing them within the prompt in the
             Generate syntactically correct read-only SQL to answer the following question: What are the names, countries, and ages for every singer in descending order of age?
             \\
             {\bf role(Assistant):} \\
-            SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+            SELECT name,  country,  age FROM singer ORDER BY age DESC
             \\
             {\bf role(User):} \\
             Generate syntactically correct read-only SQL to answer the following question: \$question
@@ -95,3 +95,63 @@ By examining previous query outcomes and employing them within the prompt in the
         \vspace{-5px}
     \end{AIbox}
 \end{figure}
+
+\subsubsubsection{Retries and Feedback}
+
+In certain situations, ChatGPT may generate incorrect or unsatisfactory outputs. To improve the model's performance, we have investigated several techniques involving retries and feedback. Our experiments have led to the following observations:
+
+\textbf{Retry without modifications}: Asking ChatGPT to retry without providing any specific guidance or feedback rarely led to improved results. Even when repeating the process multiple times, there was no significant improvement in the quality of the outputs and ChatGPT will insist on the correctness of the output.
+
+\textbf{Rephrasing the user's question}: Requesting the model to rephrase the user's question before attempting to generate an answer yielded better outcomes in some cases. This method proved helpful in easy and medium tasks, resulting in the generation of new and improved queries. However, this approach's effectiveness diminished after the first retry, with no further improvements observed.
+
+\textbf{Human-guided feedback}: Incorporating a human agent's feedback to point out issues in the generated output and instructing ChatGPT to address the problem led to noticeable improvements. In our experiments, we provided feedback in the form of "This is wrong. \$reason," and ChatGPT made appropriate adjustments based on the given reason.
+
+\begin{figure}[H]
+    \begin{AIbox}{Example a Feedback Prompt}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf role(User):} \\
+            Show the stadium name and the number of concerts in each stadium.
+            \\
+            {\bf role(Assistant):} \\
+            SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Name;
+            \\
+            {\bf role(User):} \\
+            This is wrong: Name is not a good column for grouping.
+            \\
+            {\bf ChatGPT:} \\
+            SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Stadium\_ID;
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
+
+Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 8\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising. 
+
+Since evaluation metrics often struggle with accurately assessing queries containing "INTERSECTION," "UNION," or "EXCEPT" keywords, there is a high rate of false positives. ChatGPT may generate correct alternative queries using JOINs that convey the same meaning, but the evaluation metrics fail to recognize them as correct. Providing an additional prompt can guide ChatGPT to generate alternative queries using JOINs, leading to improved accuracy. Utilizing this technique, we could fix 10\% of extra-hard tasks. As a result, the queries in the SPIDER dataset serve as a valuable resource for enhancing evaluation methods rather than solely focusing on improving the model itself.
+
+\begin{figure}[H]
+    \begin{AIbox}{Example a Feedback Prompt}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf role(User):} \\
+            Find the first name of students who have both cat and dog pets.
+            \\
+            {\bf role(Assistant):} \\
+            SELECT DISTINCT S.Fname FROM Student S JOIN Has\_Pet AS HP1 ON S.StuID = HP1.StuID JOIN Pets AS P1 ON HP1.PetID = P1.PetID AND P1.PetType = 'Cat' JOIN Has\_Pet AS HP2 ON S.StuID = HP2.StuID JOIN Pets AS P2 ON HP2.PetID = P2.PetID AND P2.PetType = 'Dog';
+            \\
+            {\bf role(User):} \\
+            This is wrong: rewrite it with intersect.
+            \\
+            {\bf ChatGPT:} \\
+            SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog';
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
+
+Although this human-guided approach can yield better results, it is not effective since it requires expert user guidance, which deviates from the zero-shot learning paradigm. However, exploring these methods can inform future work on prompt engineering techniques and facilitate the development of more effective strategies for refining model outputs.
