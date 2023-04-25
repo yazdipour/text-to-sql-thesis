@@ -13,6 +13,15 @@ Considering the consistent growth in parameter counts with each successive model
 
 \subsubsection{ChatGPT}
 
+\begin{figure}[H]
+    \begin{AIbox}{Attention!}
+        \parbox{1\textwidth}{
+            Please note that the results in this section may be subject to change as ChatGPT continues to improve its system over time.
+        }
+    \end{AIbox}
+\end{figure}
+
+
 ChatGPT and \ac{LLM} models represent an evolution in language models tailored explicitly for conversational interfaces. These models exhibit a distinct behavior compared to older language models. While previous models operated on a text-in and text-out basis (accepting a prompt string and returning a completion to append to the prompt), GPT-3 and GPT-4 models follow a conversation-in and message-out approach \cite{bubeck2023sparks}. They expect input formatted in a chat-like transcript format and return a completion representing a model-generated message within the chat. This format is designed for multi-turn conversations but can also be effective in non-chat scenarios.
 For our experiment with the SEOSS dataset, we utilized the ChatGPT API to submit natural language questions and retrieve generated SQL queries. The API allowed for the seamless integration of ChatGPT into our workflow and provided an efficient and effective means to process the dataset.
 Throughout the evaluation, we observed that ChatGPT successfully generated accurate and syntactically correct SQL queries for a wide range of questions. The model excelled at handling complex queries and demonstrated a deep understanding of the underlying database schema.
@@ -26,7 +35,7 @@ ChatGPT employs prompts to direct its response generation process \cite{white202
 To maximize the effectiveness of ChatGPT in various applications, it is essential to understand the art of crafting effective prompts. The following guidelines have been established to optimize the performance of ChatGPT in generating accurate, relevant, and context-aware responses:
 
 \begin{enumerate}
-    \item \textbf{Give ChatGPT an identity and intended audience}: By assigning a role or identity to ChatGPT (e.g., "You are a text-to-sql assistant, do... or As an assistant, explain...") and specifying the target audience, the model can adopt a specific perspective or tone, providing tailored responses to the context.
+    \item \textbf{Give ChatGPT an identity and intended audience}: By assigning a role or identity to ChatGPT (e.g., "You are a text-to-sql assistant, do... or As an assistant, do...") and specifying the target audience, the model can adopt a specific perspective or tone, providing tailored responses to the context.
 
     \item \textbf{Offer and give specific context}: Including relevant background information or context in the prompt helps the model generate more accurate and meaningful answers, particularly when dealing with complex or domain-specific queries.
 
@@ -199,8 +208,8 @@ The table presents a comparison of the exact match accuracy for various models t
         Model                    & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters}& \textbf{Cost}  \\ \hline
         PICARD + T5Base  & 0.307                       & ~400min       & 220M & Local Hardware \\ \hline
         PICARD + T5Large & 0.427                       & ~720min       & 770M & Local Hardware \\ \hline
-        GPT 3.5-turbo            & 0.447                       & 37min         & 175B & \$2            \\ \hline
-        GPT 4                    & 0.524                       & 78min         & 1T & \$14           \\ \hline
+        GPT 3.5-turbo            & 0.447                       & 37min         & 175B & \$2/iteration           \\ \hline
+        GPT 4                    & 0.524                       & 78min         & 1T & \$14/iteration           \\ \hline
     \end{tabular}
     \caption{Expermiment Accuracy vs Resources used}
 \end{table}

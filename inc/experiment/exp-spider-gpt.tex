@@ -108,7 +108,7 @@ In certain situations, ChatGPT may generate incorrect or unsatisfactory outputs.
 
 \begin{figure}[H]
     \begin{AIbox}{Example a Feedback Prompt}
-        \vspace{-5px}
+        \vspace{-10px}
         \parbox{1\textwidth}{\scriptsize
         \begin{alltt} 
             {\bf role(User):} \\
@@ -124,17 +124,18 @@ In certain situations, ChatGPT may generate incorrect or unsatisfactory outputs.
             SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Stadium\_ID;
         \end{alltt}
         }
-        \vspace{-5px}
+        \vspace{-10px}
     \end{AIbox}
 \end{figure}
 
-Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 8\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising. 
+Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 10.7\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising. 
 
-Since evaluation metrics often struggle with accurately assessing queries containing "INTERSECTION," "UNION," or "EXCEPT" keywords, there is a high rate of false positives. ChatGPT may generate correct alternative queries using JOINs that convey the same meaning, but the evaluation metrics fail to recognize them as correct. Providing an additional prompt can guide ChatGPT to generate alternative queries using JOINs, leading to improved accuracy. Utilizing this technique, we could fix 10\% of extra-hard tasks. As a result, the queries in the SPIDER dataset serve as a valuable resource for enhancing evaluation methods rather than solely focusing on improving the model itself.
+Since evaluation metrics often struggle with accurately assessing queries containing "INTERSECTION," "UNION," or "EXCEPT" keywords, there is a high rate of false positives. ChatGPT may generate correct alternative queries using JOINs that convey the same meaning, but the evaluation metrics fail to recognize them as correct. Providing an additional prompt can guide ChatGPT to generate alternative queries using JOINs, leading to improved accuracy. Utilizing this technique, we could fix 25\% of failed extra-hard tasks. As a result, the queries in the SPIDER dataset serve as a valuable resource for enhancing evaluation methods rather than solely focusing on improving the model itself.
+Upon examining the extra-hard tasks, we discovered that the GPT-4 model correctly answered 110 out of 166 tasks on the first prompt. With expert user feedback, the model successfully addressed 14 tasks on the second prompt and only 4 tasks on the third prompt. On average, with 1.17 prompts, the GPT-4 model was able to provide accurate responses to the extra-hard tasks.
 
 \begin{figure}[H]
     \begin{AIbox}{Example a Feedback Prompt}
-        \vspace{-5px}
+        \vspace{-10px}
         \parbox{1\textwidth}{\scriptsize
         \begin{alltt} 
             {\bf role(User):} \\
@@ -150,7 +151,7 @@ Since evaluation metrics often struggle with accurately assessing queries contai
             SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog';
         \end{alltt}
         }
-        \vspace{-5px}
+        \vspace{-10px}
     \end{AIbox}
 \end{figure}
 
