@@ -12,14 +12,14 @@ It includes a Natural Language (NL) encoder, a Schema Encoder, and a Decoder.
 \textbf{SemQL(Semantic Query Language)}\cite{semql}  is a query language designed explicitly for text-to-SQL tasks. It is a simplified version of SQL that is more human-readable and intuitive, making it easier for a model to generate SQL queries from natural language input. SemQL can be adapted to operate with various databases, letting users query whatever data source they need. This makes SemQL a flawless language for data-driven applications and analytics.
 
 % add semql image
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{pics/semql}
     \caption{SemQL query example\cite{2018MDM}}
     \label{fig:semql}
 \end{figure}
 
-% \begin{figure}[htb]
+% \begin{figure}[H]
 %     \centering
 %     \includegraphics[width=0.5\textwidth]{pics/IRNet/illustrative_SemSQL}
 %     \caption{An illustrative example of SemSQL from \cite{DBLP:journals/corr/abs-1905-08205}}
@@ -32,7 +32,7 @@ Natural language is encoded into an embedding vector by the NL encoder. By using
 A schema encoder takes a database schema as input and outputs representations for columns and tables.
 Using context-free grammar, the decoder synthesizes SemQL queries.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{pics/IRNet/overview}
     \caption{An overview of the neural model to synthesize SemQL queries\cite{DBLP:journals/corr/abs-1905-08205}}
@@ -43,7 +43,7 @@ They leverage Devlin et al., 2018 BERT\cite{devlin-etal-2019-bert} to encode que
 
 On the SPIDER dataset, IRNet performs 46.7\% better than previous benchmark models by 19\%. The accuracy of 54.7\% is achieved fine-tuneing BERT for IRNet.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{pics/IRNet/f1}
     \caption{F1 scores of component matching of SyntaxSQLNet and IRNet on the test set from \cite{DBLP:journals/corr/abs-1905-08205}}

@@ -9,7 +9,7 @@ For making predictions, the model uses a sketch-based approach consisting of a d
 The model also incorporates column attention (weights assigned to significant words and phrases in sentences) to improve the results. According to the flowchart below, SQLNet employs three phases to generate SQL queries for WikiSQL tasks.
 
 % add image sqlnet.png
-% \begin{figure}[htb]
+% \begin{figure}[H]
 %     \centering
 %     \includegraphics[width=0.3\textwidth]{pics/sqlnet/sqlnet.png}
 %     \caption{SQLNet\cite{xu_sqlnet_2017}}
@@ -21,7 +21,7 @@ The model also incorporates column attention (weights assigned to significant wo
 The token with the \$ sign represents an empty slot, and the token name represents the type of prediction. Tokens in bold represent SQL keywords such as SELECT, WHERE, etc.
 \$AGG can be filled with either an empty token or one of the aggregation operators, such as SUM or MAX. Fill in the \$COLUMN and \$VALUE slots with the column name and substring of the question, respectively. The \$OP slot can be a value between \{=, \}. The notion \(...\)* uses a regular expression to indicate zero or more AND clauses.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{pics/sqlnet/sketch-based.png}
     \caption{Sketch-based query synthesis\cite{xu_sqlnet_2017}}
@@ -44,7 +44,7 @@ In SELECT clauses, columns are named, and aggregator functions are specified, su
 
 In the WikiSQL test set, SQLNet accuracy is 64.4\%, and in the SPIDER test set, it is around 12.4\%.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{pics/sqlnet/sqlnet-task.png}
     \caption{An example of a query executed by SQLNet on WikiSQL\cite{xu_sqlnet_2017}}
