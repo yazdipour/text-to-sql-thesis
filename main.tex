@@ -1,6 +1,7 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[english, a4paper, 12pt]{article}
 
-\usepackage[breaklinks,colorlinks=true,citecolor=black,linkcol or=black,urlcolor=black,filecolor=black]{hyperref}
+% \usepackage[breaklinks,colorlinks=true,citecolor=black,linkcolor=black,urlcolor=cyan,filecolor=black]{hyperref}
+\usepackage{hyperref}
 \usepackage{times}
 \usepackage{graphicx,color}
 \usepackage{url}
@@ -11,7 +12,6 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{booktabs}
-\usepackage{hyperref}
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -20,7 +20,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
-% \usepackage[ngerman]{babel}
+\usepackage[english]{babel}
 \usepackage{blindtext}
 % \usepackage[automark]{scrpage2}
 % \pagestyle{scrheadings}
@@ -35,7 +35,7 @@
 \usepackage{array}
 \usepackage[inkscapeformat=png]{svg}
 \usepackage[printonlyused,withpage]{acronym}
-
+\usepackage{enumitem}
 
 \newcommand{\DV}{GPT-4\xspace}
 \usepackage{listings}
@@ -70,7 +70,28 @@
   basicstyle=\ttfamily,
   breaklines=true
   }
-% --------------------
+
+\usepackage{blindtext}%
+\usepackage{etoolbox}%
+\usepackage{microtype}
+\usepackage{setspace}
+% -------------------- Header and Footer --------------------
+\pagenumbering{arabic}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark} % Left header: section name
+\fancyfoot[C]{\thepage}   % Center footer: page number
+\renewcommand{\headrulewidth}{0.4pt} % header rule
+\renewcommand{\footrulewidth}{0.4pt} % footer rule
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\usepackage{afterpage}
+\newcommand{\setnextpagestyle}[1]{\afterpage{\clearpage\thispagestyle{#1}}}
+\newcommand{\nofootrule}{\renewcommand{\footrulewidth}{0pt}}
+
+% -------------------- Page Layout -------------------- 
 
 \setlength{\topmargin}{2cm}
 \setlength{\headheight}{12pt}
@@ -84,56 +105,64 @@
 \setlength{\parindent}{20pt}
 \setlength{\parskip}{6pt}
 
-\input{inc/profile.tex}
-
-\usepackage{blindtext}%
-\usepackage{etoolbox}%
 
 \patchcmd{\thebibliography}{\chapter*}{\par\let\clearpage\relax\chapter*}{\typeout{success}}{\typeout{failure}}
-\begin{document}
 
-\input{inc/title}
-\pagenumbering{roman}
+% -------------------- New Commands --------------------
 
-\pagenumbering{arabic}
+\input{inc/profile.tex}
 
+% --------------- subsubsubsection -----------------
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+% -------------------- Title --------------------
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+% \titleformat{\section}{\clearpage\thispagestyle{plain}\fontsize{28}{22}\selectfont}{\thesection}{1em}{}
 
-\clearpage
+\titleformat{\section}[display]
+  {\clearpage\thispagestyle{plain}\fontsize{36}{36}\selectfont\bfseries}
+  {\bfseries Chapter \thesection}
+  {10pt}
+  {\Large}
+
+% -------- Distance between the image and its caption --------
+\usepackage{caption}
+\captionsetup{skip=5pt} % Adjust the value as desired
+% -------------------- Fonts --------------------
+\usepackage{mathpazo}
+
+% -------------------- Document --------------------
+\begin{document}
+
+\input{inc/title}
+
 \input{inc/Dedication}
-\clearpage
 \tableofcontents
-\clearpage
 \input{inc/abbreviations.tex}
-\clearpage
 \input{inc/intro}
-\clearpage
 \input{inc/Background}
-\clearpage
 \input{inc/Terminology}
-\clearpage
 \input{inc/Datasets}
-\clearpage
 \input{inc/Methods}
-\clearpage
 \input{inc/Evaluation}
-\clearpage
 \input{inc/experiment/casestudy}
-\clearpage
 \input{inc/Conclusion}
-
-\clearpage
 \listoffigures
+\addcontentsline{toc}{section}{List of Figures}
+
 \listoftables
-% Bib
-\clearpage
+\addcontentsline{toc}{section}{List of Tables}
+
+% -------------------- Bibliography --------------------
 \renewcommand{\refname}{Bibliography}
 \addcontentsline{toc}{section}{Bibliography}
 \bibliographystyle{alpha}
 \bibliography{bibs/litDB}
+
+% -------------------- Appendix --------------------
 % \clearpage
 % \input{inc/Appendix}
 % \addcontentsline{toc}{section}{Appendix} % Add the appendix to the table of contents manually
