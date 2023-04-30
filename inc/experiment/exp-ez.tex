@@ -1,7 +1,7 @@
 \subsubsection{EZ-PICARD - Microservices Practices}
 
 % add image here
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{pics/ez/ui.png}
     % \caption{EZ-PICARD Web Application}
@@ -21,8 +21,8 @@ These parsers also need to be written in Haskell, as the existing SQLite parser 
 With EZ-PICARD, we can have an adapter layer between SQLite DB and any other database engine, such as MySQL. This layer can be implemented independently from PICARD itself using Python instead of Haskell and can provide a wide range of features, such as automatically translating queries from SQLite to the target database engine and mirroring the schema to the SQLite DB. This adapter layer can provide further advantages by allowing developers to use the same codebase to support multiple database engines, thus reducing the need for additional development and maintenance costs.
 
 % add image here
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{pics/ez/mapeps}
-    \caption{\small EZ-PICARD Architecture}
+    \caption{EZ-PICARD Architecture}
 \end{figure}

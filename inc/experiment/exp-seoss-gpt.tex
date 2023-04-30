@@ -27,7 +27,28 @@ For our experiment with the SEOSS dataset, we utilized the ChatGPT API to submit
 Throughout the evaluation, we observed that ChatGPT successfully generated accurate and syntactically correct SQL queries for a wide range of questions. The model excelled at handling complex queries and demonstrated a deep understanding of the underlying database schema.
 However, there were instances where ChatGPT generated SQL queries that deviated from the desired output, particularly in edge cases and questions with ambiguous semantics. To mitigate this issue, we employed a combination of custom LLM prompts to ensure the generated queries met the required quality standards.
 
-\subsubsection{Prompting}
+\subsubsection{Prompt Engineering}
+
+Prompt Engineering is an emerging field focused on creating and refining prompts to enhance the performance of language models (LMs) across diverse applications and research areas. Mastering the art of prompt engineering allows researchers to gain deeper insights into the potential and boundaries of large language models (LLMs) while enabling them to augment LLMs' proficiency in handling typical and intricate tasks such as question answering and arithmetic reasoning. Additionally, developers employ prompt engineering to devise reliable and efficient prompting strategies that can seamlessly integrate with LLMs and other relevant tools. \cite{Saravia_Prompt_Engineering_Guide_2022}
+
+Prompt engineering best practices encompass utilizing LLM APIs for various tasks, such as summarization, inference, text transformation, and expansion. The process of crafting effective prompts involves the systematic development of high-quality prompts to achieve optimal results in various tasks and applications.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/openai.png}
+    \caption{OpenAI ChatGPT Prompting Portal}
+    \label{fig:openai}
+\end{figure}
+
+OpenAI Playground shown in figure \ref{fig:openai} is a versatile development platform enabling users to explore and experiment with AI models such as the GPT-3 and GPT-4 series. This complimentary tool is designed to facilitate the development and testing of predictive language models using natural language processing techniques to comprehend user input text. The AI algorithm generates contextually appropriate and dynamic responses based on its vast training data.
+
+Within the online Playground, researchers can choose between various AI model versions and adjust parameters such as Temperature, Maximum length, Top P, and Frequency and Presence penalties.
+
+Temperature, ranging from 0 to 1, dictates the AI model's creativity. A lower temperature yields more predictable, fact-based responses, while a higher temperature produces more creative and random outputs. The default setting of 0.7 is recommended for most creative tasks.
+
+Top P, on the other hand, is an alternative method to control output randomness and creativity. Tokens are organized and ranked according to their relevance to the prompt, and the "p" denotes probability. Adjusting the Top P value influences the range of available tokens.
+
+The Playground also features two penalty functions to regulate repetition in the generated text: Frequency and Presence penalties. Frequency penalties minimize word repetition, while Presence penalties reduce the recurrence of specific topics. The penalty scale ranges from 0 to 2, with higher values indicating a lower likelihood of repeated tokens.
 
 \subsubsubsection{Rules}
 
@@ -138,7 +159,7 @@ We can utilize the system role to provide context and the user role to pose the 
     \end{AIbox}
 \end{figure}
 
-% \begin{table}[h]
+% \begin{table}[H]
 %     \centering
 %     \begin{tabular}{|l|l|}
 %         \hline
@@ -169,7 +190,7 @@ Using this prompt structure allowed us to effectively communicate the task requi
 
 Initially after generating queries and analyzing the results, we found that the generated SQL queries were syntactically correct but semantically incorrect or needed refinements. For instance, ChatGPT tent to use AS keyword to name tables even when It was not necessary or use IN keyword even for simple conditions. This sort of behavior tent to reduce the accuracy of the generated SQL queries and
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|l|}
         \hline
@@ -182,7 +203,7 @@ Initially after generating queries and analyzing the results, we found that the 
 
 After running the GPT-3.5 model on the SEOSS dataset, we found that the accuracy of the generated SQL queries was 44.7\%. This is a significant improvement over the 11.6\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 28.9\% when we added the format constraints to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 44\% when we added the database schema to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. After that, we did the same with GPT 4 and we saw a significant jump in accuracy, especially for easy and medium questions.
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline

@@ -1,6 +1,6 @@
 \subsubsection{T5 + PICARD} \label{picard}
 
-% \begin{figure}[h]
+% \begin{figure}[H]
 %     \centering
 %     \includegraphics[page=1,width=0.7\textwidth]{pics/picard/benchmark.pdf}
 %     \caption{Benchmark results for the PICARD model\cite{picard2020picard}}
@@ -14,17 +14,34 @@ In Transfer Learning, we start by training our model in an unsupervised fashion 
 
 \ac{T5} Model implemented by Raffel et al. \cite{raffel_exploring_2020} uses the BERT encoder-decoder architecture proposed by Vaswani et al. (2017){devlin-etal-2019-bert} and they showed in their studies that it will outperform decoder-only language models. Originally T5 was introduced with five pre-trained models — Small (60 million parameters), Base(220 million parameters), Large(770 million parameters), 3B(3 billion parameters), and 11B(11 billion parameters)\cite{raffel_exploring_2020}.
 
-\begin{figure}[h]
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{pics/picard/t5-size.png}
+%     \caption{T5 models with their Nr. of parameters, layer and feed-forward parameters\cite{raffel_exploring_2020}}
+% \end{figure}
+
+\begin{table}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{pics/picard/t5-size.png}
+    \begin{tabular}{l c c c}
+      \hline
+      Model       & Parameters & NrLayers & $d_{ff}$ \\ 
+      \hline
+      Small     & 60M       & 6  & 2048        \\
+      Base     & 220M       & 12  & 3072        \\
+      Large     & 770M       & 24  & 4096        \\
+      3B     & 3B       & 24  & 16384        \\
+      11B     & 11B       & 24  & 65536        \\
+      \hline
+    \end{tabular}
     \caption{T5 models with their Nr. of parameters, layer and feed-forward parameters\cite{raffel_exploring_2020}}
-\end{figure}
+\end{table}
+  
 
 To pre-train the T5 model, we start with clean text and drop some words to corrupt the text. Each dropped-out span will be replaced with a unique sentinel token, so if multiple words in a row get dropped out, they will be replaced with a single token. The words are dropped out independently uniformly at random so for an inviting get replaced by a single Sentinel token. Then the model is trained to output Sentinel tokens to delineate the dropped-out text corresponding to the text that was dropped out in the input and then each span of dropped-out text.
 
 This method is pretty similar to the span BERT objective. It tried to come up with an objective that was not too different from standard practice.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{pics/picard/t5-fine.png}
     \caption{Pre-training by Replace Corrupted Spans \cite{raffel_exploring_2020}}
@@ -35,7 +52,7 @@ Google T5's basic idea is that it models every NLP problem and every text proble
 So fundamentally, it is in a sequence-to-sequence framework; hence, T5 is perfectly suitable for transfer learning machine translation.
 T5 can handle various tasks, and it can be fine-tuned for different NLP tasks, such as summarization, \ac{COLA}, classification, multiple text translation, also regression problems like STSB  that predict how similar two sentences are. And in our case Text-to-SQL.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{pics/picard/t5-task.png}
     \caption{Each task uses text as input in the model and generates target text. In this way, the same model, loss function, and hyper-parameters are used across various diverse tasks, including translation. \cite{raffel_exploring_2020}}
