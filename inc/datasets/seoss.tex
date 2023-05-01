@@ -13,11 +13,27 @@ Expressions are labeled into two different tags, development and research. Eight
 % \end{figure}
 
 % TODO: need more about the Hardness of the SEOSS dataset
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{pics/seoss/seoss.png}
-    \caption{\small Examples of queries with different levels of complexity in SEOSS-Queries \cite{TOMOVA2022108211}}
-    \label{fig:SESS2}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{pics/seoss/seoss.png}
+%     \caption{\small Examples of queries with different levels of complexity in SEOSS-Queries \cite{TOMOVA2022108211}}
+%     \label{fig:SESS2}
+% \end{figure}
 
+\begin{figure}[H]
+    \label{fig:SESS2}
+    \begin{AIbox}{An example of an extra-hard SEOSS record}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Utterance:} \\ 
+            Return  the maximum number of file paths of modified files which can be associated with issue ids of issues of type 'Improvement
+            \\
+            {\bf Query:} \\
+            SELECT Count(file\_path) FROM code\_change AS T1 JOIN change\_set\_link AS T2 ON T1.commit\_hash = T2.commit\_hash JOIN issue AS T3 ON T2.issue\_id = T3.issue\_id WHERE T3.type = 'Improvement' GROUP BY T3.issue\_id ORDER BY Count(file\_path) DESC LIMIT 1
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+\end{figure}
 In SEOSS-Queries\cite{TOMOVA2022108211} research, they experienced RatSQL and SQLNet methods on the SEOSS dataset and released their evaluation steps. In this research, we will use the same dataset to evaluate state-of-the-art models currently available in the literature and used in SPIDER for this dataset.

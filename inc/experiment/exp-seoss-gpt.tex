@@ -44,7 +44,7 @@ OpenAI Playground shown in figure \ref{fig:openai} is a versatile development pl
 
 Within the online Playground, researchers can choose between various AI model versions and adjust parameters such as Temperature, Maximum length, Top P, and Frequency and Presence penalties.
 
-Temperature, ranging from 0 to 1, dictates the AI model's creativity. A lower temperature yields more predictable, fact-based responses, while a higher temperature produces more creative and random outputs. The default setting of 0.7 is recommended for most creative tasks.
+Temperature, ranging from 0 to 1, dictates the AI model's creativity. A lower temperature yields more predictable, fact-based responses, while a higher temperature produces more creative and random outputs. The default setting of 0.7 is recommended for most creative tasks, but in our case, we found that a temperature of 0 yielded the best results since it produced the most accurate SQL queries.
 
 Top P, on the other hand, is an alternative method to control output randomness and creativity. Tokens are organized and ranked according to their relevance to the prompt, and the "p" denotes probability. Adjusting the Top P value influences the range of available tokens.
 
