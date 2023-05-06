@@ -1,5 +1,5 @@
 graph G {
-	node [shape=record];
+	node [shape=record, fontsize=22];
 	rankdir=LR;
 	// highest rank in center, others around it like a star
 	ranksep=2;
