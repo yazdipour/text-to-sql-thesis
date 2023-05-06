@@ -95,7 +95,7 @@ Consider an example from the SEOSS dataset: "Generate syntactically correct read
     \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#1}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} 
+        \begin{alltt} \larger
             {\bf Prompt:} \\ 
             Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
             \\
@@ -119,7 +119,7 @@ Now we must find a way to guide ChatGPT toward generating the correct SQL query.
     \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#2}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} 
+        \begin{alltt} \larger
             {\bf Prompt:} \\ 
             Write one valid SQL query in markdown format without talking and giving a description. Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
             \\
@@ -140,7 +140,7 @@ We can utilize the system role to provide context and the user role to pose the 
     \begin{AIbox}{Final Prompt}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} 
+        \begin{alltt} \larger
             {\bf role(System):} \\ 
             You are a helpful assistant for generating syntactically correct read-only                   \\
             SQL to answer a given question.                                                              \\
