@@ -7,11 +7,31 @@ The datasets in the test set are not present in the train or development sets in
 Prior to the release of SPIDER, this dataset was considered to be a benchmark dataset. Using WikiSQL has been the subject of a great deal of research. WikiSQL's "WHERE" clause has been recognized as one of the most challenging clauses to parse semantically, and SQLNet and SyntaxSQL were previous state-of-the-art models.
 
 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{pics/db/WikiSQL.png}
+%     \caption{Example from WikiSQL dataset\cite{DBLP:journals/corr/abs-1902-01069}}
+%     \label{fig:WikiSQL}
+% \end{figure}
+
+
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{pics/db/WikiSQL.png}
-    \caption{Example from WikiSQL dataset\cite{DBLP:journals/corr/abs-1902-01069}}
     \label{fig:WikiSQL}
-\end{figure}
+    \begin{AIbox}{An example of a WikiSQL record}
+        \vspace{-5px}
+        \parbox{1\textwidth}{\scriptsize
+        \begin{alltt} 
+            {\bf Utterance:} \\ 
+            What is the lowest salary in departments with average salary greater than the overall average.
+            \\
+            {\bf Query:} \\
+            SELECT min(salary) ,  dept\_name FROM instructor GROUP BY dept\_name HAVING avg(salary)  >  (SELECT avg(salary) FROM instructor)
+        \end{alltt}
+        }
+        \vspace{-5px}
+    \end{AIbox}
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{An example of a WikiSQL record}
+  \end{figure}
 
 One example of a state-of-the-art Text-to-SQL solution in the WikiSQL benchmark is the Seq2SQL model, which uses a sequence-to-sequence learning framework to map natural language input to SQL queries. The model uses an attention mechanism to align the input and output sequences and a pointer network to handle SQL queries with complex structural dependencies. We will discuss this model in more detail in the next section.

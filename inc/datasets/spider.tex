@@ -30,52 +30,30 @@ The complexity of the dataset increases and the accuracy of solutions drops as t
 
 In order to gain a better understanding of how the model performs on different queries, we have divided SQL queries into four difficulty levels: easy, medium, hard, and extra hard. This classification is based on the number of SQL components, selections, and conditions. Queries that contain multiple SQL keywords (e.g., GROUP BY, ORDER BY, INTERSECT, nested subqueries, column selections, aggregators) are generally considered more complex. For example, a query is considered hard if it includes more than two SELECT columns, more than two WHERE conditions, and GROUP BY two columns, or contains EXCEPT or nested queries. If it contains even more additions on top of that, it is considered extra hard.
 
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.6\textwidth]{pics/db/Spider2.png}
+%   \caption{Example of complex set from SPIDER\cite{yu_spider_2019}}
+%   \label{fig:Spider2}
+% \end{figure}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.6\textwidth]{pics/db/Spider2.png}
-  \caption{Example of Question-Query set from SPIDER\cite{yu_spider_2019}}
   \label{fig:Spider2}
+  \begin{AIbox}{An example of a complex SPIDER record}
+      \vspace{-5px}
+      \parbox{1\textwidth}{\scriptsize
+      \begin{alltt} 
+          {\bf Utterance:} \\ 
+          What is the lowest salary in departments with average salary greater than the overall average.
+          \\
+          {\bf Query:} \\
+          SELECT min(salary) ,  dept\_name FROM instructor GROUP BY dept\_name HAVING avg(salary)  >  (SELECT avg(salary) FROM instructor)
+      \end{alltt}
+      }
+      \vspace{-5px}
+  \end{AIbox}
+  \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+  \caption{Example of a complex set from SPIDER}
 \end{figure}
-
-
-% \begin{table}[H]
-%     \centering
-%     \begin{tabular}{c c}
-
-%         \begin{minipage}{0.45\textwidth}
-%             \begin{verbatim}
-%     # Code snippet 1
-%     print("Hello, World!")
-%     \end{verbatim}
-%             \caption{Caption for code snippet 1}
-%         \end{minipage} &
-%         \begin{minipage}{0.45\textwidth}
-%             \begin{verbatim}
-%     # Code snippet 2
-%     print("Goodbye, World!")
-%     \end{verbatim}
-%             \caption{Caption for code snippet 2}
-%         \end{minipage} \\
-
-%         \begin{minipage}{0.45\textwidth}
-%             \begin{verbatim}
-%     # Code snippet 3
-%     print("Howdy, World!")
-%     \end{verbatim}
-%             \caption{Caption for code snippet 3}
-%         \end{minipage} &
-%         \begin{minipage}{0.45\textwidth}
-%             \begin{verbatim}
-%     # Code snippet 4
-%     print("See you later, World!")
-%     \end{verbatim}
-%             \caption{Caption for code snippet 4}
-%         \end{minipage} \\
-%     \end{tabular}
-%     \caption{Table caption}
-% \end{table}
-
-
 
 SPIDER's exact matching accuracy\ref{eval} was 12.4\% compared to existing state-of-the-art models. As a result of its low accuracy, SPIDER presents a strong research challenge. Current SPIDER accuracy is above 75.5\% with an exact set match without values (refers to values in the WHERE clause) and above 72.6\% with values using PICARD\ref{picard}.
 

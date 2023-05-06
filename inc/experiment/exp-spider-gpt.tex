@@ -94,6 +94,8 @@ By examining previous query outcomes and employing them within the prompt in the
         }
         \vspace{-5px}
     \end{AIbox}
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{Example of a Prompt with History and Database Sample}
 \end{figure}
 
 \subsubsubsection{Retries and Feedback}
@@ -126,6 +128,9 @@ In certain situations, ChatGPT may generate incorrect or unsatisfactory outputs.
         }
         \vspace{-10px}
     \end{AIbox}
+    
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{Example of a Feedback Prompt\#1}
 \end{figure}
 
 Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 10.7\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising. 
@@ -153,6 +158,9 @@ Upon examining the extra-hard tasks, we discovered that the GPT-4 model correctl
         }
         \vspace{-10px}
     \end{AIbox}
+    
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{Example of a Feedback Prompt\#2}
 \end{figure}
 
 Although this human-guided approach can yield better results, it is not effective since it requires expert user guidance, which deviates from the zero-shot learning paradigm. However, exploring these methods can inform future work on prompt engineering techniques and facilitate the development of more effective strategies for refining model outputs.

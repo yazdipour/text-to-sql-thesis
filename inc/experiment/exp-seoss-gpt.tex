@@ -106,6 +106,8 @@ Consider an example from the SEOSS dataset: "Generate syntactically correct read
         }
         \vspace{-5px}
     \end{AIbox}
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{ChatGPT3.5-Turbo Prompt Attempt\#1}
 \end{figure}
 %     \item \textbf{Goal}: \\\begin{lstlisting}
 %     SELECT T1.field FROM issue_changelog AS T1 JOIN issue_fix_version AS T2 ON T1.issue_id = T2.issue_id WHERE T2.fix_version = "0.12.1"
@@ -127,6 +129,9 @@ Now we must find a way to guide ChatGPT toward generating the correct SQL query.
         }
         \vspace{-5px}
     \end{AIbox}
+    
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{ChatGPT3.5-Turbo Prompt Attempt\#2}
 \end{figure}
 
 We can utilize the system role to provide context and the user role to pose the question. In the system role, we can limit the system to acting as an agent or assistant for a specific task. We can also supply the system with a database schema. We can present the question in the user role, and the assistant will generate the SQL query. We used the following prompt to improve the output quality as a text-to-SQL agent using the SEOSS dataset.
@@ -157,6 +162,9 @@ We can utilize the system role to provide context and the user role to pose the 
         }
         \vspace{-5px}
     \end{AIbox}
+    
+    \captionsetup{font={scriptsize,color=white}, skip=-20pt}
+    \caption{Final Prompt}
 \end{figure}
 
 % \begin{table}[H]
@@ -199,6 +207,7 @@ Initially after generating queries and analyzing the results, we found that the 
         Prompt + Format constraints & 28\%              \\ \hline
         Prompt + Format Constraints + DB Schema         & 44\%              \\ \hline
     \end{tabular}
+    \caption{Accuracy of the generated SQL queries using GPT-3.5 after prompt refinement}
 \end{table}
 
 After running the GPT-3.5 model on the SEOSS dataset, we found that the accuracy of the generated SQL queries was 44.7\%. This is a significant improvement over the 11.6\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 28.9\% when we added the format constraints to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 44\% when we added the database schema to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. After that, we did the same with GPT 4 and we saw a significant jump in accuracy, especially for easy and medium questions.
