@@ -1,0 +1,27 @@
+digraph beam_search {
+    rankdir = "LR";
+    node [shape=box, style=rounded];
+
+    s [label="&lt;s&gt;"];
+    s -> s1_SELECT [label="0.7"];
+    s -> s1_FROM [label="0.3"];
+    // Time step 1
+    s1_SELECT [label="SELECT (0.7)"]
+    s1_FROM [label="FROM (0.3)", color="red"]
+
+    // Time step 2
+    s2_SELECT_FROM [label="SELECT * FROM (0.8)", color="green"]
+    s2_SELECT_WHERE [label="SELECT * WHERE (0.2)", color="red"]
+
+    // Edges
+    s1_SELECT -> s2_SELECT_FROM [label="0.7*0.8"];
+    s1_SELECT -> s2_SELECT_WHERE [label="0.7*0.2"];
+
+	// step 3
+	s3_SELECT_FROM_WHERE [label="SELECT * FROM <T> WHERE (0.9)", color="green"]
+	s3_SELECT_FROM_GROUPBY [label="SELECT * FROM <T> FROM (0.1)", color="red"]
+
+	// Edges
+	s2_SELECT_FROM -> s3_SELECT_FROM_WHERE [label="0.7*0.8*0.9"];
+	s2_SELECT_FROM -> s3_SELECT_FROM_GROUPBY [label="0.7*0.8*0.1"];
+}
