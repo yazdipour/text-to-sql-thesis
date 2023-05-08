@@ -15,18 +15,13 @@ After studying the SEOSS dataset, we decided to experiment with the PICARD model
         T5-large & parse with guards & 4     & 0.4274                           & 0.4822                      \\ \hline
     \end{tabular}
     \caption{Expermiment Accuracy Results}
+    \label{tab:exp-acc-t5}
 \end{table}
 
-The table shows the results of various configurations of T5-base and T5-large models for natural language processing tasks. The configurations are differentiated by the Picard mode parse with guards or lex and the number of beams used in the beam search process 2 or 4.
+Table \ref{tab:exp-acc-t5} presents the performance results of various configurations of T5-base and T5-large models in natural language processing tasks, with distinctions based on the utilization of Picard mode (either parse with guards or lex) and the number of beams (2 or 4) employed in the beam search process. Upon comparing the results, it becomes evident that the T5-large model outperforms the T5-base model regarding exact matching and execution accuracy. Additionally, as anticipated, the parse with guards Picard mode demonstrates superior performance compared to the lex Picard mode in both T5 models, leading to the decision to proceed exclusively with the parse with guards mode.
 
-Comparing the results, we can observe that:
+Furthermore, employing four beams in the beam search process, as opposed to two, enhances performance across both models and Picard modes. The T5-large model achieves its highest exact matching accuracy (0.4274) and execution accuracy (0.4822) when utilizing the parse with guards Picard mode in conjunction with four beams. Interestingly, the impact of increasing the beam size is relatively negligible compared to the performance improvement gained from upgrading the model from T5-base to T5-large.
 
-The T5-large model generally performs better than the T5-base model in both exact matching accuracy and execution accuracy.
-As we could have a predicate, the parse with guards Picard mode performs better than the lex Picard mode in both models. So we decided to continue only with parse with guards.
-Using four beams instead of 2 in the beam search process improves the performance for both models and Picard modes.
-The highest exact matching accuracy is achieved by the T5-large model with parse with guards Picard mode and four beams 0.4274.
-The highest execution accuracy is also achieved by the T5-large model with parse with guards Picard mode and four beams 0.4822.
-Increasing beam size does not have a significant effect compared to changing the model from base to large.
 \subsubsection*{F1 Scores}
 
 % add image here pics/ez/F1.svg
