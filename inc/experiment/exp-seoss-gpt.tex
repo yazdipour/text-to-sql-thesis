@@ -172,6 +172,8 @@ By incorporating system and user roles, we effectively guide ChatGPT to generate
 In this prompt, we first provided a system message that set the context for the system, including information about the database, tables, and specific syntax requirements for the generated SQL query. The user message then contained the natural language question for which the assistant was expected to generate the corresponding SQL query.
 Using this prompt structure allowed us to effectively communicate the task requirements and constraints to ChatGPT, resulting in more accurate and syntactically correct SQL query generation.
 
+\subsubsection{Evaluation Results}
+
 Initially after generating queries and analyzing the results, we found that the generated SQL queries were syntactically correct but semantically incorrect or needed refinements. For instance, ChatGPT tent to use AS keyword to name tables even when It was not necessary or use IN keyword even for simple conditions. This sort of behavior tent to reduce the accuracy of the generated SQL queries and in some scenarios makes false positive results while evaluating.
 
 \begin{table}[H]
@@ -282,16 +284,9 @@ Table.\ref{tab:exp-acc-vs-resources} presents a comparison of the exact match ac
     \label{tab:balance}
 \end{table}
 
-% RatSQL Unbalance: For the third experiment, we extend the Spider training set with a split of 80% of the SQL queries and their respective utterances, leaving 20% never seen queries for the evaluation. 
-
-% RatSQL Balance: For the fourth experiment, we extend the Spider training set with two specific and two non-specific
-% utterances per query and use one specific and one non-specific utterance per query for evaluation 
-% creating a balanced training in terms of specificity. The last two experiments were created
-% with the idea in mind to evaluate the performance of text-to-SQL models in cases in which the
-% natural language utterances can be either very specific or more general.
 
 Tables \ref{tab:unbalance} and \ref{tab:balance} present our experimental results, which are based on the methodology employed in the SEOSS-Queries study \cite{TOMOVA2022108211}. We adopted the same test data to assess the performance of the GPT 3.5-turbo model. In the initial experiment of that research, the Spider training set was utilized, with 80\% of the SQL queries and corresponding utterances allocated for training while reserving 20\% of unseen queries for evaluation.
 
 For the subsequent experiment, the researchers incorporated two specific and two non-specific utterances for each query during training while utilizing one specific and one non-specific utterance per query for evaluation. This approach established a balanced training process in terms of specificity. The final two experiments were designed to assess the efficacy of text-to-SQL models in situations where natural language utterances may vary between high specificity and more general nature.
 
-We once again employed the same test data used for RatSQL evaluation to gauge the performance of the GPT 3.5-turbo model. And as we can see in Table \ref{tab:unbalance}, the GPT 3.5-turbo model outperformed the RatSQL model in all cases, demonstrating the effectiveness of the GPT 3.5-turbo model in generating accurate SQL queries from natural language text. However, in the second experiment in Table \ref{tab:balance}, the RatSQL model outperformed the GPT 3.5-turbo model, especially with Glove embeddings. This is likely because the RatSQL model was trained on the Spider, a more general dataset. Therefore this demonstrates the importance of training models on datasets relevant to the task.
+We once again employed the same test data used for RatSQL evaluation to gauge the performance of the GPT 3.5-turbo model. And as we can see in Table \ref{tab:unbalance}, the GPT 3.5-turbo model outperformed the RatSQL model in all cases, demonstrating the effectiveness of the GPT 3.5-turbo model in generating accurate SQL queries from natural language text. However, in the second experiment in Table \ref{tab:balance}, the RatSQL model outperformed the GPT 3.5-turbo model, especially with Glove embeddings. This is likely because the RatSQL model was trained on the Spider, a more general dataset. Therefore this demonstrates the importance of training models on datasets relevant to the task. However, the GPT 3.5-turbo model performed well in generating complex, "hard" and "extra hard" SQL queries, which is a promising result that general large language models can outperform task-specific models in generating complex SQL queries.

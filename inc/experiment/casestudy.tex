@@ -1,8 +1,8 @@
 \section{Experiments}
 
-Since the SEOSS Dataset\cite{RATH2019104005} has only been evaluated and trained with SQLNet and RatSQL, in this section, we aim to further explore its potential by conducting experiments using state-of-the-art methods currently proposed for the SPIDER challenge. To assess the effectiveness of these approaches, we compare the outcomes with those of SQLNet and RatSQL, as reported in the SEOSS-Queries research paper\cite{TOMOVA2022108211}. The findings from these experiments are detailed in the subsequent section, showcasing the capabilities of contemporary solutions in tackling the SPIDER task.
+In this section, we aim to address the following research question: "How does the state-of-the-art T5-PICARD method perform on the SEOSS Dataset compared to SQLNet and RatSQL, and can general-purpose language models be effectively employed to solve the text-to-SQL problem?" To answer this question, we conduct experiments using the T5-PICARD approach, which has been recently proposed for the SPIDER challenge, and compare its performance to SQLNet and RatSQL, as documented in the SEOSS-Queries research paper\cite{TOMOVA2022108211}. The results of these experiments, presented in the subsequent section, demonstrate the capabilities of the T5-PICARD method in tackling the SPIDER task using the SEOSS Dataset.
 
-Additionally, taking advantage of the publicly available ChatGPT APIs, we decided to experiment with the ChatGPT model. Employing both the SPIDER and SEOSS datasets, we compared the results with those obtained from earlier experiments. The insights derived from these experiments are presented in the following section, further illustrating the potential of modern solutions in addressing the SPIDER task.
+Furthermore, considering the recent advancements in large language models and the availability of the ChatGPT APIs, we explore the performance of GPT models on this task. We conduct experiments using the SPIDER and SEOSS datasets and compare the findings to those obtained from earlier experiments with SQLNet and RatSQL. The insights from these experiments, discussed in the following section, shed light on the potential of modern large-scale language models, such as GPT, in addressing the SPIDER task and further contribute to answering our research question. This investigation also helps determine if general-purpose language models can effectively solve the text-to-SQL problem.
 
 \subsection{Limitations}
 
@@ -22,8 +22,8 @@ In addition, during the ChatGPT experiment, cost constraints limited our ability
 \end{table}
 
 \input{inc/experiment/exp-seoss-t5}
-\input{inc/experiment/exp-ez}
 \clearpage
 \input{inc/experiment/exp-seoss-gpt}
 \input{inc/experiment/exp-spider-gpt}
 \clearpage
+\input{inc/experiment/exp-ez}
