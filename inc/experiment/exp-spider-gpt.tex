@@ -1,4 +1,4 @@
-\subsection{Spider evaluation with GPT 3.5 and GPT 4}
+\subsection{SPIDER evaluation with GPT 3.5 and GPT 4}
 
 Throughout this thesis, we have explored the advancements in Text-to-SQL models and their performance on the SPIDER benchmark. Our analysis revealed the significant progress made in the field, with more recent models demonstrating remarkable improvements in generating accurate SQL queries from natural language text.
 
@@ -13,11 +13,11 @@ As the field of natural language processing continues to evolve, we can expect e
     \begin{tabular}{cccccc}
         \hline
         \multirow{2}*{Accuracy} & easy  & medium & hard  & extra hard & all            \\
-                                            & 248   & 446    & 174   & 166        & 1034           \\ \hline
-        GPT 3.5 execution                   & 0.964 & 0.883  & 0.644 & 0.596      & 0.816          \\ \hline
-        GPT 3.5 exact match                 & 0.972 & 0.881  & 0.621 & 0.596      & 0.813          \\ \hline
-        GPT 4 execution                     & 0.980 & 0.930  & 0.678 & 0.651      & \textbf{0.855} \\ \hline
-        GPT 4 exact match                   & 0.980 & 0.933  & 0.667 & 0.639      & \textbf{0.852} \\ \hline
+                                & 248   & 446    & 174   & 166        & 1034           \\ \hline
+        GPT 3.5 execution       & 0.964 & 0.883  & 0.644 & 0.596      & 0.816          \\ \hline
+        GPT 3.5 exact match     & 0.972 & 0.881  & 0.621 & 0.596      & 0.813          \\ \hline
+        GPT 4 execution         & 0.980 & 0.930  & 0.678 & 0.651      & \textbf{0.855} \\ \hline
+        GPT 4 exact match       & 0.980 & 0.933  & 0.667 & 0.639      & \textbf{0.852} \\ \hline
     \end{tabular}
     \caption{Comparison between Accuracies}
 \end{table}
@@ -60,37 +60,37 @@ By examining previous query outcomes and employing them within the prompt in the
     \begin{AIbox}{Example of a Prompt with History and Database Sample}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf role(System):} \\ 
-            You are a helpful text-to-sql assistant for generating syntactically correct read-only                   \\
-            SQL to answer a given question.                                                              \\
-            Database: concert\_singer                                                                         \\
-            The following are tables you can query:                                                      \\
-            ---------------------                                                                        \\
-            table name: stadium  table columns: Stadium\_ID [number (13)], Location [text (LA)], Name [text (SLA)], Capacity [number (30000)], Highest [number (20000)], Lowest [number (100)], Average [number (1000)] table name: singer  table columns: Singer\_ID [number (1)], NName [text (John Doe)],Country [text (USA)],Song\_Name [text (Beautiful Day)],Song\_release\_year [text (2020)],Age [number (30)],Is\_male [others (Yes)]      table name: concert  table columns: concert\_ID [number (101)],concert\_Name [text (Rock Night)],Theme [text (Rock Music)],Stadium\_ID [text (13)],Year [text (2023)]      table name: singer\_in\_concert  table columns: concert\_ID [number (101)], Singer\_ID [text (1)]       \\
-            ---------------------                                                                        \\
-            Do not use IN keyword.                                                                       \\
-            If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
-            name is not going to be used in query again, then do not use.                                \\
-            Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
-            If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
-            Write one valid SQL in markdown format.
-            \\
-            {\bf role(User):} \\
-            Generate syntactically correct read-only SQL to answer the following question: How many singers do we have?
-            \\
-            {\bf role(Assistant):} \\
-            SELECT count(*) FROM singer
-            \\
-            {\bf role(User):} \\
-            Generate syntactically correct read-only SQL to answer the following question: What are the names, countries, and ages for every singer in descending order of age?
-            \\
-            {\bf role(Assistant):} \\
-            SELECT name,  country,  age FROM singer ORDER BY age DESC
-            \\
-            {\bf role(User):} \\
-            Generate syntactically correct read-only SQL to answer the following question: \$question
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf role(System):} \\
+                You are a helpful text-to-sql assistant for generating syntactically correct read-only                   \\
+                SQL to answer a given question.                                                              \\
+                Database: concert\_singer                                                                         \\
+                The following are tables you can query:                                                      \\
+                ---------------------                                                                        \\
+                table name: stadium  table columns: Stadium\_ID [number (13)], Location [text (LA)], Name [text (SLA)], Capacity [number (30000)], Highest [number (20000)], Lowest [number (100)], Average [number (1000)] table name: singer  table columns: Singer\_ID [number (1)], NName [text (John Doe)],Country [text (USA)],Song\_Name [text (Beautiful Day)],Song\_release\_year [text (2020)],Age [number (30)],Is\_male [others (Yes)]      table name: concert  table columns: concert\_ID [number (101)],concert\_Name [text (Rock Night)],Theme [text (Rock Music)],Stadium\_ID [text (13)],Year [text (2023)]      table name: singer\_in\_concert  table columns: concert\_ID [number (101)], Singer\_ID [text (1)]       \\
+                ---------------------                                                                        \\
+                Do not use IN keyword.                                                                       \\
+                If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
+                name is not going to be used in query again, then do not use.                                \\
+                Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
+                If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
+                Write one valid SQL in markdown format.
+                \\
+                {\bf role(User):} \\
+                Generate syntactically correct read-only SQL to answer the following question: How many singers do we have?
+                \\
+                {\bf role(Assistant):} \\
+                SELECT count(*) FROM singer
+                \\
+                {\bf role(User):} \\
+                Generate syntactically correct read-only SQL to answer the following question: What are the names, countries, and ages for every singer in descending order of age?
+                \\
+                {\bf role(Assistant):} \\
+                SELECT name,  country,  age FROM singer ORDER BY age DESC
+                \\
+                {\bf role(User):} \\
+                Generate syntactically correct read-only SQL to answer the following question: \$question
+            \end{alltt}
         }
         \vspace{-5px}
     \end{AIbox}
@@ -112,28 +112,28 @@ In certain situations, ChatGPT may generate incorrect or unsatisfactory outputs.
     \begin{AIbox}{Example a Feedback Prompt}
         \vspace{-10px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf role(User):} \\
-            Show the stadium name and the number of concerts in each stadium.
-            \\
-            {\bf role(Assistant):} \\
-            SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Name;
-            \\
-            {\bf role(User):} \\
-            This is wrong: Name is not a good column for grouping.
-            \\
-            {\bf ChatGPT:} \\
-            SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Stadium\_ID;
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf role(User):} \\
+                Show the stadium name and the number of concerts in each stadium.
+                \\
+                {\bf role(Assistant):} \\
+                SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Name;
+                \\
+                {\bf role(User):} \\
+                This is wrong: Name is not a good column for grouping.
+                \\
+                {\bf ChatGPT:} \\
+                SELECT stadium.Name, COUNT(concert.concert\_ID) AS Num\_Concerts FROM stadium LEFT JOIN concert ON stadium.Stadium\_ID = concert.Stadium\_ID GROUP BY stadium.Stadium\_ID;
+            \end{alltt}
         }
         \vspace{-10px}
     \end{AIbox}
-    
+
     \captionsetup{font={scriptsize,color=white}, skip=-20pt}
     \caption{Example of a Feedback Prompt\#1}
 \end{figure}
 
-Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 10.7\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising. 
+Our experience with this approach indicates that it is particularly effective for easy and medium-difficulty utterances. We were able to fix 93\% of such utterances output using human-guided feedback. However, for extra hard utterances, the success rate was lower, with only 10.7\% of them being fixed in the first retry. Despite this limitation, the overall effectiveness of a single retry in generating outputs that match the gold standard was promising.
 
 Since evaluation metrics often struggle with accurately assessing queries containing "INTERSECTION," "UNION," or "EXCEPT" keywords, there is a high rate of false positives. ChatGPT may generate correct alternative queries using JOINs that convey the same meaning, but the evaluation metrics fail to recognize them as correct. Providing an additional prompt can guide ChatGPT to generate alternative queries using JOINs, leading to improved accuracy. Utilizing this technique, we could fix 25\% of failed extra-hard tasks. As a result, the queries in the SPIDER dataset serve as a valuable resource for enhancing evaluation methods rather than solely focusing on improving the model itself.
 Upon examining the extra-hard tasks, we discovered that the GPT-4 model correctly answered 110 out of 166 tasks on the first prompt. With expert user feedback, the model successfully addressed 14 tasks on the second prompt and only 4 tasks on the third prompt. On average, with 1.17 prompts, the GPT-4 model was able to provide accurate responses to the extra-hard tasks.
@@ -142,23 +142,23 @@ Upon examining the extra-hard tasks, we discovered that the GPT-4 model correctl
     \begin{AIbox}{Example a Feedback Prompt}
         \vspace{-10px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf role(User):} \\
-            Find the first name of students who have both cat and dog pets.
-            \\
-            {\bf role(Assistant):} \\
-            SELECT DISTINCT S.Fname FROM Student S JOIN Has\_Pet AS HP1 ON S.StuID = HP1.StuID JOIN Pets AS P1 ON HP1.PetID = P1.PetID AND P1.PetType = 'Cat' JOIN Has\_Pet AS HP2 ON S.StuID = HP2.StuID JOIN Pets AS P2 ON HP2.PetID = P2.PetID AND P2.PetType = 'Dog';
-            \\
-            {\bf role(User):} \\
-            This is wrong: rewrite it with intersect.
-            \\
-            {\bf ChatGPT:} \\
-            SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog';
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf role(User):} \\
+                Find the first name of students who have both cat and dog pets.
+                \\
+                {\bf role(Assistant):} \\
+                SELECT DISTINCT S.Fname FROM Student S JOIN Has\_Pet AS HP1 ON S.StuID = HP1.StuID JOIN Pets AS P1 ON HP1.PetID = P1.PetID AND P1.PetType = 'Cat' JOIN Has\_Pet AS HP2 ON S.StuID = HP2.StuID JOIN Pets AS P2 ON HP2.PetID = P2.PetID AND P2.PetType = 'Dog';
+                \\
+                {\bf role(User):} \\
+                This is wrong: rewrite it with intersect.
+                \\
+                {\bf ChatGPT:} \\
+                SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has\_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog';
+            \end{alltt}
         }
         \vspace{-10px}
     \end{AIbox}
-    
+
     \captionsetup{font={scriptsize,color=white}, skip=-20pt}
     \caption{Example of a Feedback Prompt\#2}
 \end{figure}

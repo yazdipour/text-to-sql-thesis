@@ -1,4 +1,4 @@
-\subsection{SEOSS evaluation with GPT 3.5 and GPT 4}  
+\subsection{SEOSS evaluation with GPT 3.5 and GPT 4}
 
 Here we discuss our experience using the ChatGPT API for the Text-to-SQL task on the SEOSS dataset. We will provide a brief overview of the \ac{GPT} architecture and delve into the specifics of ChatGPT, emphasizing its capabilities and potential for addressing this particular challenge.
 \subsubsection{GPT Architecture}
@@ -52,7 +52,7 @@ The Playground also features two penalty functions to regulate repetition in the
 
 \subsubsubsection{Rules}
 
-ChatGPT employs prompts to direct its response generation process \cite{white2023prompt}. 
+ChatGPT employs prompts to direct its response generation process \cite{white2023prompt}.
 To maximize the effectiveness of ChatGPT in various applications, it is essential to understand the art of crafting effective prompts. The following guidelines have been established to optimize the performance of ChatGPT in generating accurate, relevant, and context-aware responses:
 
 \begin{enumerate}
@@ -80,7 +80,7 @@ Prompts are input messages with an associated role, which can fall into one of t
 \begin{itemize}
     \item \textbf{System}: A high-level directive for the conversation, typically used to offer guidance or establish the context for the assistant.
     \item \textbf{User}: A message submitted by the user, usually in the form of a question or a request for the assistant to process.
-    \item \textbf{Assistant}: The response produced by the assistant is based on the context provided by the system and user messages. The assistant processes the messages according to their order in the list and generates a response accordingly. Employing system instructions can effectively guide the assistant's behavior throughout the conversation. The assistant prompt is usually used to provide historical context for the conversation. 
+    \item \textbf{Assistant}: The response produced by the assistant is based on the context provided by the system and user messages. The assistant processes the messages according to their order in the list and generates a response accordingly. Employing system instructions can effectively guide the assistant's behavior throughout the conversation. The assistant prompt is usually used to provide historical context for the conversation.
 \end{itemize}
 
 Now we outline our approach to discovering the optimal prompt for text-to-SQL ChatGPT agents and present some preliminary results.
@@ -95,14 +95,14 @@ Consider an example from the SEOSS dataset: "Generate syntactically correct read
     \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#1}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf Prompt:} \\ 
-            Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
-            \\
-            {\bf ChatGPT:} \\
-            Certainly! Here's the SQL statement to return what was changed in version 0.12.1:\\
-            SELECT changes FROM version\_history WHERE version\_number = '0.12.1'. \\ Note that the syntax may vary slightly depending on the specific database management system being used and the structure of your tables,\\ but this should work in most cases assuming there is a table named version\_history with columns version\_number and changes.
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf Prompt:} \\
+                Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
+                \\
+                {\bf ChatGPT:} \\
+                Certainly! Here's the SQL statement to return what was changed in version 0.12.1:\\
+                SELECT changes FROM version\_history WHERE version\_number = '0.12.1'. \\ Note that the syntax may vary slightly depending on the specific database management system being used and the structure of your tables,\\ but this should work in most cases assuming there is a table named version\_history with columns version\_number and changes.
+            \end{alltt}
         }
         \vspace{-5px}
     \end{AIbox}
@@ -119,17 +119,17 @@ Now we must find a way to guide ChatGPT toward generating the correct SQL query.
     \begin{AIbox}{ChatGPT3.5-Turbo Prompt Attempt\#2}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf Prompt:} \\ 
-            Write one valid SQL query in markdown format without talking and giving a description. Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
-            \\
-            {\bf ChatGPT:} \\
-            SELECT changes FROM version\_history WHERE version\_number = '0.12.1'
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf Prompt:} \\
+                Write one valid SQL query in markdown format without talking and giving a description. Generate syntactically correct read-only SQL to answer the following question: What was changed in version 0.12.1
+                \\
+                {\bf ChatGPT:} \\
+                SELECT changes FROM version\_history WHERE version\_number = '0.12.1'
+            \end{alltt}
         }
         \vspace{-5px}
     \end{AIbox}
-    
+
     \captionsetup{font={scriptsize,color=white}, skip=-20pt}
     \caption{ChatGPT3.5-Turbo Prompt Attempt\#2}
 \end{figure}
@@ -140,106 +140,158 @@ We can utilize the system role to provide context and the user role to pose the 
     \begin{AIbox}{Final Prompt}
         \vspace{-5px}
         \parbox{1\textwidth}{\scriptsize
-        \begin{alltt} \larger
-            {\bf role(System):} \\ 
-            You are a helpful assistant for generating syntactically correct read-only                   \\
-            SQL to answer a given question.                                                              \\
-            Database: \$dbname                                                                           \\
-            The following are tables you can query:                                                      \\
-            ---------------------                                                                        \\
-            \$schemas                                                                                    \\
-            ---------------------                                                                        \\
-            Do not use IN keyword.                                                                       \\
-            If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
-            name is not going to be used in query again, then do not use.                                \\
-            Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
-            If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
-            Write one valid SQL in markdown format.
-            \\
-            {\bf role(User):} \\
-            Generate syntactically correct read-only SQL to answer the following question: \$question
-        \end{alltt}
+            \begin{alltt} \larger
+                {\bf role(System):} \\
+                You are a helpful assistant for generating syntactically correct read-only                   \\
+                SQL to answer a given question.                                                              \\
+                Database: \$dbname                                                                           \\
+                The following are tables you can query:                                                      \\
+                ---------------------                                                                        \\
+                \$schemas                                                                                    \\
+                ---------------------                                                                        \\
+                Do not use IN keyword.                                                                       \\
+                If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
+                name is not going to be used in query again, then do not use.                                \\
+                Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
+                If in using  COUNT(*) and COUNT(COLUMN) there is no difference then use COUNT(*). \\
+                Write one valid SQL in markdown format.
+                \\
+                {\bf role(User):} \\
+                Generate syntactically correct read-only SQL to answer the following question: \$question
+            \end{alltt}
         }
         \vspace{-5px}
     \end{AIbox}
-    
+
     \captionsetup{font={scriptsize,color=white}, skip=-20pt}
     \caption{Final Prompt}
 \end{figure}
-
-% \begin{table}[H]
-%     \centering
-%     \begin{tabular}{|l|l|}
-%         \hline
-%         \textbf{Role} & \textbf{Content}                                                                             \\ \hline
-%         System        & You are a helpful assistant for generating syntactically correct read-only                   \\
-%                       & SQL to answer a given question.                                                              \\
-%                       & Database: \$dbname                                                                           \\
-%                       & The following are tables you can query:                                                      \\
-%                       & ---------------------                                                                        \\
-%                       & \$schemas                                                                                    \\
-%                       & ---------------------                                                                        \\
-%                       & Do not use IN keyword.                                                                       \\
-%                       & If it is necessary to use AS then use it like T1 T2 ..., but if the alias                    \\
-%                       & name is not going to be used in query again, then do not use.                                \\
-%                       & Do not filter WHERE for being NOT NULL if it is not necessary.                               \\
-%                       & \small{If in using $COUNT(*) and COUNT(COLUMN)$ there is no difference then use $COUNT(*)$.} \\
-%                       & Write one valid SQL in markdown format.                                                      \\ \hline
-%         User          & Generate syntactically correct read-only SQL to answer the following                         \\
-%                       & question: \$question                                                                         \\ \hline
-%     \end{tabular}
-%     \caption{Prompt structure used in the Text-to-SQL task on the SEOSS dataset}
-% \end{table}
 
 By incorporating system and user roles, we effectively guide ChatGPT to generate the desired SQL query in response to a natural language question \cite{white2023prompt}. This approach demonstrates the importance of carefully crafting prompts and roles to achieve the most accurate and contextually appropriate results from ChatGPT in text-to-SQL tasks.
 
 In this prompt, we first provided a system message that set the context for the system, including information about the database, tables, and specific syntax requirements for the generated SQL query. The user message then contained the natural language question for which the assistant was expected to generate the corresponding SQL query.
 Using this prompt structure allowed us to effectively communicate the task requirements and constraints to ChatGPT, resulting in more accurate and syntactically correct SQL query generation.
 
-Initially after generating queries and analyzing the results, we found that the generated SQL queries were syntactically correct but semantically incorrect or needed refinements. For instance, ChatGPT tent to use AS keyword to name tables even when It was not necessary or use IN keyword even for simple conditions. This sort of behavior tent to reduce the accuracy of the generated SQL queries and
+Initially after generating queries and analyzing the results, we found that the generated SQL queries were syntactically correct but semantically incorrect or needed refinements. For instance, ChatGPT tent to use AS keyword to name tables even when It was not necessary or use IN keyword even for simple conditions. This sort of behavior tent to reduce the accuracy of the generated SQL queries and in some scenarios makes false positive results while evaluating.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{c|c}
         \hline
-        \textbf{Prompt}         & \textbf{accuracy} \\ \hline
-        Simple asking prompt    & 11\%              \\ \hline
-        Prompt + Format constraints & 28\%              \\ \hline
-        Prompt + Format Constraints + DB Schema         & 44\%              \\ \hline
+        \textbf{Prompt}                         & \textbf{Accuracy} \\ \hline
+        Simple Prompt                           & 11\%              \\ \hline
+        Prompt + Format constraints             & 28\%              \\ \hline
+        Prompt + Format Constraints + DB Schema & 58\%              \\ \hline
     \end{tabular}
     \caption{Accuracy of the generated SQL queries using GPT-3.5 after prompt refinement}
+    \label{tab:prompt-refinement}
 \end{table}
 
-After running the GPT-3.5 model on the SEOSS dataset, we found that the accuracy of the generated SQL queries was 44.7\%. This is a significant improvement over the 11.6\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 28.9\% when we added the format constraints to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. We also found that the accuracy of the generated SQL queries was 44\% when we added the database schema to the prompt. This is a significant improvement over the 11\% accuracy of the simple asking prompt. After that, we did the same with GPT 4 and we saw a significant jump in accuracy, especially for easy and medium questions.
+After running the GPT-3.5 model on the SEOSS dataset, in Table \ref{tab:prompt-refinement} we found that the accuracy of the generated SQL queries was 58.7\%. This is a significant improvement over the 11.6\% accuracy of the simple asking prompt. One observation is that the GPT 3.5-turbo and GPT 4 models performed similarly, with the GPT 4 model demonstrating a slight improvement in accuracy. This is likely due to the fact that the GPT 4 model is more recent and has a higher number of parameters, which enables it to generate more accurate and complex queries. This demonstrates the importance of prompt engineering in enhancing the performance of ChatGPT in text-to-SQL tasks.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{cccccc}
+    % \begin{tabular}{cccccc}
+    \begin{tabularx}{\textwidth}{Xccccc}
         \hline
-        \multirow{2}*{Exact Match Accuracy} & easy  & medium & hard  & extra hard & all   \\
-                                            & 392   & 378    & 77    & 84         & 931   \\ \hline
-        SQLNet                              & 0.023 & 0.000  & 0.000 & 0.000      & 0.010 \\ \hline
-        RatSQL + Glove                      & 0.309 & 0.214  & 0.091 & 0.000      & 0.224 \\ \hline
-        RatSQL + Bert                       & 0.161 & 0.201  & 0.065 & 0.012      & 0.156 \\ \hline
-        PICARD + T5Base + 4Beam             & 0.446 & 0.254  & 0.182 & 0.012      & 0.307 \\ \hline
-        PICARD + T5Large + 4Beam            & 0.571 & 0.410  & 0.182 & 0.060      & 0.427 \\ \hline
-        GPT 3.5-turbo                       & 0.551 & 0.460  & 0.130 & 0.190      & 0.447 \\ \hline
-        GPT 4                               & 0.709 & 0.505  & 0.104 & 0.131      & 0.524 \\ \hline
-    \end{tabular}
-    \caption{Comparison between Exact Match Accuracy}
+        \multirow{2}*{Exact Match Accuracy} & easy  & medium & hard  & extra hard & all            \\
+                                            & 392   & 378    & 77    & 84         & 931            \\ \hline
+        SQLNet                              & 0.023 & 0.000  & 0.000 & 0.000      & 0.010          \\ \hline
+        RatSQL + Glove                      & 0.309 & 0.214  & 0.091 & 0.000      & 0.224          \\ \hline
+        RatSQL + Bert                       & 0.161 & 0.201  & 0.065 & 0.012      & 0.156          \\ \hline
+        PICARD + T5Base + 4Beam             & 0.446 & 0.254  & 0.182 & 0.012      & 0.307          \\ \hline
+        PICARD + T5Large + 4Beam            & 0.571 & 0.410  & 0.182 & 0.060      & 0.427          \\ \hline
+        GPT 3.5-turbo                       & 0.719 & 0.571  & 0.403 & 0.226      & \textbf{0.589} \\ \hline
+        GPT 4                               & 0.727 & 0.571  & 0.403 & 0.226      & \textbf{0.592} \\ \hline
+        % \end{tabular}
+    \end{tabularx}
+    \caption{Comparison between Accuracy with models pre-trained on Spider except for GPT}
 \end{table}
 
-The table presents a comparison of the exact match accuracy for various models that have not been fine-tuned for our dataset. These models are assessed across five difficulty levels: easy, medium, hard, extra hard, and all. The large GPT models demonstrated the highest accuracy across all levels. Upon investigating the reasoning behind the lower accuracy on the hard level, we discovered that the model occasionally generated correct but complex queries, which led to confusion in our evaluation method.
+Table.\ref{tab:exp-acc-vs-resources} presents a comparison of the exact match accuracy for various models that have not been fine-tuned for our dataset. These models are assessed across five difficulty levels: easy, medium, hard, extra hard, and all. The large GPT models demonstrated the highest accuracy across all levels. Upon investigating the reasoning behind the lower accuracy on the hard level, we discovered that the model occasionally generated correct but complex queries, which led to confusion in our evaluation method. One notable observation is that the GPT 3.5-turbo and GPT 4 models performed better in Execution Accuracy than their Exact Match Accuracy, this indicates that the generated SQL queries are syntactically correct but semantically incorrect or needed refinements, but this is not the case for the PICARD models.
 
 \begin{table}[!ht]
     \centering
     \begin{tabular}{ccccc}
         \hline
-        Model                    & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters}& \textbf{Cost}  \\ \hline
-        PICARD + T5Base  & 0.307                       & ~400min       & 220M & Local Hardware \\ \hline
-        PICARD + T5Large & 0.427                       & ~720min       & 770M & Local Hardware \\ \hline
-        GPT 3.5-turbo            & 0.447                       & 37min         & 175B & \$2/iteration           \\ \hline
-        GPT 4                    & 0.524                       & 78min         & 1T & \$14/iteration           \\ \hline
+        Model            & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters} & \textbf{Cost}  \\ \hline
+        PICARD + T5Base  & 0.315                       & ~400min       & 220M                & Local Hardware \\ \hline
+        PICARD + T5Large & 0.416                       & ~720min       & 770M                & Local Hardware \\ \hline
+        GPT 3.5-turbo    & 0.603                       & 37min         & 175B                & \$2/iteration  \\ \hline
+        GPT 4            & 0.613                       & 78min         & 1T                  & \$14/iteration \\ \hline
     \end{tabular}
-    \caption{Expermiment Accuracy vs Resources used}
+    \caption{Expermiment Accuracy vs used Resources}
+    \label{tab:exp-acc-vs-resources}
 \end{table}
+
+% unbalance
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{Xccccc}
+        % \begin{tabular}{cccccc}
+        \hline
+                       & easy                                                 & medium & hard  & extra hard & all   \\ \hline
+                       & \multicolumn{5}{c}{for all utterances}                                                     \\
+        count          & 35                                                   & 98     & 21    & 35         & 189   \\ \hline
+        RatSQL + Glove & 0.743                                                & 0.357  & 0.619 & 0.143      & 0.418 \\
+        RatSQL + Bert  & 0.743                                                & 0.337  & 0.143 & 0.114      & 0.349 \\
+        GPT 3.5-turbo  & 0.800                                                & 0.531  & 0.429 & 0.171      & 0.503 \\
+        \hline
+                       & \multicolumn{5}{c}{for only non-specific utterances}                                       \\
+        count          & 15                                                   & 42     & 9     & 15         & 81    \\ \hline
+        RatSQL + Glove & 0.533                                                & 0.190  & 0.667 & 0.067      & 0.284 \\
+        RatSQL + Bert  & 0.533                                                & 0.143  & 0.222 & 0.000      & 0.198 \\
+        GPT 3.5-turbo  & 0.600                                                & 0.357  & 0.333 & 0.133      & 0.358 \\
+        \hline
+                       & \multicolumn{5}{c}{for only specific utterances}                                           \\
+        count          & 20                                                   & 56     & 12    & 20         & 108   \\ \hline
+        RatSQL + Glove & 0.900                                                & 0.482  & 0.583 & 0.200      & 0.519 \\
+        RatSQL + Bert  & 0.900                                                & 0.482  & 0.083 & 0.200      & 0.463 \\
+        GPT 3.5-turbo  & 0.950                                                & 0.661  & 0.500 & 0.150      & 0.602 \\
+        % \end{tabular}
+    \end{tabularx}
+    \caption{Comparison between Exact Match Accuracy on 20\% untrained queries}
+    \label{tab:unbalance}
+\end{table}
+% balance
+\begin{table}[H]
+    % \centering
+    % \begin{tabular}{cccccc}
+    \begin{tabularx}{\textwidth}{Xccccc}
+        \hline
+                       & \multicolumn{5}{c}{for all utterances}                                                     \\
+                       & easy                                                 & medium & hard  & extra hard & all   \\
+        count          & 112                                                  & 108    & 22    & 24         & 266   \\ \hline
+        RatSQL + Glove & 0.866                                                & 0.806  & 0.591 & 0.333      & 0.771 \\
+        RatSQL + Bert  & 0.732                                                & 0.574  & 0.364 & 0.083      & 0.579 \\
+        GPT 3.5-turbo  & 0.950                                                & 0.661  & 0.500 & 0.150      & 0.602 \\
+        \hline
+                       & \multicolumn{5}{c}{for only non-specific utterances}                                       \\
+        count          & 56                                                   & 54     & 11    & 12         & 133   \\ \hline
+        RatSQL + Glove & 0.839                                                & 0.704  & 0.636 & 0.250      & 0.714 \\
+        RatSQL + Bert  & 0.607                                                & 0.389  & 0.364 & 0.000      & 0.444 \\
+        GPT 3.5-turbo  & 0.652                                                & 0.593  & 0.318 & 0.167      & 0.556 \\
+        \hline
+                       & \multicolumn{5}{c}{for only specific utterances}                                           \\
+        count          & 56                                                   & 54     & 11    & 12         & 133   \\ \hline
+        RatSQL + Glove & 0.893                                                & 0.907  & 0.545 & 0.417      & 0.827 \\
+        RatSQL + Bert  & 0.857                                                & 0.759  & 0.364 & 0.167      & 0.714 \\
+        GPT 3.5-turbo  & 0.750                                                & 0.685  & 0.545 & 0.333      & 0.669 \\
+        % \end{tabular}
+    \end{tabularx}
+    \caption{Comparison between Exact Match Accuracy on balanced utterances on trained RatSQL vs base GPT 3.5}
+    \label{tab:balance}
+\end{table}
+
+% RatSQL Unbalance: For the third experiment, we extend the Spider training set with a split of 80% of the SQL queries and their respective utterances, leaving 20% never seen queries for the evaluation. 
+
+% RatSQL Balance: For the fourth experiment, we extend the Spider training set with two specific and two non-specific
+% utterances per query and use one specific and one non-specific utterance per query for evaluation 
+% creating a balanced training in terms of specificity. The last two experiments were created
+% with the idea in mind to evaluate the performance of text-to-SQL models in cases in which the
+% natural language utterances can be either very specific or more general.
+
+Tables \ref{tab:unbalance} and \ref{tab:balance} present our experimental results, which are based on the methodology employed in the SEOSS-Queries study \cite{TOMOVA2022108211}. We adopted the same test data to assess the performance of the GPT 3.5-turbo model. In the initial experiment of that research, the Spider training set was utilized, with 80\% of the SQL queries and corresponding utterances allocated for training while reserving 20\% of unseen queries for evaluation.
+
+For the subsequent experiment, the researchers incorporated two specific and two non-specific utterances for each query during training while utilizing one specific and one non-specific utterance per query for evaluation. This approach established a balanced training process in terms of specificity. The final two experiments were designed to assess the efficacy of text-to-SQL models in situations where natural language utterances may vary between high specificity and more general nature.
+
+We once again employed the same test data used for RatSQL evaluation to gauge the performance of the GPT 3.5-turbo model. And as we can see in Table \ref{tab:unbalance}, the GPT 3.5-turbo model outperformed the RatSQL model in all cases, demonstrating the effectiveness of the GPT 3.5-turbo model in generating accurate SQL queries from natural language text. However, in the second experiment in Table \ref{tab:balance}, the RatSQL model outperformed the GPT 3.5-turbo model, especially with Glove embeddings. This is likely because the RatSQL model was trained on the Spider, a more general dataset. Therefore this demonstrates the importance of training models on datasets relevant to the task.

@@ -11,9 +11,9 @@ The field of study focuses on the interaction between human language and compute
 
 Tokenization is a process in natural language processing that involves breaking up a piece of text into smaller units called tokens. These tokens can be words, subwords, or characters, and tokenization is a fundamental step in many NLP tasks. By breaking down text data into smaller units, tokenization simplifies the analysis and processing of text content. Several other tokenization techniques can be utilized, including word-level, subword-level, and character-level tokenization \cite{kumar2022deep}.
 
-\subsubsection{WordPiece embeddings}
+\subsubsection{Embeddings}
 
-WordPiece\cite{DBLP:journals/corr/WuSCLNMKCGMKSJL16} is a tokenization approach used in natural language processing (NLP) to break down words into smaller units, also known as pieces. It is an extension of the original word2vec parameter learning algorithm and is used to address out-of-vocabulary (OOV) words, which are words that did not appear in the training data.
+WordPiece embeddings\cite{DBLP:journals/corr/WuSCLNMKCGMKSJL16} is a tokenization approach used in natural language processing (NLP) to break down words into smaller units, also known as pieces. It is an extension of the original word2vec parameter learning algorithm and is used to address out-of-vocabulary (OOV) words, which are words that did not appear in the training data.
 This technique divides each word into a series of subword units learned during the training phase based on their frequency and consistency within words. These subword units are stored in a shared vocabulary, dubbed the WordPiece vocabulary, and can be used for multiple words.
 This system can represent rare or unseen words as a combination of more common subword units, which are more likely to be in the vocabulary. As a result, the model can handle OOV words more efficiently and reduce the vocabulary size, leading to a more economical representation of the language.
 In NLP models, words are usually portrayed as dense vectors referred to as word embeddings. WordPiece embeddings extend this representation by breaking words down into subword units and representing each piece as a dense vector. These subword embeddings are then combined to represent the whole word.
@@ -25,27 +25,35 @@ Word2Vec\cite{DBLP:journals/corr/Rong14} is a well-known word embedding approach
 The fundamental concept behind Word2Vec is to train a neural network to anticipate the context words about a target word, given the target word. As the model is trained, the weights of the neural network are adjusted in such a way that the dot product of the input layer (representing the target word) and the output layer (representing the context words) closely estimate the probability distribution of the context words given the target word.
 Word2Vec can be trained to employ two different algorithms: Continuous Bag-of-Words (CBOW) and Skip-gram. CBOW predicts the target word given the context words, while Skip-gram predicts the context words given the target word. The algorithm selection relies on the particular NLP task and the data available for training.
 
-\subsubsection{Encoder-Decoder Architecture}
+\subsubsection{\ac{GloVe}}
 
-A robust neural network architecture that utilizes an encoder\cite{cho-etal-2014-learning} to transform the input data into a compact and meaningful representation and a decoder to generate the desired output from that representation. This architecture has been widely utilized in many applications, such as language translation, image captioning, and text summarization, to produce high-quality results. Furthermore, the encoder-decoder architecture has the advantage of learning complex relationships between input and output, making it a suitable tool for many challenging tasks\cite{kumar2022deep}.
+Global Vectors for Word Representation, developed by Pennington et al.\cite{pennington-etal-2014-glove}, is another popular embedding technique. GloVe combines the advantages of both global matrix factorization methods and local context window methods. It learns embeddings by considering the co-occurrence probabilities of words within a corpus, thus capturing the global corpus statistics. GloVe embeddings demonstrate better performance on various NLP tasks, such as semantic similarity and analogy detection, compared to Word2Vec.
 
-\subsubsection{Transformers}
+\subsubsection{\ac{ELMo}}
 
-\input{inc/models/transformers.tex}
-
-\subsubsection{Self-attention}
-
-Self-attention \cite{https://doi.org/10.48550/arxiv.1706.03762} is a mechanism used in the transformer architecture that allows the model to determine the significance of various components of the input sequence to be able to generate an outcome that is more precise and sufficient. This mechanism allows the model to consider the relationships between different parts of the input sequence and to factor those relationships into its output. Further, self-attention lets the model capture patterns from the input sequence and use those patterns to generate more meaningful output. It is this combination of factors that makes self-attention such an essential tool for deep learning models.
-
-\subsubsection{Pre-training and Fine-tuning}
-
-Pre-training refers to training a model on a large dataset and then fine-tuning it on a smaller dataset for a specific task, which helps to improve the model's performance on the specific task.
+Embeddings from Language Models, introduced by Peters et al.\cite{ELMo}, is a more advanced approach that generates contextualized word embeddings. Unlike Word2Vec and GloVe, which produce static embeddings for each word, ELMo generates embeddings that are context-dependent. ELMo is based on a bidirectional LSTM language model, which learns different layers of representations for each word, capturing both low-level syntactic features and high-level semantic features. The contextualized nature of ELMo embeddings has proven to significantly improve performance in various downstream NLP tasks.
 
 \subsubsection{\ac{LSTM}}
 
 A type of recurrent neural network designed to store information over a more extended period than traditional neural networks, allowing it to capture long-term dependencies better \cite{Hochreiter1997LongSM}.
 This makes it especially well-suited for tasks such as language modeling and text generation, where it can take into account the context of the text in order to generate more accurate outputs.
 In addition, LSTM networks can identify patterns in the data that would be difficult for traditional networks to capture. This makes them ideal for tasks such as sequence prediction and classification, where they can identify patterns that would otherwise be too subtle for traditional networks to detect.
+
+% \subsubsection{Encoder-Decoder Architecture}
+
+% A robust neural network architecture that utilizes an encoder\cite{cho-etal-2014-learning} to transform the input data into a compact and meaningful representation and a decoder to generate the desired output from that representation. This architecture has been widely utilized in many applications, such as language translation, image captioning, and text summarization, to produce high-quality results. Furthermore, the encoder-decoder architecture has the advantage of learning complex relationships between input and output, making it a suitable tool for many challenging tasks\cite{kumar2022deep}.
+
+
+\subsubsection{Self-attention}
+
+Self-attention \cite{https://doi.org/10.48550/arxiv.1706.03762} is a mechanism used in the transformer architecture that allows the model to determine the significance of various components of the input sequence to be able to generate an outcome that is more precise and sufficient. This mechanism allows the model to consider the relationships between different parts of the input sequence and to factor those relationships into its output. Further, self-attention lets the model capture patterns from the input sequence and use those patterns to generate more meaningful output. It is this combination of factors that makes self-attention such an essential tool for deep learning models.
+\subsubsection{Transformers}
+
+\input{inc/models/transformers.tex}
+
+\subsubsection{Pre-training and Fine-tuning}
+
+Pre-training refers to training a model on a large dataset and then fine-tuning it on a smaller dataset for a specific task, which helps to improve the model's performance on the specific task.
 
 \subsubsection{\ac{BERT}}
 
