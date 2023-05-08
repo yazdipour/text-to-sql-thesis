@@ -6,19 +6,15 @@ The advancement of Text-to-SQL research has been driven by various learning tech
 
 Fully supervised learning approaches depend on labeled data to train models. We explore various cutting-edge methods proposed to enhance Text-to-SQL generation.
 
-\subsubsubsection{Active Learning}
+\subsubsection*{Active Learning}
 
 Active learning aims to reduce the labeled data needed for training by selectively identifying the most informative examples. Ni et al.\cite{ni2019merging} developed an active learning framework that uses uncertainty estimation to pinpoint samples that would gain the most from human annotations.
 
-\subsubsubsection{Interactive/Imitation Learning}
+\subsubsection*{Interactive/Imitation Learning}
 
 Interactive or imitation learning concentrates on learning from demonstrations, with a model trying to replicate expert behavior. Yao et al. \cite{yao-etal-2019-model} presented an interactive learning method that integrates user feedback to improve the model's comprehension of intricate SQL queries.
 
-\subsubsubsection{Meta-learning}
-
-Meta-learning entails training models to learn how to learn effectively. Huang et al. \cite{huang-etal-2018-natural} suggested a meta-learning strategy for Text-to-SQL tasks, enabling the model to swiftly adapt to new tasks or domains with limited labeled data.
-
-\subsubsubsection{Multi-task Learning}
+\subsubsection*{Multi-task Learning}
 
 Multi-task learning consists of training a single model on multiple related tasks concurrently. Chang et al. \cite{chen2021leveraging} investigated a multi-task learning framework for Text-to-SQL generation, illustrating that sharing information across tasks can result in enhanced performance.
 
@@ -26,10 +22,12 @@ Multi-task learning consists of training a single model on multiple related task
 
 Weakly supervised learning approaches employ weak or noisy labels for training, often diminishing the need for extensive human annotation.
 
-\subsubsubsection{Reinforcement Learning}
+\subsubsection*{Reinforcement Learning}
 
 Reinforcement learning focuses on learning through trial and error, with models receiving feedback via rewards or penalties. Seq2SQL Zhong et al. \cite{zhong_seq2sql_2017} applied reinforcement learning to Text-to-SQL generation, demonstrating that such a method can effectively learn from weak supervision, for instance, it allowed Seq2SQL to understand different orders of WHERE clauses in a query.
 
-\subsubsubsection{Meta-learning and Bayesian Optimization}
+\subsubsection*{Meta-learning and Bayesian Optimization}
+
+Meta-learning entails training models to learn how to learn effectively. Huang et al. \cite{huang-etal-2018-natural} suggested a meta-learning strategy for Text-to-SQL tasks, enabling the model to swiftly adapt to new tasks or domains with limited labeled data.
 
 Agarwal et al. \cite{pmlr-v97-agarwal19e} combined meta-learning and Bayesian optimization for weakly supervised Text-to-SQL tasks. This technique enables models to adapt more efficiently to new tasks while taking advantage of limited supervision, ultimately reducing the necessity for large amounts of labeled data.

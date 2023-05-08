@@ -1,3 +1,5 @@
+\subsection{Transformers}
+
 The architecture introduced in the paper "Attention Is All You Need" by Vaswani et al. in 2017\cite{https://doi.org/10.48550/arxiv.1706.03762}, known as Transformers is a revolutionary breakthrough in the way sequences of data are processed. By utilizing self-attention mechanisms, the model is able to achieve improved efficiency and accuracy while also being much simpler to implement and deploy. This makes it particularly appealing for a wide range of applications, from natural language processing to computer vision. Furthermore, due to their scalability, Transformers are able to accommodate large data sets, enabling them to be used to tackle more complex tasks. As such, Transformers are becoming increasingly popular in the field of machine learning and artificial intelligence, with more and more research being done to explore its capabilities further.
 
 There were many excellent works around 2015 on learning word vectors to continuous representations for words where the identity of a word was mapped to a fixed-length vector which ideally encoded some meaning about the word in a continuous space and for a long time.
@@ -13,7 +15,7 @@ And then, ELMo\cite{ELMo} showed that we could get significantly better performa
 
 Then GPT1 \cite{Radford2018ImprovingLU} came along, saying that instead of using analyst TM, we can get good performance by using a transformer with a language model.
 
-Finally, in 2018, BERT \cite{devlin-etal-2019-bert} showed that a bi-directional transformer could get outstanding performance, and by the end of 2018, many researchers were convinced that this was the path forward, given all of the impressive results that these papers and a few others showed.
+Finally, in 2018, \ac{BERT} \cite{devlin-etal-2019-bert} showed that a bi-directional transformer could get outstanding performance, and by the end of 2018, many researchers were convinced that this was the path forward, given all of the impressive results that these papers and a few others showed. BERT is a pre-trained Transformer model that has been trained on a large corpus of text, with the primary aim of pre-training language representations for use in natural language processing tasks\cite{devlin-etal-2019-bert}. This pre-training helps to give BERT a strong understanding of the language structure and helps in faster training times for downstream tasks. BERT can be fine-tuned for various applications, such as Text-to-SQL, where it can provide better performance than non-specialized models. By leveraging the already learned representations from the pre-trained model, BERT can adjust quickly to the task at hand, resulting in faster training times.
 
 Following these researches, there has been a burst of work on transfer learning for NLP, working on various methods, different pre-training ideas, datasets, and benchmark tasks.
 

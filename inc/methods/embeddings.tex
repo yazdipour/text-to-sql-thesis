@@ -1,0 +1,47 @@
+
+\subsection{Text Processing}
+
+In this section, we will discuss the fundamental elements of the text processing pipeline in natural language processing (NLP) tasks. The pipeline involves several steps, including tokenization, embedding, prediction, and conversion of embeddings back to words. These elements work together to transform raw text into a suitable format for NLP models and generate human-readable output.
+
+\subsubsection{Tokenization}
+
+Tokenization is a fundamental process in natural language processing (NLP) that involves breaking the raw text into individual words, phrases, or other meaningful units called tokens. This step is essential for preparing the text for further processing, as it enables the model to analyze and understand the text at a more granular level, thus simplifying the analysis and processing of the content.
+Various tokenization methods can be employed, including rule-based, statistical, and more advanced approaches like subword tokenization and Byte Pair Encoding (BPE). Rule-based methods often use pre-defined rules to separate words, phrases, or sentences, while statistical methods rely on the frequency and distribution of words and characters in the text.
+Subword tokenization and Byte Pair Encoding (BPE) are advanced techniques that account for the morphological structure of words, generating tokens based on common subword units. This approach is beneficial for handling out-of-vocabulary words and capturing meaningful information from rare or previously unseen words.
+In addition to word-level tokenization, other techniques exist, such as subword-level and character-level tokenization. Subword-level tokenization further divides words into smaller subword units, which can capture more linguistic information and improve the model's ability to handle morphologically rich languages. On the other hand, character-level tokenization breaks text into individual characters, providing even more granularity and enabling the model to learn character-level patterns.
+
+\subsubsection{Embeddings}
+
+WordPiece embeddings\cite{DBLP:journals/corr/WuSCLNMKCGMKSJL16} is a tokenization approach used in natural language processing (NLP) to break down words into smaller units, also known as pieces. It is an extension of the original word2vec parameter learning algorithm and is used to address out-of-vocabulary (OOV) words, which are words that did not appear in the training data.
+This technique divides each word into a series of subword units learned during the training phase based on their frequency and consistency within words. These subword units are stored in a shared vocabulary, dubbed the WordPiece vocabulary, and can be used for multiple words.
+This system can represent rare or unseen words as a combination of more common subword units, which are more likely to be in the vocabulary. As a result, the model can handle OOV words more efficiently and reduce the vocabulary size, leading to a more economical representation of the language.
+In NLP models, words are usually portrayed as dense vectors referred to as word embeddings. WordPiece embeddings extend this representation by breaking words down into subword units and representing each piece as a dense vector. These subword embeddings are then combined to represent the whole word.
+The use of WordPiece embeddings has various advantages in NLP models. Firstly, it enables the model to treat OOV words more effectively by representing them as a combination of more common subword units. Secondly, it decreases the vocabulary size, resulting in a more succinct representation of the language. Finally, it enhances the model's capability to learn fine-grained representations of words and their meanings, resulting in improved performance in NLP tasks.
+
+\subsubsubsection{Word2Vec}
+
+Word2Vec\cite{DBLP:journals/corr/Rong14} is a well-known word embedding approach in NLP that encodes words as dense vectors in an unending, high-dimensional area. This technique is designed to capture the significance and context of words, providing an improved representation of words compared to classic one-hot encoding.
+The fundamental concept behind Word2Vec is to train a neural network to anticipate the context words about a target word, given the target word. As the model is trained, the weights of the neural network are adjusted in such a way that the dot product of the input layer (representing the target word) and the output layer (representing the context words) closely estimate the probability distribution of the context words given the target word.
+Word2Vec can be trained to employ two different algorithms: Continuous Bag-of-Words (CBOW) and Skip-gram. CBOW predicts the target word given the context words, while Skip-gram predicts the context words given the target word. The algorithm selection relies on the particular NLP task and the data available for training.
+
+\subsubsubsection{\ac{GloVe}}
+
+Global Vectors for Word Representation, developed by Pennington et al.\cite{pennington-etal-2014-glove}, is another popular embedding technique. GloVe combines the advantages of both global matrix factorization methods and local context window methods. It learns embeddings by considering the co-occurrence probabilities of words within a corpus, thus capturing the global corpus statistics. GloVe embeddings demonstrate better performance on various NLP tasks, such as semantic similarity and analogy detection, compared to Word2Vec.
+
+\subsubsubsection{\ac{ELMo}}
+
+Embeddings from Language Models, introduced by Peters et al.\cite{ELMo}, is a more advanced approach that generates contextualized word embeddings. Unlike Word2Vec and GloVe, which produce static embeddings for each word, ELMo generates embeddings that are context-dependent. ELMo is based on a bidirectional LSTM language model, which learns different layers of representations for each word, capturing both low-level syntactic features and high-level semantic features. The contextualized nature of ELMo embeddings has proven to significantly improve performance in various downstream NLP tasks.
+
+\subsubsection{Prediction}
+
+Prediction is a critical step in many NLP tasks, such as text classification, named entity recognition, and machine translation. In this step, models utilize embeddings to make predictions or generate output based on the input text. Various techniques can be employed for prediction, including feedforward neural networks, recurrent neural networks (RNNs), long short-term memory (LSTM) networks, gated recurrent units (GRUs), and transformer-based models.
+
+\subsubsubsection{\ac{LSTM}}
+
+A type of recurrent neural network designed to store information over a more extended period than traditional neural networks, allowing it to capture long-term dependencies better \cite{Hochreiter1997LongSM}.
+This makes it especially well-suited for tasks such as language modeling and text generation, where it can take into account the context of the text in order to generate more accurate outputs.
+In addition, LSTM networks can identify patterns in the data that would be difficult for traditional networks to capture. This makes them ideal for tasks such as sequence prediction and classification, where they can identify patterns that would otherwise be too subtle for traditional networks to detect.
+
+\subsubsection{Conversion of Embeddings Back to Words}
+
+The final step in the text processing pipeline is converting the embeddings back into human-readable text. This process is typically part of the decoding phase in sequence-to-sequence models, where the model takes the embeddings and generates a sequence of words in the target language or format. Several decoding strategies can be used to achieve this, such as greedy search, beam search, and sampling methods like top-K sampling and nucleus sampling. We will discuss these strategies in more detail in the next section.
