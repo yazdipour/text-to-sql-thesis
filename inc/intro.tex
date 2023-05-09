@@ -5,7 +5,7 @@ Data retrieval in databases typically uses \ac{SQL}. Machine learning and knowle
 Text-to-SQL allows structured data to evolve with information about the natural language text in several domains, such as healthcare, customer service, and search engines. It can be used by data analysts, data scientists, software engineers, and end users who want to explore and analyze their data without learning SQL. It can be used in a variety of forms:
 
 \begin{itemize}
-    \item Data analysts can use it to generate SQL queries for specific business questions, such as "What are the top ten products sold this month?"
+    % \item Data analysts can use it to generate SQL queries for specific business questions, such as "What are the top ten products sold this month?"
     \item Data scientists can use it to forge SQL queries for machine learning experimentations, such as "How does the price of these products affect their sales?"
     \item Businesses can use this technique to automate data extraction and improve efficiency.
     \item End-users who want to explore and analyze their data without learning SQL can use it by clicking a button on any table or chart in a user interface.
@@ -15,8 +15,9 @@ Although these Text-to-SQL models may partially solve this complex problem, huma
 
 This research study will examine the various natural language processing (NLP) technologies used to convert text into Structured Query Language (SQL) in recent years. Specifically, it will explore and compare the most commonly used NLP technologies and review their effects on the effectiveness of the conversion process. Moreover, this study will also analyze the representative datasets and evaluation metrics utilized in the current solutions for this challenging task. By doing so, this research study will provide valuable insights into how NLP technologies can be effectively and efficiently utilized in converting text language into SQL.
 
-Additionally, we will undertake a comprehensive study of the SEOSS dataset from our esteemed researchers at the university. We will then evaluate the execution of this dataset using the most advanced Text-to-SQL model currently available. This will enable us to understand the capabilities of the SEOSS dataset better and help us to make informed decisions.
+Additionally, we will undertake a comprehensive study of the SEOSS dataset from our esteemed researchers at the university. We will then evaluate the execution of this dataset using the most advanced Text-to-SQL model currently available, PICARD-T5 and also GPT 3.5 and GPT 4. This will enable us to understand the capabilities of these datasets better and help us to make informed decisions.
 
+\clearpage
 \subsection{Challenges}
 
 Text-to-SQL is an intricate task, given the complexity and diversity of natural language and the structure and regulations of SQL. One of the most challenging aspects is deciphering the intent and significance of the natural language input, as it can be ambiguous or have varied interpretations. This can result in mistakes when building the corresponding SQL query, like selecting the incorrect table or columns or not recognizing the conditions for filtering or sorting the data. The natural language input may also contain typos or unknown words, which can complicate the mapping process. Moreover, the query generated may not be optimal, as it has to consider the various data types, operations, and constraints of the underlying database. Therefore, developing models and algorithms that can accurately map natural language to SQL queries is crucial.
@@ -30,12 +31,12 @@ In this section, we provide an outline of our thesis.
 
 \begin{itemize}
     \item Introduction: This chapter presents the motivation, challenges, and goals of the thesis, setting the stage for the subsequent chapters.
-    \item Technical Background: In this chapter, we discuss early and recent approaches to Text-to-SQL tasks. We also introduce essential terminology, concepts, and methods in the field of natural language processing. We will also cover Learning Techniques, the fully supervised and weakly supervised learning techniques used in Text-to-SQL models, exploring the advantages and drawbacks of each.
+    \item Technical Background: In this chapter, we discuss early and recent approaches to Text-to-SQL tasks. We also introduce essential terminology, concepts, and methods in the field of NLP and text processing. We will also cover Learning Techniques, the fully supervised and weakly supervised learning techniques used in Text-to-SQL models, exploring the advantages and drawbacks of each.
     \item Benchmark Dataset: This chapter provides an overview of single-domain and large-scale cross-domain benchmark datasets used for evaluating Text-to-SQL models.
     \item State-of-the-art Text-to-SQL Methods: We review the most recent and advanced methods for Text-to-SQL tasks, discussing various techniques for data augmentation, encoding, and decoding.
     \item Evaluation Metrics: In this chapter, we present the commonly used evaluation metrics for assessing the performance of Text-to-SQL models and discuss their limitations and benefits.
     \item Experiments: This chapter details the experiments conducted using SEOSS, GPT, and T5 PICARD on various benchmark datasets, as well as the implementation of the proposed EZ-PICARD method for microservices practices.
     \item Conclusion: We summarize the main findings of the thesis and highlight its contributions to the field of natural language processing and Text-to-SQL tasks.
     \item Discussion and Future Directions: This chapter provides a discussion on the implications of the results, identifies limitations, and suggests potential future research directions to advance the state of the art in Text-to-SQL methods.
-    % \item Appendix: The appendix contains supplementary materials, such as detailed experimental results, model configurations, and additional resources for further reading.
+          % \item Appendix: The appendix contains supplementary materials, such as detailed experimental results, model configurations, and additional resources for further reading.
 \end{itemize}

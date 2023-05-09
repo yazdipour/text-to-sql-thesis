@@ -1,5 +1,13 @@
 \subsection{SEOSS evaluation with T5 PICARD}
 
+\begin{figure}[H]
+    \begin{AIbox}{Additional Materials}
+        \parbox{1\textwidth}{
+            The code and evaluated experiment results are detailed in the provided GitHub repository and the CD attached to this thesis.
+        }
+    \end{AIbox}
+\end{figure}
+
 After studying the SEOSS dataset, we decided to experiment with the PICARD model\ref{picard} to evaluate its performance against that of SQLNet and RatSQL. We decided to use the T5-Base and T5-Large models for our experiment, as they are smaller than the T5-3B and T5-11B models used by most state-of-the-art studies. To ensure a fair comparison between the models, we used two beam sizes of 2 and 4 and the same evaluation metrics as SEOSS-SQLNet and SEOSS-RatSQL, which is "exact matching accuracy". We wanted to see if the PICARD model could achieve similar results to those of SQLNet and RatSQL, so we conducted our experiment with our findings. The results of our experiment are discussed in the following section and can be used to compare the performance of the PICARD model to the models used in the SEOSS study.
 \footnote[1]{Link to the Github Page: \url{https://github.com/yazdipour/text-to-sql-seoss-t5}}
 

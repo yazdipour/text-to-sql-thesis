@@ -201,8 +201,8 @@ After running the GPT-3.5 model on the SEOSS dataset, in Table \ref{tab:prompt-r
         SQLNet                              & 0.023 & 0.000  & 0.000 & 0.000      & 0.010          \\ \hline
         RatSQL + Glove                      & 0.309 & 0.214  & 0.091 & 0.000      & 0.224          \\ \hline
         RatSQL + Bert                       & 0.161 & 0.201  & 0.065 & 0.012      & 0.156          \\ \hline
-        PICARD + T5Base + 4Beam             & 0.446 & 0.254  & 0.182 & 0.012      & 0.307          \\ \hline
-        PICARD + T5Large + 4Beam            & 0.571 & 0.410  & 0.182 & 0.060      & 0.427          \\ \hline
+        PICARD-T5Base + 4Beam               & 0.446 & 0.254  & 0.182 & 0.012      & 0.307          \\ \hline
+        PICARD-T5Large + 4Beam              & 0.571 & 0.410  & 0.182 & 0.060      & 0.427          \\ \hline
         GPT 3.5-turbo                       & 0.719 & 0.571  & 0.403 & 0.226      & \textbf{0.589} \\ \hline
         GPT 4                               & 0.727 & 0.571  & 0.403 & 0.226      & \textbf{0.592} \\ \hline
         % \end{tabular}
@@ -216,11 +216,11 @@ Table.\ref{tab:exp-acc-vs-resources} presents a comparison of the exact match ac
     \centering
     \begin{tabular}{ccccc}
         \hline
-        Model            & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters} & \textbf{Cost}  \\ \hline
-        PICARD + T5Base  & 0.315                       & ~400min       & 220M                & Local Hardware \\ \hline
-        PICARD + T5Large & 0.416                       & ~720min       & 770M                & Local Hardware \\ \hline
-        GPT 3.5-turbo    & 0.603                       & 37min         & 175B                & \$2/iteration  \\ \hline
-        GPT 4            & 0.613                       & 78min         & 1T                  & \$14/iteration \\ \hline
+        Model          & \textbf{Execution Accuracy} & \textbf{Time} & \textbf{Parameters} & \textbf{Cost}  \\ \hline
+        PICARD-T5Base  & 0.315                       & ~400min       & 220M                & Local Hardware \\ \hline
+        PICARD-T5Large & 0.416                       & ~720min       & 770M                & Local Hardware \\ \hline
+        GPT 3.5-turbo  & 0.603                       & 37min         & 175B                & \$2/iteration  \\ \hline
+        GPT 4          & 0.613                       & 78min         & 1T                  & \$14/iteration \\ \hline
     \end{tabular}
     \caption{Expermiment Accuracy vs Used Resources}
     \label{tab:exp-acc-vs-resources}
